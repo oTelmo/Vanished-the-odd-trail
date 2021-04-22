@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class MyNavMeshAgent : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     //public Transform[] waypoints;
     private int currentWaypoint;
     public Transform target;
-    public float wanderRadius = 10;
-    public float wanderTimer = 5;
+    //public float wanderRadius = 10;
+    //public float wanderTimer = 5;
     private Transform finalPoint;
     
     private float timer;
@@ -19,7 +19,7 @@ public class MyNavMeshAgent : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         //GoToNextWaypoint();
-        timer = wanderTimer;
+        //timer = wanderTimer;
     }
 
     /*public void GoToNextWaypoint()
@@ -66,15 +66,17 @@ public class MyNavMeshAgent : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= wanderTimer)
+        /*if (timer >= wanderTimer)
         {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
             agent.SetDestination(newPos);
             timer = 0;
-        }
+        }*/
+
+        //Wander();
     }
 
-    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    /*public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
 
@@ -85,5 +87,15 @@ public class MyNavMeshAgent : MonoBehaviour
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
         return navHit.position;
-    }
+    }*/
+
+    /*public void Wander()
+    {
+        if (timer >= wanderTimer)
+        {
+            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            agent.SetDestination(newPos);
+            timer = 0;
+        }
+    }*/
 }

@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class FiniteStateMachine : MonoBehaviour
 {
-    //public State initialState;
-    //private State currentState;
+    public State initialState;
+    private State currentState;
     private MyNavMeshAgent navMeshAgent;
+    private MyNavMeshAgentMovement navMeshAgentMovement;
 
     // Start is called before the first frame update
     void Start()
     {
-        //currentState = initialState;
+        currentState = initialState;
         navMeshAgent = GetComponent<MyNavMeshAgent>();
+        navMeshAgentMovement = GetComponent<MyNavMeshAgentMovement>();
     }
 
     public MyNavMeshAgent GetAgent()
     {
         return navMeshAgent;
     }
+    public MyNavMeshAgentMovement GetAgentMovement()
+    {
+        return navMeshAgentMovement;
+    }
 
     // Update is called once per frame
-    /* void Update()
+    void Update()
      {
          Transition triggeredTransition = null;
          foreach (Transition t in currentState.getTranscisitions())
@@ -62,5 +68,5 @@ public class FiniteStateMachine : MonoBehaviour
                  a.Act(this);
              }
          }
-     }*/
+     }
 }
