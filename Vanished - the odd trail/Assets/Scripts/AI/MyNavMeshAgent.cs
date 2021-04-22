@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class MyNavMeshAgent : MonoBehaviour
 {
+    [HideInInspector]
     public NavMeshAgent agent;
-    //public Transform[] waypoints;
-    private int currentWaypoint;
+
     public Transform target;
     //public float wanderRadius = 10;
     //public float wanderTimer = 5;
@@ -40,6 +40,7 @@ public class MyNavMeshAgent : MonoBehaviour
                 }
             }
         }
+       
         return false;
     }
 
