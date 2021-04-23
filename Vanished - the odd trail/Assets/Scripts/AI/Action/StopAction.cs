@@ -7,6 +7,9 @@ public class StopAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetAgent().StopAgent();
+        if (fsm.GetAgent() != null)
+        {
+            fsm.GetAgent().StopAgent();
+        }
     }
 }

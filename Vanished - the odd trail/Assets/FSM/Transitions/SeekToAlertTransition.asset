@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b269fb2fd9cf94ea4daf9f607f5f35, type: 3}
+  m_Name: SeekToAlertTransition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: de06b432bd6c2e34ebd8d3afc4d77085, type: 2}
+  action: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 664e394932511874ebe9d443dfe3b77a, type: 2}

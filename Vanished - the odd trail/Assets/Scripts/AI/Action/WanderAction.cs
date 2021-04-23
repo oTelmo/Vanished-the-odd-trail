@@ -6,11 +6,10 @@ using UnityEngine;
 public class WanderAction : Action
 {
     public float wanderRadius = 10;
-    public float wanderTimer = 5;
 
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetAgentMovement().Wander();
+        fsm.GetAgent().Wander(wanderRadius);
     }
 
 }

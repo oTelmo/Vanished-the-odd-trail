@@ -5,25 +5,26 @@ using UnityEngine;
 public class FiniteStateMachine : MonoBehaviour
 {
     public State initialState;
-    private State currentState;
+    public State currentState;
+    private EnemyController enemyController;
     private MyNavMeshAgent navMeshAgent;
-    private MyNavMeshAgentMovement navMeshAgentMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = initialState;
         navMeshAgent = GetComponent<MyNavMeshAgent>();
-        navMeshAgentMovement = GetComponent<MyNavMeshAgentMovement>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     public MyNavMeshAgent GetAgent()
     {
         return navMeshAgent;
     }
-    public MyNavMeshAgentMovement GetAgentMovement()
+
+    public EnemyController GetEnemy()
     {
-        return navMeshAgentMovement;
+        return enemyController;
     }
 
     // Update is called once per frame

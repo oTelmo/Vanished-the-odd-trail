@@ -17,7 +17,7 @@ public class Transition : ScriptableObject
 
     public bool IsTriggered(FiniteStateMachine fsm)
     {
-        return decision.Test(fsm);
+        return decision.Con(fsm);
     }
 
     public State GetTargetState()

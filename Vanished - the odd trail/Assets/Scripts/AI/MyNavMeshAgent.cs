@@ -5,28 +5,20 @@ using UnityEngine.AI;
 
 public class MyNavMeshAgent : MonoBehaviour
 {
+    private NavMeshAgent agent;
+    private EnemyController enemyController;
+
     [HideInInspector]
-    public NavMeshAgent agent;
+    public bool targetSpotted = false;
 
-    public Transform target;
     //public float wanderRadius = 10;
-    //public float wanderTimer = 5;
-    private Transform finalPoint;
-    
-    private float timer;
 
+    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //GoToNextWaypoint();
-        //timer = wanderTimer;
+        enemyController = GetComponent<EnemyController>();
     }
-
-    /*public void GoToNextWaypoint()
-    {
-        currentWaypoint = Random.Range(0, waypoints.Length);
-        agent.SetDestination(waypoints[currentWaypoint].position);
-    }*/
 
     public bool IsAtDestination()
     {
@@ -46,7 +38,7 @@ public class MyNavMeshAgent : MonoBehaviour
 
     public void GoToTarget()
     {
-        agent.SetDestination(target.position);
+        agent.SetDestination(enemyController.target.position);
     }
 
     public void StopAgent()
@@ -55,29 +47,47 @@ public class MyNavMeshAgent : MonoBehaviour
         agent.ResetPath();
     }
 
-    public void MoveAgent(Vector3 offSet)
+    public void Wander(float wanderRadius)
     {
-        agent.Move(offSet);
-    }
+        if (IsAtDestination())
+        {
 
-    // Start is called before the first frame update
-    
+            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            agent.SetDestination(newPos);
+        }
+
+        NavMeshHit hit;
+        if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
+        {
+            //DrawCircle(transform.position, hit.distance, Color.red);
+            Debug.DrawRay(hit.position, Vector3.up, Color.red);
+            if (Vector3.Distance(hit.position, transform.position) < 2)
+            {
+
+            }
+
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        /*if (timer >= wanderTimer)
-        {
-            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            agent.SetDestination(newPos);
-            timer = 0;
-        }*/
-
-        //Wander();
+        
     }
 
-    /*public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    void DrawCircle(Vector3 center, float radius, Color color)
+    {
+        Vector3 prevPos = center + new Vector3(radius, 0, 0);
+        for (int i = 0; i < 30; i++)
+        {
+            float angle = (float)(i + 1) / 30.0f * Mathf.PI * 2.0f;
+            Vector3 newPos = center + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
+            Debug.DrawLine(prevPos, newPos, color);
+            prevPos = newPos;
+        }
+    }
+
+    public Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
 
@@ -88,15 +98,5 @@ public class MyNavMeshAgent : MonoBehaviour
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
         return navHit.position;
-    }*/
-
-    /*public void Wander()
-    {
-        if (timer >= wanderTimer)
-        {
-            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            agent.SetDestination(newPos);
-            timer = 0;
-        }
-    }*/
+    }
 }
