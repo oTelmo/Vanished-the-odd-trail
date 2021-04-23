@@ -16,7 +16,15 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-  
+    Animator anim;
+
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +42,38 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
         controller.Move(move * speed * Time.deltaTime);
+
+        /*if (moveX == 0)
+        {
+            anim.SetFloat("forward", 0.0f);
+        }
+
+        if (moveZ == 0)
+        {
+            anim.SetFloat("strafe", 0.0f);
+        }
+
+        if (moveX > 0)
+        {
+            anim.SetFloat("forward", 1);
+        }
+        else if (moveX < 0)
+        {
+            anim.SetFloat("forward", -1);
+        }
+        else if (moveZ > 0)
+        {
+            anim.SetFloat("strafe", 1);
+        }
+        else if (moveZ < 0)
+        {
+            anim.SetFloat("strafe", -1);
+        }
+
+        if (Input.GetButton("Sprint"))
+        {
+            anim.SetBool("sprint", true);
+        }*/
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {

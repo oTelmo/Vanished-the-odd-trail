@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
-    private float lifeTimer = 2f;
+    //private float lifeTimer = 2f;
     private float timer;
     private bool hasHit = false;
 

@@ -8,6 +8,17 @@ public class Movement : MonoBehaviour
 {
     CharacterController cc;
     Animator anim;
+    
+
+    InputSystem inputSystem;
+
+    bool pickUp = false;
+    
+
+    Bow bowScript;
+
+
+    //public GameObject arrowGameOject;
 
     [System.Serializable]
     public class AnimationStrings
@@ -15,6 +26,9 @@ public class Movement : MonoBehaviour
         public string forward = "forward";
         public string strafe = "strafe";
         public string sprint = "sprint";
+        public string aim = "aim";
+        public string fire = "fire";
+        public string pull = "pullstring";
     }
     [SerializeField]
     public AnimationStrings animStrings;
@@ -22,6 +36,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bowScript = GetComponent<Bow>();
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
     }
@@ -41,5 +56,20 @@ public class Movement : MonoBehaviour
     public void SprintCharacter(bool isSprinting)
     {
         anim.SetBool(animStrings.sprint, isSprinting);
+    }
+
+    public void CharacterAim(bool aiming)
+    {
+        anim.SetBool(animStrings.aim, aiming);
+    }
+
+    public void CharacterPullString (bool pullString)
+    {
+        anim.SetBool(animStrings.pull, pullString);
+    }
+
+    public void CharacterFireArrow()
+    {
+        anim.SetTrigger(animStrings.fire);
     }
 }
