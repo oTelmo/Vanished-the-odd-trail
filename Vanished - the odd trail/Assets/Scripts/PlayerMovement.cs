@@ -16,12 +16,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    Animator anim;
-
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
     }
 
 

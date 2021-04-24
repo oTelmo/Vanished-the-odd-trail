@@ -8,7 +8,7 @@ public class InputSystem : MonoBehaviour
 {
 
     Movement moveScript;
-    Arrow01 arrowScript;
+    
 
     [System.Serializable]
     public class InputSettings
@@ -45,6 +45,7 @@ public class InputSystem : MonoBehaviour
 
     Transform mainCam;
     public Bow bowScript;
+    public Arrow01 arrowScript;
     bool isAiming;
 
     public bool testAim;
@@ -97,9 +98,10 @@ public class InputSystem : MonoBehaviour
                 
                 moveScript.CharacterFireArrow();
                 DisableArrow();
+                
                 if (hitDetected)
                 {
-                    arrowScript.GetComponent<BoxCollider>().enabled = true;
+                    //arrowScript.isTriggerCollider.enabled = true;
                     bowScript.Fire(hit.point);
                 }
                 else

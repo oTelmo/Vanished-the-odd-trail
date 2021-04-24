@@ -8,14 +8,6 @@ public class Movement : MonoBehaviour
 {
     CharacterController cc;
     Animator anim;
-    
-
-    InputSystem inputSystem;
-
-    bool pickUp = false;
-    
-
-    Bow bowScript;
 
 
     //public GameObject arrowGameOject;
@@ -36,7 +28,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bowScript = GetComponent<Bow>();
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
     }

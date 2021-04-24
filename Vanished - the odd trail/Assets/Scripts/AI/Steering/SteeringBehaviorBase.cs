@@ -8,12 +8,12 @@ public class SteeringBehaviorBase : MonoBehaviour
     public float maxAngularAcceleration = 3;
     public float drag = 1;
     private Steering[] steerings;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private MyNavMeshAgent navMeshAgent;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         steerings = GetComponents<Steering>();
         navMeshAgent = GetComponent<MyNavMeshAgent>();
         //rigidbody.drag = drag;

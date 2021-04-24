@@ -110,7 +110,6 @@ public class Bow : MonoBehaviour
             return;
         }
         Vector3 dir = hitPoint - bowSettings.arrowPosition.position;
-        Debug.Log(bowSettings.arrowPosition.position);
         currentArrow = Instantiate(bowSettings.arrowPrefab, bowSettings.arrowPosition.position, bowSettings.arrowPosition.rotation) as Rigidbody;
         currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.Force);
 

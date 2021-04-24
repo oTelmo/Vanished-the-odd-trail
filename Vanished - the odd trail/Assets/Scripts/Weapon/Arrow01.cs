@@ -10,19 +10,17 @@ public class Arrow01 : MonoBehaviour
 
     public GameObject hud;
     bool isActive = false;
-    Bow bowScript;
+    public GameObject bowScript;
+    public Collider isTriggerCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        bowScript = GetComponent<Bow>();
+        bowScript = GameObject.FindWithTag("Bow");
         rb = GetComponent<Rigidbody>();
         bx = GetComponent<BoxCollider>();
 
         hud = GameObject.FindWithTag("HUD");
-
-        //this.GetComponent<BoxCollider>().enabled = false;
-
 
     }
 
@@ -66,8 +64,8 @@ public class Arrow01 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("teste2");
-            bowScript.bowSettings.arrowCount++;
+            bowScript.GetComponent<Bow>().bowSettings.arrowCount++;
+            hud.GetComponent<HUD>().CloseMessagePanel();
             Destroy(gameObject);
         }
     }
