@@ -11,13 +11,13 @@ public class EnemyManager : MonoBehaviour
     public Transform treeObject;
 
     [SerializeField]
-    private int numOfOwls = 5;
+    private int maxOwls = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         trees = GameObject.FindGameObjectsWithTag("Tree");
-        SpawnOwl(treeObject);
+        //SpawnOwl(treeObject);
         chooseTrees();
     }
 
@@ -29,14 +29,11 @@ public class EnemyManager : MonoBehaviour
 
     private void chooseTrees()
     {
-        for(int i = 0; i <= numOfOwls; i++)
+        for(int i = 0; i <= maxOwls; i++)
         {
             GameObject newTree = trees[RandomNumber(trees.Length)];
-
-
+            SpawnOwl(trees[RandomNumber(trees.Length)].transform);
         }
-
-
     }
 
     private int RandomNumber(int max)
