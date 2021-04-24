@@ -5,7 +5,7 @@ using UnityEngine;
 public class FiniteStateMachine : MonoBehaviour
 {
     public State initialState;
-    public State currentState;
+    private State currentState;
     private EnemyController enemyController;
     private MyNavMeshAgent navMeshAgent;
 
@@ -14,6 +14,7 @@ public class FiniteStateMachine : MonoBehaviour
     {
         currentState = initialState;
         navMeshAgent = GetComponent<MyNavMeshAgent>();
+       
         enemyController = GetComponent<EnemyController>();
     }
 
@@ -29,7 +30,7 @@ public class FiniteStateMachine : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-     {
+    {
          Transition triggeredTransition = null;
          foreach (Transition t in currentState.getTranscisitions())
          {

@@ -18,6 +18,7 @@ public class CanSeeCondition : Condition
     {
         
         Vector3 targetDirection = fsm.GetEnemy().target.position - fsm.transform.position;
+        
         //float angle = Vector3.Angle(targetDirection.normalized, fsm.transform.forward);
         float distance = targetDirection.magnitude;
 
@@ -30,8 +31,8 @@ public class CanSeeCondition : Condition
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, viewDistance, LayerMask.GetMask("Level")))
                 {
-                    Debug.Log("Test");
-                    Debug.Log(hit.transform.name);
+                    //Debug.Log("Test");
+                    //Debug.Log(hit.transform.name);
                     if (hit.transform.tag == fsm.GetEnemy().target.tag)
                     {
                         return !negation;

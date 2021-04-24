@@ -5,13 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Finite State Machine/Actions/Seek")]
 public class SeekAction : Action
 {
-    public float seekRadius = 30;
+    [SerializeField]
+    private float seekRadius = 30;
     private bool spotted = false;
 
     private Vector3 currentPosition;
 
     public override void Act(FiniteStateMachine fsm)
     {
+        fsm.GetEnemy().StopAudio();
         currentPosition = fsm.transform.position;
         fsm.GetEnemy().SetGizmosRadius(seekRadius);
         if (Vector3.Distance(fsm.GetEnemy().target.position, currentPosition) < seekRadius)

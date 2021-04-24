@@ -47,6 +47,11 @@ public class MyNavMeshAgent : MonoBehaviour
         agent.ResetPath();
     }
 
+    public void SetAgentSpeed(float speed)
+    {
+        agent.speed = speed;
+    }
+
     public void Wander(float wanderRadius)
     {
         if (IsAtDestination())
