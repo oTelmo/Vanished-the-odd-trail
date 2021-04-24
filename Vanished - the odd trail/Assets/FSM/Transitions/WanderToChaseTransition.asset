@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b269fb2fd9cf94ea4daf9f607f5f35, type: 3}
+  m_Name: WanderToChaseTransition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: 71cd1fb3a9d8c7d4b92bc9b6ddae45ac, type: 2}
+  action: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 10162fd6afe1aa04a824ed69124d5bb2, type: 2}
