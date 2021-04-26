@@ -12,7 +12,8 @@ public class Arrow : MonoBehaviour
 
     public GameObject hud;
     public GameObject bow;
-    
+    public GameObject playerCamera;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Arrow : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(rb.velocity);
         hud = GameObject.FindWithTag("HUD");
         bow = GameObject.FindWithTag("Bow");
+        playerCamera = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -46,14 +48,16 @@ public class Arrow : MonoBehaviour
             hasHit = true;
             Stick();
         }
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        isActive = true;
-        hud.GetComponent<HUD>().OpenMessagePanel("");
-
+        if (other.gameObject.tag == "Player")
+        {
+            isActive = true;
+            hud.GetComponent<HUD>().OpenMessagePanel("");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -65,7 +69,7 @@ public class Arrow : MonoBehaviour
     private void Stick()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        
+
     }
 
     public void PickUpArrow()

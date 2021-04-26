@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public Camera cam;
     bool isEquipped = false;
+    bool canShoot = false;
 
     [Header("Arrow Settings")]
     public GameObject arrowPrefab;
@@ -27,12 +28,14 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isEquipped)
         {
+            //canShoot = true;
             if (arrowCount < 1)
             {
-                return;
+               return;
             }
+            
             GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
             Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
             rb.velocity = cam.transform.forward * shootForce;
@@ -47,11 +50,8 @@ public class Shoot : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E) && isEquipped)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                UnequipBow();
-                isEquipped = false;
-            }
+            UnequipBow();
+            isEquipped = false;
         }
     }
 
