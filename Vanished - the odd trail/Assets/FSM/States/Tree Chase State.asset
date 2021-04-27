@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6263f32cada29a043a70fe4f93d366cc, type: 3}
-  m_Name: Chase State
+  m_Name: Tree Chase State
   m_EditorClassIdentifier: 
   entryAction: {fileID: 11400000, guid: 0f5e52785b9439148a034d9aa75b4d77, type: 2}
   stateAction:
   - {fileID: 11400000, guid: f59bdcd480afd214ba1ec00c876d2dca, type: 2}
   exitAction: {fileID: 0}
   transitions:
-  - {fileID: 11400000, guid: a6708990477fbf7478eb0d0c1b09e0a0, type: 2}
+  - {fileID: 11400000, guid: 74243fda597df2047a8149f45fc4d250, type: 2}
+  - {fileID: 11400000, guid: cec5600ff886e1f46a0f115144bb47ba, type: 2}

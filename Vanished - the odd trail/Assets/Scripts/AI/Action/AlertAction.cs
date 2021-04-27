@@ -8,7 +8,7 @@ public class AlertAction : Action
     [SerializeField]
     private GameObject deerPrefab;
     [SerializeField]
-    private float spawnTimer = 5f;
+    private float spawnTimer = 0.5f;
     [SerializeField]
     private float maxRange = 50f;
     [SerializeField]
@@ -19,13 +19,14 @@ public class AlertAction : Action
     public override void Act(FiniteStateMachine fsm)
     {
         fsm.GetEnemy().PlayAudio();
+        timer = spawnTimer;
         spawnTimer -= Time.deltaTime;
         Debug.Log(timer);
-        if(spawnTimer<0)
+        if (spawnTimer < 0)
         {
             Debug.Log("Spawn!");
             Vector3 point;
-            if (fsm.GetEnemy().RandomPoint(fsm.transform.position, minRange, maxRange, out point))
+            if (fsm.GetEnemy().RandomPointInDonut(fsm.transform.position, minRange, maxRange, out point))
             {
                 Debug.DrawRay(point, Vector3.up, Color.red, 1.0f);
                 Instantiate(deerPrefab, point, Quaternion.identity);
