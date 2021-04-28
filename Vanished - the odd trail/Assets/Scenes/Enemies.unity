@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: e122d7f096e9219429d2638ad35eb97c, type: 2}
+  currentState: {fileID: 0}
 --- !u!195 &227277995
 NavMeshAgent:
   m_ObjectHideFlags: 0

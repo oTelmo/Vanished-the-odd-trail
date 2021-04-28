@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8d51cf2de151447acba9f784627222, type: 3}
   m_Name: Tree Spotted Condition
   m_EditorClassIdentifier: 
-  negation: 0
+  trueIfSpotted: 1

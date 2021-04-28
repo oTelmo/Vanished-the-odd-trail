@@ -6,18 +6,33 @@ using UnityEngine;
 public class SpottedCondition : Condition
 {
     [SerializeField]
-    private bool negation;
-
+    private bool trueIfSpotted;
 
     public override bool Con(FiniteStateMachine fsm)
-    { 
-        if (fsm.GetComponentInChildren<MeshRenderer>().isVisible)
+    {
+        Vector3 point = Camera.main.WorldToViewportPoint(fsm.transform.position);
+        //Debug.Log(point);
+        /*if (point.x > -0.2f && point.x < 1.2f && point.y > -0.2f && point.y < 1.2f && point.z > 0)
         {
-            return !negation;
+            Debug.Log("Visible!");
+            return trueIfSpotted;
         }
         else
         {
-            return negation;
+            Debug.Log("Not visible!");
+            return !trueIfSpotted;
+        }*/
+
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        if (GeometryUtility.TestPlanesAABB(planes, fsm.GetComponent<Collider>().bounds))
+        {
+            //Debug.Log("Visible!");
+            return trueIfSpotted;
+        }
+        else
+        {
+            //Debug.Log("Not visible!");
+            return !trueIfSpotted;
         }
     }
 }

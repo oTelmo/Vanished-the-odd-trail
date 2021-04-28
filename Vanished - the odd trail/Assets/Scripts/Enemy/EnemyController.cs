@@ -23,6 +23,11 @@ public class EnemyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public Camera GetMainCamera()
+    {
+        return Camera.main;
+    }
+
     public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
     {
         bool hitGround = false;
