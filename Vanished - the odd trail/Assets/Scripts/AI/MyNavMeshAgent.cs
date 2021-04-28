@@ -41,10 +41,10 @@ public class MyNavMeshAgent : MonoBehaviour
         agent.SetDestination(enemyController.target.position);
     }
 
-    public void StopAgent(bool immediteStop)
+    public void StopAgent(bool immediateStop)
     {
         agent.isStopped = true;
-        if (immediteStop)
+        if (immediateStop)
         {
             agent.velocity = Vector3.zero;
         }

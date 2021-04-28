@@ -6,14 +6,14 @@ using UnityEngine;
 public class StopAction : Action
 {
     [SerializeField]
-    
+    private bool immediateStop;
 
     public override void Act(FiniteStateMachine fsm)
     {
         if (fsm.GetAgent() != null)
         {
             
-            fsm.GetAgent().StopAgent(true);
+            fsm.GetAgent().StopAgent(immediateStop);
         }
     }
 }
