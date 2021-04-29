@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public bool targetSpotted = false;
 
+    private bool treeAttacked = false;
     private float gizmosRadius = 0;
 
     
@@ -23,9 +24,14 @@ public class EnemyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public Camera GetMainCamera()
+    public void PlayAudio()
     {
-        return Camera.main;
+        audioSource.Play();
+    }
+
+    public void StopAudio()
+    {
+        audioSource.Stop();
     }
 
     public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
@@ -69,22 +75,12 @@ public class EnemyController : MonoBehaviour
         return 0;
     }
 
-    public void PlayAudio()
-    {
-        audioSource.Play();
-    }
-
-    public void StopAudio()
-    {
-        audioSource.Stop();
-    }
-
     public void SetGizmosRadius(float radius)
     {
         gizmosRadius = radius;
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         if (gizmosRadius > 0)
         {
@@ -92,4 +88,19 @@ public class EnemyController : MonoBehaviour
             Gizmos.DrawSphere(transform.position, 30);
         }
     }
+
+    public void TreeAttackPlayer(float movementSpeed)
+    {
+        Vector3 upPosition = new Vector3(target.transform.position.x, transform.GetChild(0).position.y, target.transform.position.z);
+        target.transform.position = Vector3.MoveTowards(target.transform.position, upPosition, Time.deltaTime * movementSpeed);
+
+
+        if (!treeAttacked)
+        {
+            target.GetComponent<PlayerManager>().StartCameraShake( 3f, 0.2f, 0.2f);
+            treeAttacked = true;
+        }
+        
+    }
+
 }

@@ -13993,6 +13993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 30
   playerBody: {fileID: 504853197}
+  lockMouse: 0
 --- !u!1 &370736308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1743353957770956, guid: 539fa9bc6500e44708e0f7b2c78cbefe, type: 3}
@@ -19589,8 +19590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 504853196}
-  sprintSpeed: 12
-  normalSpeed: 4
+  speed: 4
   gravity: -19.62
   jumpHeight: 3
   groundCheck: {fileID: 1445664796}
@@ -19598,6 +19598,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  playerCaught: 0
 --- !u!54 &504853199
 Rigidbody:
   m_ObjectHideFlags: 0

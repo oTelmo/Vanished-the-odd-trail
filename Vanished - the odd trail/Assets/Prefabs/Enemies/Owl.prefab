@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: -1600824461219947349}
   - component: {fileID: 4800048207993879808}
   - component: {fileID: 1095853376536173678}
+  - component: {fileID: -3264447014785711691}
   m_Layer: 0
   m_Name: Owl
   m_TagString: Enemy
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: 9d2199e3e64f9294da08aa987b6c69fa, type: 2}
+  currentState: {fileID: 0}
 --- !u!114 &1095853376536173678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +353,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  enemyHealth: 2
+  targetSpotted: 0
+--- !u!114 &-3264447014785711691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800048207993879815}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1526f39361c6f488046e3976107df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}

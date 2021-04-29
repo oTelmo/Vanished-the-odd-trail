@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public float playerHealth = 3;
+    public CameraShake cameraShake;
+    public MeshRenderer childMeshRenderer;
+    public SceneController sceneController;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void PlayerDeath()
     {
-        Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
+        sceneController.PlayDeathScreen();
+    }
+
+    public void StartCameraShake(float duration, float xMagnitude, float yMagnitude)
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(cameraShake.Shake(duration, xMagnitude, yMagnitude));
+        //transform.GetChild(0).gameObject.SetActive(true);
     }
 
 }

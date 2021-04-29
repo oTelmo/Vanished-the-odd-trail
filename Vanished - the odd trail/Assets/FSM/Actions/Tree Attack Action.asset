@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238c9aa94bc09ca4f81ad01082077431, type: 3}
   m_Name: Tree Attack Action
   m_EditorClassIdentifier: 
+  howMuchMoveUp: 10
+  movementVelocity: 10
