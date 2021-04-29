@@ -46,6 +46,7 @@ public class Arrow : MonoBehaviour
         if (!collision.collider.CompareTag("Arrow") && !collision.collider.CompareTag("Player"))
         {
             hasHit = true;
+            //rb.isKinematic = true;
             Stick();
         }
 
@@ -53,7 +54,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             isActive = true;
             hud.GetComponent<HUD>().OpenMessagePanel("");
@@ -69,7 +70,6 @@ public class Arrow : MonoBehaviour
     private void Stick()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
-
     }
 
     public void PickUpArrow()

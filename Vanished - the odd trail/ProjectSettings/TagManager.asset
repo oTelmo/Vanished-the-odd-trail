@@ -10,6 +10,8 @@ TagManager:
   - HUD
   - Bow
   - Flashlight
+  - HitBox
+  - Breakable
   layers:
   - Default
   - TransparentFX

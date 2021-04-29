@@ -6,7 +6,6 @@ public class Shoot : MonoBehaviour
 {
     public Camera cam;
     bool isEquipped = false;
-    bool canShoot = false;
 
     [Header("Arrow Settings")]
     public GameObject arrowPrefab;
@@ -18,10 +17,12 @@ public class Shoot : MonoBehaviour
     public Transform equipBowPos;
     public Transform unequipBowPos;
     public Transform equipParent;
-    public Transform unequipParent;
+    public GameObject unequipParent;
+    private Rigidbody rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         UnequipBow();
     }
 
@@ -47,6 +48,7 @@ public class Shoot : MonoBehaviour
         {
             EquipBow();
             isEquipped = true;
+            
         }
         else if (Input.GetKeyDown(KeyCode.E) && isEquipped)
         {
@@ -66,7 +68,7 @@ public class Shoot : MonoBehaviour
     {
         this.transform.position = unequipBowPos.position;
         this.transform.rotation = unequipBowPos.rotation;
-        this.transform.parent = unequipParent;
+        this.transform.parent = unequipParent.transform;
     }
 
 
