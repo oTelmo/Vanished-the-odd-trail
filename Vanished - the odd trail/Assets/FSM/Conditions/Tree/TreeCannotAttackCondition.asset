@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5131ccbbefb85994fab0d3f8779bb54e, type: 3}
-  m_Name: Alert Action
+  m_Script: {fileID: 11500000, guid: eb8bca0d1c8cce94c8e032299952becf, type: 3}
+  m_Name: TreeCannotAttackCondition
   m_EditorClassIdentifier: 
-  deerPrefab: {fileID: 5388988505523094875, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
-  spawnTimer: 0.5693507
-  maxRange: 50
-  minRange: 40
+  negation: 1
+  viewDistance: 10
+  useRayCast: 0

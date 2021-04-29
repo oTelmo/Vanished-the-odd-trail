@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 3602454566060622984}
+  lockMouse: 0
 --- !u!1 &3602454566060622990
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  playerCaught: 0
 --- !u!1 &3602454566701582379
 GameObject:
   m_ObjectHideFlags: 0

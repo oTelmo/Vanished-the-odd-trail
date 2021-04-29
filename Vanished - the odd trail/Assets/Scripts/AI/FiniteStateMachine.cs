@@ -5,7 +5,7 @@ using UnityEngine;
 public class FiniteStateMachine : MonoBehaviour
 {
     public State initialState;
-    private State currentState;
+    public State currentState;
     private EnemyController enemyController;
     private MyNavMeshAgent navMeshAgent;
 

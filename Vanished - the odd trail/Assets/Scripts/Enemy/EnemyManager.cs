@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject deerPrefab;
 
     private GameObject[] trees;
+    //private Transform[] choosenTrees;
     public Transform treeObject;
 
     [SerializeField]
@@ -27,19 +28,6 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    private void chooseTrees()
-    {
-        for(int i = 0; i <= maxOwls; i++)
-        {
-            GameObject newTree = trees[RandomNumber(trees.Length)];
-            SpawnOwl(trees[RandomNumber(trees.Length)].transform);
-        }
-    }
-
-    private int RandomNumber(int max)
-    {
-        return Random.Range(1, max);
-    }
 
 
     private void SpawnOwl(Transform tree)
@@ -56,5 +44,18 @@ public class EnemyManager : MonoBehaviour
         Vector3 position = tree.position + (direction * treeRadius);
 
         Instantiate(owlPrefab, position, rotation);
+    }
+
+    private void chooseTrees()
+    {
+        for (int i = 0; i <= maxOwls; i++)
+        {
+            SpawnOwl(trees[Random.Range(0, trees.Length)].transform);
+        }
+    }
+
+    private int RandomNumber(int max)
+    {
+        return Random.Range(0, max);
     }
 }

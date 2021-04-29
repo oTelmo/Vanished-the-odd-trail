@@ -23,13 +23,12 @@ public class EnemyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public Camera GetMainCamera()
     {
-        
+        return Camera.main;
     }
 
-    public bool RandomPoint(Vector3 center, float minRange, float maxRange, out Vector3 result)
+    public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
     {
         bool hitGround = false;
         center.y -= GroundDistance();
