@@ -28,8 +28,6 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-
-
     private void SpawnOwl(Transform tree)
     {
         int numSlices = Random.Range(1, 7);

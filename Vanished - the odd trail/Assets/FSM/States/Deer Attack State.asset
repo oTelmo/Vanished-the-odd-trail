@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6263f32cada29a043a70fe4f93d366cc, type: 3}
-  m_Name: Seek State
+  m_Name: Deer Attack State
   m_EditorClassIdentifier: 
   entryAction: {fileID: 11400000, guid: 38df75cc01cb1d745b260284fb37d2bc, type: 2}
   stateAction:
-  - {fileID: 11400000, guid: ea3eb823f6d1fb94a8b701964646c53f, type: 2}
+  - {fileID: 11400000, guid: a642da9fc6b060d44b053e82c0c66b6f, type: 2}
   exitAction: {fileID: 0}
   transitions:
-  - {fileID: 11400000, guid: 1ccebbc4caf880f459fb514ad4feb065, type: 2}
+  - {fileID: 11400000, guid: 08d8638679ba94b4795357e18993c294, type: 2}

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5388988505523094869}
   - component: {fileID: 5388988505523094864}
   - component: {fileID: 5388988505523094874}
-  - component: {fileID: 5388988505523094871}
   - component: {fileID: 5388988505523094865}
+  - component: {fileID: 5388988505523094871}
   - component: {fileID: 5388988505523094870}
   m_Layer: 0
   m_Name: Deer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 5
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -89,21 +89,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5388988505523094871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5388988505523094875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  enemyHealth: 2
-  targetSpotted: 0
 --- !u!114 &5388988505523094865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,9 +101,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfce1dd3c17382448319016907f16a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyId: 2
   initialState: {fileID: 11400000, guid: daf491397f66eeb4fa6e9d003c75ec28, type: 2}
   currentState: {fileID: 0}
-  enemyController: {fileID: 5388988505523094871}
+--- !u!114 &5388988505523094871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388988505523094875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 2
+  target: {fileID: 0}
+  targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
 --- !u!114 &5388988505523094870
 MonoBehaviour:
   m_ObjectHideFlags: 0

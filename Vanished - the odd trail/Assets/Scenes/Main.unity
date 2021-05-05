@@ -19590,7 +19590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 504853196}
-  speed: 4
+  sprintSpeed: 8
+  normalSpeed: 4
   gravity: -19.62
   jumpHeight: 3
   groundCheck: {fileID: 1445664796}
@@ -53561,6 +53562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PBR Metal Hatchet
       objectReference: {fileID: 0}
+    - target: {fileID: 1983117617587552, guid: 9b358b607288ce247b010b96c1e5fa9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4900284419070862, guid: 9b358b607288ce247b010b96c1e5fa9b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -62678,7 +62683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2679457448149053095, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2679457448149053095, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
       propertyPath: m_TagString

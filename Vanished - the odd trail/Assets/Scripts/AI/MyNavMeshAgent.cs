@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MyNavMeshAgent : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private EnemyController enemyController;
+    private EnemyBase enemyController;
 
     [HideInInspector]
     public bool targetSpotted = false;
@@ -17,7 +17,7 @@ public class MyNavMeshAgent : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        enemyController = GetComponent<EnemyController>();
+        enemyController = GetComponent<EnemyBase>();
     }
 
     public bool IsAtDestination()
@@ -33,6 +33,15 @@ public class MyNavMeshAgent : MonoBehaviour
             }
         }
        
+        return false;
+    }
+
+    public bool IsCloseToPosition(Vector3 position, float distanceCheck)
+    {
+        if (Vector3.Distance(transform.position, position) < distanceCheck)
+        {
+            return true;
+        }
         return false;
     }
 
@@ -54,6 +63,11 @@ public class MyNavMeshAgent : MonoBehaviour
     public void SetAgentSpeed(float speed)
     {
         agent.speed = speed;
+    }
+
+    public void SetAgentDestination(Vector3 position)
+    {
+        agent.SetDestination(position);
     }
 
     public void Wander(float wanderRadius)

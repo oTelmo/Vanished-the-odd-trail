@@ -3,23 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
+    public int enemyHealth = 2;
+    
     [HideInInspector]
     public Transform target;
     private AudioSource audioSource;
-    public int enemyHealth = 2;
 
     [HideInInspector]
     public bool targetSpotted = false;
+    [HideInInspector]
+    public Vector3 targetLocation;
 
-    private bool treeAttacked = false;
+    public Vector3ValueSimple targetPingLocation;
+
+    //Owl
+    public float OwlAttracRadius = 100;
+    public float deerSpawnMaxTimer = 5;
+    public float deerSpawnTimer;
     private float gizmosRadius = 0;
 
-    
+    //Tree
+    private bool treeAttacked = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        deerSpawnTimer = deerSpawnMaxTimer;
         target = GameObject.FindWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
     }
@@ -102,5 +113,34 @@ public class EnemyController : MonoBehaviour
         }
         
     }
+
+    public void spawnDeers(GameObject deerPrefab, float minRange, float maxRange)
+    {
+        deerSpawnTimer -= Time.deltaTime;
+        targetSpotted = true;
+        if (deerSpawnTimer < 0)
+        {
+            Debug.Log("Spawn!");
+            Vector3 point;
+            if (RandomPointInDonut(transform.position, minRange, maxRange, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.red, 1.0f);
+                Instantiate(deerPrefab, point, Quaternion.identity);
+            }
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, OwlAttracRadius);
+            foreach (var hitCollider in hitColliders)
+            {
+                if(hitCollider.CompareTag("Enemy") && hitCollider.GetComponent<FiniteStateMachine>().enemyId == 2)
+                {
+                    hitCollider.GetComponent<EnemyBase>().targetSpotted = true;
+                    targetPingLocation.value = target.position;
+                }  
+            }
+
+            deerSpawnTimer = deerSpawnMaxTimer;
+        }
+    }
+
 
 }

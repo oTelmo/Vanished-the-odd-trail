@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6263f32cada29a043a70fe4f93d366cc, type: 3}
-  m_Name: Wander State
+  m_Name: Boss Chase State
   m_EditorClassIdentifier: 
-  entryAction: {fileID: 11400000, guid: 0f5e52785b9439148a034d9aa75b4d77, type: 2}
+  entryAction: {fileID: 11400000, guid: 38df75cc01cb1d745b260284fb37d2bc, type: 2}
   stateAction:
-  - {fileID: 11400000, guid: d98bb5fb9af734845b1e6c058021a191, type: 2}
+  - {fileID: 11400000, guid: f59bdcd480afd214ba1ec00c876d2dca, type: 2}
   exitAction: {fileID: 0}
   transitions:
-  - {fileID: 11400000, guid: bd545f22e94ede24eac77a904c27eb9c, type: 2}
+  - {fileID: 11400000, guid: ab73d5200a4599b41b133d96600687b8, type: 2}

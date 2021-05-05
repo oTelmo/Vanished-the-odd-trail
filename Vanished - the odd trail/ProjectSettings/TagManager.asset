@@ -12,6 +12,7 @@ TagManager:
   - Flashlight
   - HitBox
   - Breakable
+  - Deer
   layers:
   - Default
   - TransparentFX

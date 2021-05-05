@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Values/Float value")]
-public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
+public class FloatValue: ScriptableObject, ISerializationCallbackReceiver
 {
 	public float InitialValue;
 
