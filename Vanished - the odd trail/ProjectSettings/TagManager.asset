@@ -12,6 +12,12 @@ TagManager:
   - Flashlight
   - HitBox
   - Breakable
+  - Map
+  - Hatchet
+  - Item
+  - Hand
+  - Inventory
+  - GameManager
   layers:
   - Default
   - TransparentFX

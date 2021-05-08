@@ -8,7 +8,6 @@ public class Log : MonoBehaviour
         
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("arrived");
         if (other.gameObject.CompareTag("HitBox"))
         {
             

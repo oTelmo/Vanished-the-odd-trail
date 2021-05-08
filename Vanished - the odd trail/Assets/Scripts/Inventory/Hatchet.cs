@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Hatchet : MonoBehaviour
 {
-    float speed = 10f;
     public GameObject child;
-
+    
     // Update is called once per frame
     void Update()
     {

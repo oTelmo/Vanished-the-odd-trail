@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public Camera cam;
-    bool isEquipped = false;
+    //bool isEquipped = false;
 
     [Header("Arrow Settings")]
     public GameObject arrowPrefab;
@@ -13,28 +13,28 @@ public class Shoot : MonoBehaviour
     public float shootForce = 20f;
     public float arrowCount = 5;
 
-    [Header("Bow Equip & Unequip Settings")]
+    /*[Header("Bow Equip & Unequip Settings")]
     public Transform equipBowPos;
     public Transform unequipBowPos;
     public Transform equipParent;
-    public GameObject unequipParent;
+    public GameObject unequipParent;*/
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        UnequipBow();
+        cam = Camera.main;
+        //UnequipBow();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isEquipped)
+        if (Input.GetMouseButtonDown(0))
         {
-            //canShoot = true;
             if (arrowCount < 1)
             {
-               return;
+                return;               
             }
             
             GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
@@ -44,7 +44,7 @@ public class Shoot : MonoBehaviour
             arrowCount -= 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !isEquipped)
+       /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)
         {
             EquipBow();
             isEquipped = true;
@@ -54,10 +54,10 @@ public class Shoot : MonoBehaviour
         {
             UnequipBow();
             isEquipped = false;
-        }
+        }*/
     }
 
-    public void EquipBow()
+    /*public void EquipBow()
     {
         this.transform.position = equipBowPos.position;
         this.transform.rotation = equipBowPos.rotation;
@@ -69,7 +69,7 @@ public class Shoot : MonoBehaviour
         this.transform.position = unequipBowPos.position;
         this.transform.rotation = unequipBowPos.rotation;
         this.transform.parent = unequipParent.transform;
-    }
+    }*/
 
 
 }

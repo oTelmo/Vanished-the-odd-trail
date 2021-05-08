@@ -5,14 +5,12 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
-    //private float lifeTimer = 2f;
-    private float timer;
     private bool hasHit = false;
     bool isActive = false;
 
     public GameObject hud;
     public GameObject bow;
-    public GameObject playerCamera;
+    public Camera playerCamera;
 
 
     // Start is called before the first frame update
@@ -22,7 +20,7 @@ public class Arrow : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(rb.velocity);
         hud = GameObject.FindWithTag("HUD");
         bow = GameObject.FindWithTag("Bow");
-        playerCamera = GameObject.FindWithTag("MainCamera");
+        playerCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -46,7 +44,6 @@ public class Arrow : MonoBehaviour
         if (!collision.collider.CompareTag("Arrow") && !collision.collider.CompareTag("Player"))
         {
             hasHit = true;
-            //rb.isKinematic = true;
             Stick();
         }
 
