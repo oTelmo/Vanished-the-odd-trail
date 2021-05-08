@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b269fb2fd9cf94ea4daf9f607f5f35, type: 3}
+  m_Name: DeerAlertToWanderTransition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: c636555a3200d334a85def9a3955cbef, type: 2}
+  action: {fileID: 0}
+  targetState: {fileID: 11400000, guid: daf491397f66eeb4fa6e9d003c75ec28, type: 2}

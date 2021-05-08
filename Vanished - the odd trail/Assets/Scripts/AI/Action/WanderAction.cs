@@ -11,6 +11,7 @@ public class WanderAction : Action
     public override void Act(FiniteStateMachine fsm)
     {
         fsm.GetAgent().SetAgentSpeed(4);
+        fsm.GetEnemy().targetSpotted = false;
         fsm.GetAgent().Wander(wanderRadius);
     }
 

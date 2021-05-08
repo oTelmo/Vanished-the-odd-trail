@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TreeCannotAttackCondition
   m_EditorClassIdentifier: 
   negation: 1
-  viewDistance: 10
+  viewDistance: 5
   useRayCast: 0

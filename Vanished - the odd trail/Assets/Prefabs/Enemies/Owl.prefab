@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4800048206947958189}
   - component: {fileID: 4800048206947958188}
   m_Layer: 0
-  m_Name: GFX
+  m_Name: GFX Owl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: -1600824461219947349}
   - component: {fileID: 4800048207993879808}
   - component: {fileID: 1095853376536173678}
+  - component: {fileID: 7178823434129964972}
   m_Layer: 0
   m_Name: Owl
   m_TagString: Enemy
@@ -340,7 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfce1dd3c17382448319016907f16a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyId: 1
   initialState: {fileID: 11400000, guid: 9d2199e3e64f9294da08aa987b6c69fa, type: 2}
+  currentState: {fileID: 0}
 --- !u!114 &1095853376536173678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,9 +356,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   enemyHealth: 2
+  target: {fileID: 0}
   targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+--- !u!114 &7178823434129964972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800048207993879815}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db6e0a1e36eb84d9a4767c52f94a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 2
+  target: {fileID: 0}
+  targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+  OwlAttracRadius: 100
+  deerSpawnMaxTimer: 5
+  deerSpawnTimer: 0
 --- !u!1 &4852504966552888210
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +394,7 @@ GameObject:
   - component: {fileID: 8920950668899220584}
   - component: {fileID: 2486156237246566745}
   m_Layer: 0
-  m_Name: Branch
+  m_Name: GFX Branch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

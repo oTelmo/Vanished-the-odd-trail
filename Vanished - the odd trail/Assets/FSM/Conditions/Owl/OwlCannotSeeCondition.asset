@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8bca0d1c8cce94c8e032299952becf, type: 3}
   m_Name: OwlCannotSeeCondition
   m_EditorClassIdentifier: 
-  negation: 1
+  trueIfCannotSee: 1
   viewDistance: 30
   useRayCast: 0

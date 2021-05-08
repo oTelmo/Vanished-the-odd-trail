@@ -4,18 +4,39 @@ using UnityEngine;
 
 public class FiniteStateMachine : MonoBehaviour
 {
+    public int enemyId;
     public State initialState;
     public State currentState;
-    private EnemyController enemyController;
+    private EnemyBase enemyBase;
     private MyNavMeshAgent navMeshAgent;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyBase = GetComponent<EnemyBase>();
+        /*switch (enemyId)
+        {
+            case 1:
+                enemyBase = GetComponent<EnemyOwl>();
+                Debug.Log(enemyId + " Owl");
+                break;
+            case 2:
+                enemyBase = GetComponent<EnemyDeer>();
+                Debug.Log(enemyId + " Deer");
+                break;
+            case 3:
+                enemyBase = GetComponent<EnemyTree>();
+                Debug.Log(enemyId + " Tree");
+                break;
+            case 4:
+                enemyBase = GetComponent<EnemyBoss>();
+                Debug.Log(enemyId + " Boss");
+                break;
+        }*/
+
+
         currentState = initialState;
         navMeshAgent = GetComponent<MyNavMeshAgent>();
-       
-        enemyController = GetComponent<EnemyController>();
     }
 
     public MyNavMeshAgent GetAgent()
@@ -23,9 +44,9 @@ public class FiniteStateMachine : MonoBehaviour
         return navMeshAgent;
     }
 
-    public EnemyController GetEnemy()
+    public EnemyBase GetEnemy()
     {
-        return enemyController;
+        return enemyBase;
     }
 
     // Update is called once per frame
@@ -59,7 +80,7 @@ public class FiniteStateMachine : MonoBehaviour
              }
          }
          DoActions(actions);
-     }
+    }
 
      void DoActions(List<Action> actions)
      {
