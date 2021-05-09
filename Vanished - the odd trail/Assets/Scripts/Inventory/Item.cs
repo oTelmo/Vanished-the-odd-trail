@@ -4,16 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum ItemType
-{
-    Bow,
-    Hatchet,
-    MedKit,
-    Flashlight,
-    Map,
-    Compass
-}
-
 public abstract class Item : ScriptableObject
 {
     public int Id;

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1545773215221851879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70110727594465988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fc37938f6182b44a6ce90c1a209515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+--- !u!114 &4037012682402582068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70110727594465988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19532b38d65cf9a4ea139c5b7c074ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  arrowPrefab: {fileID: 4950535958919946780, guid: 2b446dd1343645448a69b7445384131d, type: 3}
+  arrowSpawn: {fileID: 2726451353840389830}
+  shootForce: 20
+  arrowCount: 5
 --- !u!1001 &2726451353898759267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,5 +113,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 797289227, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+--- !u!1 &70110727594465988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2679457448149053095, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+  m_PrefabInstance: {fileID: 2726451353898759267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2726451353840389830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 93239973, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+  m_PrefabInstance: {fileID: 2726451353898759267}
+  m_PrefabAsset: {fileID: 0}

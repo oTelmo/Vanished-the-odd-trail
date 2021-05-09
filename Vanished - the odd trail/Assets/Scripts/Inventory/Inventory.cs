@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory
 {
     public List<InventorySlot> inventory;
-    public int maxSlots = 6;
+    public int maxSlots = 5;
 
     public Inventory()
     {
@@ -17,7 +17,7 @@ public class Inventory
         bool found = false;
         foreach(InventorySlot slot in inventory)
         {
-            if ((item.GetType() == slot.item.GetType()))
+            if (item.GetType() == slot.item.GetType())
             {
                 found = true;
                 break;
@@ -30,5 +30,6 @@ public class Inventory
                 inventory.Add(new InventorySlot(item));
             }
         }
+        
     }
 }

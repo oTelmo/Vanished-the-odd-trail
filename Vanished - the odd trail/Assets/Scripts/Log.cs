@@ -10,7 +10,6 @@ public class Log : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HitBox"))
         {
-            
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
