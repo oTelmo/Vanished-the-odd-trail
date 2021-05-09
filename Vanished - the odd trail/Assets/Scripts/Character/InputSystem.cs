@@ -44,7 +44,7 @@ public class InputSystem : MonoBehaviour
     Transform camCenter;
 
     Transform mainCam;
-    public Bow bowScript;
+    public BowTest bowScript;
     public Arrow01 arrowScript;
     bool isAiming;
 

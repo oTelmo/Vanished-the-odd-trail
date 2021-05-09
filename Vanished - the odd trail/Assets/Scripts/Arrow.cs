@@ -73,7 +73,7 @@ public class Arrow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            bow.GetComponent<Shoot>().arrowCount++;
+            bow.GetComponent<Bow>().arrowCount++;
             hud.GetComponent<HUD>().CloseMessagePanel();
             Destroy(gameObject);
         }

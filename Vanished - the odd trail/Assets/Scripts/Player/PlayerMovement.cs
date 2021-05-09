@@ -8,10 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed = 4f;
     public float sprintSpeed = 8f;
     public float normalSpeed = 4f;
-<<<<<<< HEAD
     public float crouchSpeed = 1f;
-=======
->>>>>>> 2bff761b23cae33dffd3ca4dc738d26fe534d346
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
@@ -24,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
 
+
     private void Start()
-    {
-    }
+    {}
 
     // Update is called once per frame
     void Update()
@@ -44,10 +41,6 @@ public class PlayerMovement : MonoBehaviour
             float moveZ = Input.GetAxis("Vertical");
 
             Vector3 move = transform.right * moveX + transform.forward * moveZ;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2bff761b23cae33dffd3ca4dc738d26fe534d346
             controller.Move(move * currentSpeed * Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && isGrounded)
@@ -63,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentSpeed = normalSpeed;
             }
-<<<<<<< HEAD
 
             if(Input.GetKeyDown(KeyCode.LeftControl))
             {
@@ -77,22 +69,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
             velocity.y += gravity * Time.deltaTime;
-=======
->>>>>>> 2bff761b23cae33dffd3ca4dc738d26fe534d346
 
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
-        /*else
+        else
         {
-<<<<<<< HEAD
-            transform.GetChild(1).GetComponent<MouseLook>().LockPlayerCamera(true);
-        }*/
-=======
             transform.GetChild(1).GetComponent<MouseLook>().LockPlayerCamera(false);
         }
-
-        
->>>>>>> 2bff761b23cae33dffd3ca4dc738d26fe534d346
     }
 }

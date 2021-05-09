@@ -15,19 +15,26 @@ public class Character : MonoBehaviour
     private Inventory inventory;
 
     private InventorySlotUI[] slotID;
+    private PlayerMovement playerMovement;
+    private InventoryManager inventoryManager;
 
     // Start is called before the first frame update
     void Start()
     {
         inventory = new Inventory();
-        itemsID = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>().currentItemsID;
+        inventoryManager = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>();
+        itemsID = inventoryManager.currentItemsID;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
+            playerMovement.playerCaught = true;
+            inventoryManager.inventoryOpen = true;
+            Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
             {
                 inventoryUIObj = Instantiate(inventoryUIPrefab, canvas.transform);
@@ -38,29 +45,27 @@ public class Character : MonoBehaviour
             }
             else if (inventoryUIObj.activeSelf)
             {
+                
                 inventoryUIObj.SetActive(false);
+                playerMovement.playerCaught = false;
+                inventoryManager.inventoryOpen = false;
+                transform.GetChild(1).GetComponent<MouseLook>().UnLockPlayerCamera();
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
+                
                 inventoryUIObj.SetActive(true);
                 //inventoryUI.ClearInventoryUI();
                 inventoryUI.UpdateInventoryUI();
-                Cursor.lockState = CursorLockMode.None;
+                
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Destroy(GameObject.FindWithTag("Bow"));
-        }
-        
+        }        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         ItemInstance itemInstance = other.gameObject.GetComponent<ItemInstance>();
-        hud.GetComponent<HUD>().OpenMessagePanel("");
         if (itemInstance)
         {
                 
@@ -74,10 +79,5 @@ public class Character : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        hud.GetComponent<HUD>().CloseMessagePanel();
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Bow : MonoBehaviour
 {
     public Camera cam;
     //bool isEquipped = false;
@@ -19,29 +19,34 @@ public class Shoot : MonoBehaviour
     public Transform equipParent;
     public GameObject unequipParent;*/
     private Rigidbody rb;
+    private InventoryManager inventoryManager;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
+        inventoryManager = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>();
         //UnequipBow();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!inventoryManager.inventoryOpen)
         {
-            if (arrowCount < 1)
+            if (Input.GetMouseButtonDown(0))
             {
-                return;               
-            }
-            
-            GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
-            Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
-            rb.velocity = cam.transform.forward * shootForce;
+                if (arrowCount < 1)
+                {
+                    return;
+                }
 
-            arrowCount -= 1;
+                GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
+                Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
+                rb.velocity = cam.transform.forward * shootForce;
+
+                arrowCount -= 1;
+            }
         }
 
        /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)

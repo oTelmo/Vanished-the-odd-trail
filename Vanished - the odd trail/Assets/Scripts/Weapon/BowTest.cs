@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bow : MonoBehaviour
+public class BowTest : MonoBehaviour
 {
     [System.Serializable]
     public class BowSettings

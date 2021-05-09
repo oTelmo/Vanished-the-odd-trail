@@ -11,10 +11,15 @@ public class InventoryUI : MonoBehaviour
     private GameObject hand;
     public List<int> itemsID;
 
+    public int currentItem;
+    public Transform[] items;
+    private InventoryManager inventoryManager;
+
     private void Start()
     {
         hand = GameObject.FindWithTag("Hand");
-        itemsID = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>().currentItemsID;
+        inventoryManager = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>();
+        itemsID = inventoryManager.currentItemsID;
     }
 
     public void InitializeInventoryUI(Character c, Inventory i)
@@ -65,6 +70,7 @@ public class InventoryUI : MonoBehaviour
                     int itemID = child.GetComponent<ItemManager>().id;
                     if (itemID == slotID)
                     {
+                        inventoryManager.currentItem = child.gameObject;
                         child.gameObject.SetActive(true);
                     }
                     else

@@ -13947,7 +13947,7 @@ Transform:
   m_Children:
   - {fileID: 372007902}
   m_Father: {fileID: 504853197}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &370182387
 MonoBehaviour:
@@ -13963,6 +13963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 50
   playerBody: {fileID: 504853197}
+  lockMouse: 0
 --- !u!1 &370736308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1743353957770956, guid: 539fa9bc6500e44708e0f7b2c78cbefe, type: 3}
@@ -19610,8 +19611,8 @@ Transform:
   m_LocalScale: {x: 0.5091483, y: 0.5091483, z: 0.5091483}
   m_Children:
   - {fileID: 942358127}
-  - {fileID: 1445664796}
   - {fileID: 370182386}
+  - {fileID: 1445664796}
   - {fileID: 1727932337}
   - {fileID: 195789618}
   m_Father: {fileID: 0}
@@ -56252,7 +56253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 504853197}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445750108 stripped
 GameObject:
