@@ -5,18 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Finite State Machine/Conditions/Alerted")]
 public class AlertedCondition : Condition
 {
-    [SerializeField]
-    private bool trueIfNotAlerted;
 
     public override bool Con(FiniteStateMachine fsm)
     {
-        if (fsm.GetEnemy().targetSpotted)
+        if ((fsm.GetEnemy() as EnemyDeer).deerAlerted)
         {
-            return !trueIfNotAlerted;
+            return true;
         }
         else
         {
-            return trueIfNotAlerted;
+            return false;
         }
         
     }

@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa079ab78ab11b4ea7ab652d6d1464c, type: 3}
-  m_Name: DeerAtDestinationCondition
+  m_Script: {fileID: 11500000, guid: 172d8c3128bfcb940be84a1b10db5c68, type: 3}
+  m_Name: Deer Chase Action
   m_EditorClassIdentifier: 
-  pingPosition: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}

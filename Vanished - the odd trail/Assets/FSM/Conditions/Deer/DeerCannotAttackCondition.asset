@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DeerCannotAttackCondition
   m_EditorClassIdentifier: 
   trueIfCannotSee: 1
-  viewDistance: 10
+  viewDistance: 6
   useRayCast: 0

@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172d8c3128bfcb940be84a1b10db5c68, type: 3}
-  m_Name: Chase Action
+  m_Script: {fileID: 11500000, guid: 91972df9da84a034a84fbf169df9fcc6, type: 3}
+  m_Name: Boss Chase Action
   m_EditorClassIdentifier: 
