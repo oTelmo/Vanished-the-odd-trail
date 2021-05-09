@@ -178,8 +178,7 @@ GameObject:
   - component: {fileID: 4800048207993879809}
   - component: {fileID: -1600824461219947349}
   - component: {fileID: 4800048207993879808}
-  - component: {fileID: 1095853376536173678}
-  - component: {fileID: 7178823434129964972}
+  - component: {fileID: -1238896871638243317}
   m_Layer: 0
   m_Name: Owl
   m_TagString: Enemy
@@ -344,7 +343,7 @@ MonoBehaviour:
   enemyId: 1
   initialState: {fileID: 11400000, guid: 9d2199e3e64f9294da08aa987b6c69fa, type: 2}
   currentState: {fileID: 0}
---- !u!114 &1095853376536173678
+--- !u!114 &-1238896871638243317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,34 +352,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4800048207993879815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 2
-  target: {fileID: 0}
-  targetSpotted: 0
-  targetLocation: {x: 0, y: 0, z: 0}
-  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
---- !u!114 &7178823434129964972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800048207993879815}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0db6e0a1e36eb84d9a4767c52f94a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 2
   target: {fileID: 0}
+  health: 2
   targetSpotted: 0
   targetLocation: {x: 0, y: 0, z: 0}
   targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
-  OwlAttracRadius: 100
+  canSpawnDeers: 0
+  owlAttracRadius: 100
   deerSpawnMaxTimer: 5
-  deerSpawnTimer: 0
 --- !u!1 &4852504966552888210
 GameObject:
   m_ObjectHideFlags: 0

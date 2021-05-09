@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5388988505523094864}
   - component: {fileID: 5388988505523094874}
   - component: {fileID: 5388988505523094865}
-  - component: {fileID: 5388988505523094871}
   - component: {fileID: 5388988505523094870}
+  - component: {fileID: -5704913994509613966}
+  - component: {fileID: 8035432621943203948}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Enemy
@@ -104,23 +105,6 @@ MonoBehaviour:
   enemyId: 2
   initialState: {fileID: 11400000, guid: daf491397f66eeb4fa6e9d003c75ec28, type: 2}
   currentState: {fileID: 0}
---- !u!114 &5388988505523094871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5388988505523094875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 2
-  target: {fileID: 0}
-  targetSpotted: 0
-  targetLocation: {x: 0, y: 0, z: 0}
-  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
 --- !u!114 &5388988505523094870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +118,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpotted: 0
+--- !u!114 &-5704913994509613966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388988505523094875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84059e4fd81dba9438d509fe8f30167b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  health: 2
+  targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+  deerAlerted: 0
+--- !u!95 &8035432621943203948
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388988505523094875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e034570898454394f967afdff0bf9f92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5388988505643739558
 GameObject:
   m_ObjectHideFlags: 0

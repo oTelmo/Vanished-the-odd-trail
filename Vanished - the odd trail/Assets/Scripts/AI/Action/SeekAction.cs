@@ -13,6 +13,6 @@ public class SeekAction : Action
     {
         fsm.GetEnemy().StopAudio();
         fsm.GetEnemy().targetSpotted = false;
-        //fsm.GetEnemy().SetGizmosRadius(seekRadius);
+        (fsm.GetEnemy() as EnemyOwl).SetGizmosRadius(seekRadius);
     }
 }

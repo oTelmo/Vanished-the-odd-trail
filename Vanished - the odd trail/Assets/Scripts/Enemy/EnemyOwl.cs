@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyOwl : EnemyBase
 {
-    /*public float OwlAttracRadius = 100;
+    public bool canSpawnDeers = true;
+    public float owlAttracRadius = 100;
     public float deerSpawnMaxTimer = 5;
-    public float deerSpawnTimer;*/
+    private float deerSpawnTimer;
     
     private float gizmosRadius = 0;
     // Start is called before the first frame update
@@ -75,9 +76,10 @@ public class EnemyOwl : EnemyBase
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(transform.position, 30);
         }
+        Gizmos.DrawWireSphere(transform.position, owlAttracRadius);
     }
 
-    public void spawnDeers(GameObject deerPrefab, float minRange, float maxRange)
+    public void SpawnDeers(GameObject deerPrefab, float minRange, float maxRange)
     {
         deerSpawnTimer -= Time.deltaTime;
         targetSpotted = true;
@@ -87,10 +89,12 @@ public class EnemyOwl : EnemyBase
             Vector3 point;
             if (RandomPointInDonut(transform.position, minRange, maxRange, out point))
             {
-                Debug.DrawRay(point, Vector3.up, Color.red, 1.0f);
-                Instantiate(deerPrefab, point, Quaternion.identity);
+                if (canSpawnDeers)
+                {
+                    Debug.DrawRay(point, Vector3.up, Color.red, 1.0f);
+                    Instantiate(deerPrefab, point, Quaternion.identity);
+                }
             }
-
             AlertDeers();
             deerSpawnTimer = deerSpawnMaxTimer;
         }
@@ -98,12 +102,14 @@ public class EnemyOwl : EnemyBase
 
     private void AlertDeers()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, OwlAttracRadius);
+        print("Alerting deers");
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, owlAttracRadius);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Enemy") && hitCollider.GetComponent<FiniteStateMachine>().enemyId == 2)
+            if (hitCollider.CompareTag("Enemy") && hitCollider.GetComponent<EnemyDeer>() != null)
             {
-                hitCollider.GetComponent<EnemyBase>().targetSpotted = true;
+                print("Alerting 1 deer");
+                hitCollider.GetComponent<EnemyDeer>().deerAlerted = true;
                 targetPingLocation.value = target.position;
             }
         }

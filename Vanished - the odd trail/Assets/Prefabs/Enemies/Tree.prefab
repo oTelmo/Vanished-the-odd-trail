@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 8704646744027965802}
   - component: {fileID: 8704646744027965805}
   - component: {fileID: 8704646744027965804}
-  - component: {fileID: 8704646744027965807}
   - component: {fileID: 8704646744027965806}
+  - component: {fileID: 2468629549653961181}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Enemy
@@ -186,23 +186,6 @@ MonoBehaviour:
   enemyId: 3
   initialState: {fileID: 11400000, guid: e122d7f096e9219429d2638ad35eb97c, type: 2}
   currentState: {fileID: 0}
---- !u!114 &8704646744027965807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8704646744027965793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707dfcc35223550478a90558b947de35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 2
-  target: {fileID: 0}
-  targetSpotted: 0
-  targetLocation: {x: 0, y: 0, z: 0}
-  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
 --- !u!114 &8704646744027965806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +199,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpotted: 0
+--- !u!114 &2468629549653961181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704646744027965793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4460cde7706b7e642a754777476a2851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  target: {fileID: 0}
+  targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
 --- !u!1 &8704646745079556742
 GameObject:
   m_ObjectHideFlags: 0

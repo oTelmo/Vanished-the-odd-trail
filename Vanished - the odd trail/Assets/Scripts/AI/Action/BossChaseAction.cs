@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Finite State Machine/Actions/Chase")]
-public class ChaseAction : Action
+[CreateAssetMenu(menuName = "Finite State Machine/Actions/Boss chase")]
+public class BossChaseAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {

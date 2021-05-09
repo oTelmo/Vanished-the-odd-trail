@@ -40,6 +40,7 @@ public class MyNavMeshAgent : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, position) < distanceCheck)
         {
+            Debug.Log("at destination");
             return true;
         }
         return false;
@@ -74,21 +75,20 @@ public class MyNavMeshAgent : MonoBehaviour
     {
         if (IsAtDestination())
         {
-
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
             agent.SetDestination(newPos);
         }
 
+        //getclosest edge
         NavMeshHit hit;
         if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
         {
             //DrawCircle(transform.position, hit.distance, Color.red);
             Debug.DrawRay(hit.position, Vector3.up, Color.red);
-            if (Vector3.Distance(hit.position, transform.position) < 2)
+            /*if (Vector3.Distance(hit.position, transform.position) < 2)
             {
 
-            }
-
+            }*/
         }
     }
 

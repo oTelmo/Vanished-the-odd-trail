@@ -14,26 +14,21 @@ public class FiniteStateMachine : MonoBehaviour
     void Start()
     {
         enemyBase = GetComponent<EnemyBase>();
-        /*switch (enemyId)
+        switch (enemyId)
         {
             case 1:
                 enemyBase = GetComponent<EnemyOwl>();
-                Debug.Log(enemyId + " Owl");
                 break;
             case 2:
                 enemyBase = GetComponent<EnemyDeer>();
-                Debug.Log(enemyId + " Deer");
                 break;
             case 3:
                 enemyBase = GetComponent<EnemyTree>();
-                Debug.Log(enemyId + " Tree");
                 break;
             case 4:
                 enemyBase = GetComponent<EnemyBoss>();
-                Debug.Log(enemyId + " Boss");
                 break;
-        }*/
-
+        }
 
         currentState = initialState;
         navMeshAgent = GetComponent<MyNavMeshAgent>();

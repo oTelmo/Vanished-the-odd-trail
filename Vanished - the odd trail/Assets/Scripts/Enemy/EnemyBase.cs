@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyBase : MonoBehaviour
 {
-    public int enemyHealth = 2;
-    
     [HideInInspector]
     public Transform target;
+
+    public int health = 2;
     private AudioSource audioSource;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool targetSpotted = false;
     [HideInInspector]
     public Vector3 targetLocation;
@@ -19,18 +19,17 @@ public class EnemyBase : MonoBehaviour
     public Vector3ValueSimple targetPingLocation;
 
     //Owl
-    public float OwlAttracRadius = 100;
+    /*public float OwlAttracRadius = 100;
     public float deerSpawnMaxTimer = 5;
     public float deerSpawnTimer;
-    private float gizmosRadius = 0;
+    private float gizmosRadius = 0;*/
 
     //Tree
-    private bool treeAttacked = false;
+    //private bool treeAttacked = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        deerSpawnTimer = deerSpawnMaxTimer;
         target = GameObject.FindWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
     }
@@ -45,7 +44,7 @@ public class EnemyBase : MonoBehaviour
         audioSource.Stop();
     }
 
-    public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
+    /*public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
     {
         bool hitGround = false;
         center.y -= GroundDistance();
@@ -98,9 +97,9 @@ public class EnemyBase : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(transform.position, 30);
         }
-    }
+    }*/
 
-    public void TreeAttackPlayer(float movementSpeed)
+    /*public void TreeAttackPlayer(float movementSpeed)
     {
         Vector3 upPosition = new Vector3(target.transform.position.x, transform.GetChild(0).position.y, target.transform.position.z);
         target.transform.position = Vector3.MoveTowards(target.transform.position, upPosition, Time.deltaTime * movementSpeed);
@@ -112,9 +111,9 @@ public class EnemyBase : MonoBehaviour
             treeAttacked = true;
         }
         
-    }
+    }*/
 
-    public void spawnDeers(GameObject deerPrefab, float minRange, float maxRange)
+    /*public void spawnDeers(GameObject deerPrefab, float minRange, float maxRange)
     {
         deerSpawnTimer -= Time.deltaTime;
         targetSpotted = true;
@@ -141,6 +140,19 @@ public class EnemyBase : MonoBehaviour
             deerSpawnTimer = deerSpawnMaxTimer;
         }
     }
+
+    private void AlertDeers()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, OwlAttracRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy") && hitCollider.GetComponent<FiniteStateMachine>().enemyId == 2)
+            {
+                hitCollider.GetComponent<EnemyBase>().targetSpotted = true;
+                targetPingLocation.value = target.position;
+            }
+        }
+    }*/
 
 
 }

@@ -18,8 +18,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         trees = GameObject.FindGameObjectsWithTag("Tree");
-        //SpawnOwl(treeObject);
-        chooseTrees();
+        SpawnOwl(treeObject);
+        //chooseTrees();
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour
 
     private void chooseTrees()
     {
-        for (int i = 0; i <= maxOwls; i++)
+        for (int i = 1; i <= maxOwls; i++)
         {
             SpawnOwl(trees[Random.Range(0, trees.Length)].transform);
         }
