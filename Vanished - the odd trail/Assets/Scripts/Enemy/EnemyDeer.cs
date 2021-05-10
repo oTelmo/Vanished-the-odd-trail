@@ -27,11 +27,13 @@ public class EnemyDeer : EnemyBase
         
     }
 
-    public void AttackAnimation()
+    public void DeerAttack()
     {
+        target.transform.position = transform.GetChild(1).position;
         if (attackAnimationRunning == false)
         {
-            struggleCheck.StartStruggleCheck(this.gameObject);
+            //struggleCheck.StartStruggleCheck(this.gameObject);
+            
             attackAnimationRunning = true;
             animator.SetTrigger("DeerAttack");
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeerAttack"))
@@ -40,6 +42,11 @@ public class EnemyDeer : EnemyBase
 
             }
         }
+    }
+
+    private void PlacePlayerInPosition()
+    {
+
     }
 
     public void DeerDeath()

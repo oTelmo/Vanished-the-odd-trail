@@ -54668,6 +54668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItemsID: 
+  inventoryOpen: 0
+  currentItem: {fileID: 0}
 --- !u!4 &1406732230
 Transform:
   m_ObjectHideFlags: 0
