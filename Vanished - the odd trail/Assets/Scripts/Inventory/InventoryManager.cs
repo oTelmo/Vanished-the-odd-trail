@@ -9,6 +9,10 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject currentItem;
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))

@@ -10,6 +10,8 @@ public class InventoryUI : MonoBehaviour
 
     private GameObject hand;
     public List<int> itemsID;
+
+    public int currentItem;
     public Transform[] items;
     private InventoryManager inventoryManager;
 
@@ -46,7 +48,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    /*private void UseItemClick(int slotID)
+    private void UseItemClick(int slotID)
     {
         if ((slotID < inventory.inventory.Count) && (inventory.inventory[slotID].item))
         {
@@ -55,7 +57,7 @@ public class InventoryUI : MonoBehaviour
             UpdateInventoryUI();
             Destroy(GameObject.FindWithTag("Inventory"));
         }
-    }*/
+    }
 
     private void FindCurrentSlot(int slotID)
     {

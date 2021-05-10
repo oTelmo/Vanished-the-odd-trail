@@ -32,19 +32,21 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (Input.GetMouseButtonDown(0) && !inventoryManager.inventoryOpen)
+        if (!inventoryManager.inventoryOpen)
         {
-            if (arrowCount < 1)
+            if (Input.GetMouseButtonDown(0))
             {
-                return;
+                if (arrowCount < 1)
+                {
+                    return;
+                }
+
+                GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
+                Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
+                rb.velocity = cam.transform.forward * shootForce;
+
+                arrowCount -= 1;
             }
-
-            GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
-            Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
-            rb.velocity = cam.transform.forward * shootForce;
-
-            arrowCount -= 1;
         }
 
        /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)

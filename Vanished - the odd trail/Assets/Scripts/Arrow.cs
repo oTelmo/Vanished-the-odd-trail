@@ -6,7 +6,7 @@ public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
     private bool hasHit = false;
-    private bool isActive = false;
+    bool isActive = false;
 
     public GameObject hud;
     public GameObject bow;

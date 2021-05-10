@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
     private GameObject inventoryUIObj;
     private InventoryUI inventoryUI;
     private Inventory inventory;
+
+    private InventorySlotUI[] slotID;
     private PlayerMovement playerMovement;
     private InventoryManager inventoryManager;
 
@@ -66,6 +68,7 @@ public class Character : MonoBehaviour
         ItemInstance itemInstance = other.gameObject.GetComponent<ItemInstance>();
         if (itemInstance)
         {
+                
             //add item to inventory
             inventory.AddItem(itemInstance.item);
             itemsID.Add(itemInstance.itemID);
