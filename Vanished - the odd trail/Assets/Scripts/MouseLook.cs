@@ -20,6 +20,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!lockMouse)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -32,7 +33,7 @@ public class MouseLook : MonoBehaviour
 
             playerBody.Rotate(Vector3.up * mouseX);
         }
-            
+
     }
 
     public void LockPlayerCamera(bool resetCamera)

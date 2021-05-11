@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("Player stats")]
     public float playerHealth = 3;
-    [Header("Player stats")]
+
     public CameraShake cameraShake;
-    public MeshRenderer childMeshRenderer;
     private SceneController sceneController;
     private PlayerMovement playerMovement;
     private GameObject gameManager;
     private MouseLook mouseLook;
 
-    [Header("Animations")]
+    
     private Animator animator;
+    [Header("Animations")]
     public bool deerAttackRunning = false;
     
 
@@ -27,7 +26,6 @@ public class PlayerManager : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameManager");
         sceneController = gameManager.GetComponent<SceneController>();
         mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
-
     }
 
     // Update is called once per frame
@@ -57,10 +55,10 @@ public class PlayerManager : MonoBehaviour
             deerAttackRunning = true;
             playerMovement.playerCaught = true;
             animator.SetTrigger("deerAttack");
+            //animator.SetBool("DeerAttack", true);
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeerAttack"))
             {
-                //animator.SetTrigger("deerNoMore");
-                //animator.SetInteger("deerAttackState", 2);
+                animator.SetBool("InStruggle", true);
             }
         }
     }
@@ -71,6 +69,11 @@ public class PlayerManager : MonoBehaviour
         playerMovement.playerCaught = false;
         mouseLook.UnLockPlayerCamera();
         animator.SetTrigger("deerNoMore");
+    }
+
+    public void BackToIdleAnim()
+    {
+        animator.SetTrigger("IdleState");
     }
 
     public void StartCameraShake(float duration, float xMagnitude, float yMagnitude)

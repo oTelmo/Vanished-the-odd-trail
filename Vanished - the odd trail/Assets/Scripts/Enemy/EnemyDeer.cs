@@ -8,6 +8,7 @@ public class EnemyDeer : EnemyBase
 
     public bool deerAlerted = false;
     private StruggleCheck struggleCheck;
+    private Vector3 savePlayerPos;
 
     [Header("Animations")]
     private Animator animator;
@@ -29,16 +30,17 @@ public class EnemyDeer : EnemyBase
 
     public void DeerAttack()
     {
-        target.transform.position = transform.GetChild(1).position;
+        PlacePlayerInPosition();
         if (attackAnimationRunning == false)
         {
-            //struggleCheck.StartStruggleCheck(this.gameObject);
-            
+            struggleCheck.StartStruggleCheck(this.gameObject);
+
             attackAnimationRunning = true;
             animator.SetTrigger("DeerAttack");
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeerAttack"))
-            { 
+            {
                 //Animation is done
+                
 
             }
         }
@@ -46,7 +48,17 @@ public class EnemyDeer : EnemyBase
 
     private void PlacePlayerInPosition()
     {
+        target.position = transform.Find("Position1").position;
+        Quaternion targetRotation = Quaternion.LookRotation(transform.position - target.position);
+        float str = Mathf.Min(5 * Time.deltaTime, 1);
+        target.rotation = Quaternion.Lerp(target.rotation, targetRotation, str);
+    }    
 
+    public void PlayerSucess()
+    {
+        target.position = target.position + new Vector3(0, 9, 0);
+        target.rotation = Quaternion.Euler(0, target.rotation.y, 0);
+        DeerDeath();
     }
 
     public void DeerDeath()
