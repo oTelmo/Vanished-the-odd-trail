@@ -9,5 +9,6 @@ public class BossChaseAction : Action
     {
         fsm.GetAgent().SetAgentSpeed(6);
         fsm.GetAgent().GoToTarget();
+        (fsm.GetEnemy() as EnemyBoss).BossChase();
     }
 }

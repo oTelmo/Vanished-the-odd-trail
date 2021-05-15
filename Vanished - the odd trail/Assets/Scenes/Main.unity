@@ -18132,7 +18132,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  playerCaught: 0
+  playerLocked: 0
 --- !u!54 &504853199
 Rigidbody:
   m_ObjectHideFlags: 0

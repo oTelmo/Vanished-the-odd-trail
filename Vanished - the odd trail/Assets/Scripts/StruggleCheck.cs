@@ -75,7 +75,7 @@ public class StruggleCheck : MonoBehaviour
         {
             print("sucess");
             deer.GetComponent<EnemyDeer>().PlayerSucess();
-            playerManager.PlayerDeerStoppedAttack();
+            playerManager.PlayerDeerStopAttack();
             
         }
         else //failed

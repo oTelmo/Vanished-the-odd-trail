@@ -15,6 +15,9 @@ TagManager:
   - Hatchet
   - Arrow
   - Flashlight
+  - Enemy
+  - Tree
+  - LowHealthUI
   layers:
   - Default
   - TransparentFX

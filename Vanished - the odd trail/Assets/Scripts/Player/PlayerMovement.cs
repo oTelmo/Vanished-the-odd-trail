@@ -16,14 +16,20 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    public bool playerCaught = false;
+    public bool playerLocked = false;
     private Vector3 velocity;
     private bool isGrounded;
+    private MouseLook mouseLook;
+
+    private void Start()
+    {
+        mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!playerCaught)
+        if (!playerLocked)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -68,9 +74,18 @@ public class PlayerMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
-        else
-        {
-            transform.GetChild(1).GetComponent<MouseLook>().LockPlayerCamera(false);
-        }
     }
+
+    public void LockPlayerMovement(bool lockCamera)
+    {
+        playerLocked = true;
+        if (lockCamera) mouseLook.LockPlayerCamera(false);
+    }
+
+    public void UnLockPlayerMovement()
+    {
+        playerLocked = false;
+        mouseLook.UnLockPlayerCamera();
+    }
+
 }

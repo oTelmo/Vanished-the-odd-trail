@@ -83,7 +83,7 @@ public class EnemyOwl : EnemyBase
     {
         deerSpawnTimer -= Time.deltaTime;
         targetSpotted = true;
-        if (deerSpawnTimer < 0)
+        if (deerSpawnTimer < 0) // use Coroutines
         {
             Debug.Log("Spawn!");
             Vector3 point;

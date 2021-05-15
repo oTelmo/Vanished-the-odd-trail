@@ -30,6 +30,7 @@ public class EnemyDeer : EnemyBase
 
     public void DeerAttack()
     {
+        //stop other enemies around
         PlacePlayerInPosition();
         if (attackAnimationRunning == false)
         {
@@ -39,15 +40,16 @@ public class EnemyDeer : EnemyBase
             animator.SetTrigger("DeerAttack");
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDeerAttack"))
             {
-                //Animation is done
-                
-
+                //Animation is done 
             }
         }
     }
 
     private void PlacePlayerInPosition()
     {
+        //Vector3 animPosition = transform.Find("Position1").position;
+        //target.position = new Vector3(animPosition.x, target.position.y, animPosition.z);
+
         target.position = transform.Find("Position1").position;
         Quaternion targetRotation = Quaternion.LookRotation(transform.position - target.position);
         float str = Mathf.Min(5 * Time.deltaTime, 1);
