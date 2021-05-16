@@ -18,6 +18,8 @@ TagManager:
   - Enemy
   - Tree
   - LowHealthUI
+  - BossZone
+  - Boss
   layers:
   - Default
   - TransparentFX

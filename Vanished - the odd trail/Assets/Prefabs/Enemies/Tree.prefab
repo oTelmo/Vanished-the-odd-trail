@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4992344860140010544}
   - component: {fileID: 4992344860140010547}
   - component: {fileID: 4992344860140010546}
+  - component: {fileID: 1566345389509080411}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1566345389509080411
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992344860140010551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &8704646744027965793
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 8704646744027965803}
   - component: {fileID: 8704646744027965802}
   - component: {fileID: 8704646744027965805}
+  - component: {fileID: 6453623963662337605}
   - component: {fileID: 8704646744027965804}
   - component: {fileID: 8704646744027965806}
   - component: {fileID: 2468629549653961181}
@@ -169,8 +185,27 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
+--- !u!95 &6453623963662337605
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704646744027965793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6f8f75d4b79c974cb8d07ca50e54983, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8704646744027965804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba9b6340db80d49904b8c732abcf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultChaseSpeed: 6
   targetSpotted: 0
 --- !u!114 &2468629549653961181
 MonoBehaviour:
@@ -211,11 +247,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4460cde7706b7e642a754777476a2851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
   target: {fileID: 0}
+  health: 2
   targetSpotted: 0
   targetLocation: {x: 0, y: 0, z: 0}
   targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+  upDistance: 10
+  movementSpeed: 5
+  timeToDie: 1.5
+  shakeMagX: 0.5
+  shakeMagY: 0.5
+  shakeDuration: 4.5
 --- !u!1 &8704646745079556742
 GameObject:
   m_ObjectHideFlags: 0

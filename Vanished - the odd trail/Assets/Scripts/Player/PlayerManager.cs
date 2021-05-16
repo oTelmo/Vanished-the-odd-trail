@@ -15,7 +15,9 @@ public class PlayerManager : MonoBehaviour
     private GameObject gameManager;
     private MouseLook mouseLook;
 
-    
+    [Header("Items")]
+    public bool hasBossItems = true;
+
     private Animator animator;
     [Header("Animations")]
     public bool deerAttackRunning = false;

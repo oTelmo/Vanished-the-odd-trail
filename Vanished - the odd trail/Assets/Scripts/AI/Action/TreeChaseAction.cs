@@ -7,6 +7,10 @@ public class TreeChaseAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetAgent().GoToTarget();
+        if(!(fsm.GetEnemy() as EnemyTree).GetRising())
+        {
+            fsm.GetAgent().GoToTarget();
+        }
+        
     }
 }

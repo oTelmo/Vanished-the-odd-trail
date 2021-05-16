@@ -18,23 +18,19 @@ public class EnemyTree : EnemyBase
     public float shakeDuration = 3f;
 
     private bool treeAttacking = false;
+    private bool rising = true;
+    private Animator animator;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animator = GetComponent<Animator>();
     }
 
     public void TreeAttackStarter()
     {
-        //invoke TreeAttack when animation starts
+        //invoke TreeAttack to wait for animation start
         TreeAttack(movementSpeed);
     }
 
@@ -58,6 +54,17 @@ public class EnemyTree : EnemyBase
     {
         yield return new WaitForSeconds(timeToEnd);
         target.GetComponent<PlayerManager>().PlayerDeath();
+    }
+
+    public void IdleState()
+    {
+        rising = false;
+        animator.SetTrigger("Idle");
+    }
+
+    public bool GetRising()
+    {
+        return rising;
     }
 
 

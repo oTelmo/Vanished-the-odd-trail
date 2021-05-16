@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit (4)
@@ -1200,6 +1204,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit (5)
@@ -1461,6 +1469,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit (6)
@@ -2195,6 +2207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit (1)
@@ -2628,6 +2644,7 @@ MonoBehaviour:
   maxHealth: 2
   cameraShake: {fileID: 1371783549}
   lowHeathScreen: {fileID: 1545412194}
+  hasBossItems: 1
   deerAttackRunning: 0
 --- !u!95 &1006248274
 Animator:
@@ -3166,7 +3183,7 @@ GameObject:
   - component: {fileID: 1381441505}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3258,6 +3275,12 @@ MonoBehaviour:
   targetSpotted: 0
   targetLocation: {x: 0, y: 0, z: 0}
   targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+  treePrefab: {fileID: 8704646744027965793, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
+  spawnTrees: 1
+  minDistace: 10
+  maxDistance: 25
+  numTrees: 5
+  rangeAttackTimer: 5
 --- !u!4 &1381441506
 Transform:
   m_ObjectHideFlags: 0
@@ -3266,7 +3289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381441500}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 143.4, y: 28.4, z: -39.503918}
+  m_LocalPosition: {x: 212.8, y: 25.5, z: -40.92}
   m_LocalScale: {x: 20, y: 40, z: 10}
   m_Children:
   - {fileID: 366662245}
@@ -3302,6 +3325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba9b6340db80d49904b8c732abcf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultChaseSpeed: 6
   targetSpotted: 0
 --- !u!1001 &1385654090
 PrefabInstance:
@@ -3920,7 +3944,7 @@ GameObject:
   - component: {fileID: 1620094271}
   m_Layer: 0
   m_Name: Boss zone
-  m_TagString: Untagged
+  m_TagString: BossZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4667,6 +4691,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit (7)
@@ -4807,7 +4835,7 @@ Transform:
   m_GameObject: {fileID: 2117001684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.635, y: 0.1219, z: 0}
-  m_LocalScale: {x: 0.06919248, y: 0.23258992, z: 0.6100175}
+  m_LocalScale: {x: 0.07, y: 0.23, z: 0.6}
   m_Children: []
   m_Father: {fileID: 198055364}
   m_RootOrder: 0
@@ -5020,6 +5048,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620094270}
     m_Modifications:
+    - target: {fileID: 641131994, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1381441500}
     - target: {fileID: 551821232312576245, guid: 0a74ca380c117e241af406ae2a44133a, type: 3}
       propertyPath: m_Name
       value: fire pit
@@ -5097,26 +5129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2468629549653961181, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
-      propertyPath: shakeDur
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468629549653961181, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
-      propertyPath: shakeMagX
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468629549653961181, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
-      propertyPath: shakeMagY
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468629549653961181, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
-      propertyPath: upDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468629549653961181, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
-      propertyPath: shakeDuration
-      value: 4.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8704646744027965793, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
       propertyPath: m_Name
       value: Tree
@@ -5169,6 +5181,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8704646744027965807, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd8b82b2e8456d84cb895e28dd90617f, type: 3}

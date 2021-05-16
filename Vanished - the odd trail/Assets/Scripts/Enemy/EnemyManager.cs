@@ -56,4 +56,6 @@ public class EnemyManager : MonoBehaviour
     {
         return Random.Range(0, max);
     }
+
+
 }

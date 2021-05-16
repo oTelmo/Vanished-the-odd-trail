@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6263f32cada29a043a70fe4f93d366cc, type: 3}
-  m_Name: Boss Chase State
+  m_Name: Boss Range Attack State
   m_EditorClassIdentifier: 
   entryAction: {fileID: 11400000, guid: 38df75cc01cb1d745b260284fb37d2bc, type: 2}
   stateAction:
-  - {fileID: 11400000, guid: 7e93a6917150cb84b896d0e113899368, type: 2}
+  - {fileID: 11400000, guid: a2e9920b7912a2d4db29cdffbaa4bb65, type: 2}
   exitAction: {fileID: 0}
   transitions:
-  - {fileID: 11400000, guid: ab73d5200a4599b41b133d96600687b8, type: 2}
-  - {fileID: 11400000, guid: 08b888bddd04f534498013fdb272efc5, type: 2}
+  - {fileID: 11400000, guid: 1ce80d77a5264cb4facf4d1b8dbed29f, type: 2}
