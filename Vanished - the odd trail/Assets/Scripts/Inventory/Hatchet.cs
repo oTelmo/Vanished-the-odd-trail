@@ -18,13 +18,23 @@ public class Hatchet : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            child.SetActive(true);
+            //
             anim.SetBool("attack", true);
         } 
         else if (Input.GetMouseButtonUp(0))
         {
-            child.SetActive(false);
+            //
             anim.SetBool("attack", false);
         }
+    }
+
+    public void ActivateHitBox()
+    {
+        child.SetActive(true);
+    }
+
+    public void DisableHitBox()
+    {
+        child.SetActive(false);
     }
 }

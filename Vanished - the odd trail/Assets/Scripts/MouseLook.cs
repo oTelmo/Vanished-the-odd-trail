@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MouseLook : MonoBehaviour
 {
+    [Header("Camera Settings")]
     public float mouseSensitivity = 30f;
+    public float originalFieldOfView = 80.6f;
+    public float zoomFieldOfView = 35f;
+    public float zoomSpeed = 5f;
+    
 
     public Transform playerBody;
     public bool lockMouse = false;
 
-    float xRotation = 0f;
+    private float xRotation = 0f;
+    private Camera mainCam;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -32,7 +41,7 @@ public class MouseLook : MonoBehaviour
 
             playerBody.Rotate(Vector3.up * mouseX);
         }
-            
+        ZoomCamera();
     }
 
     public void LockPlayerCamera(bool resetCamera)
@@ -48,4 +57,18 @@ public class MouseLook : MonoBehaviour
     {
         lockMouse = false;
     }
+
+    void ZoomCamera()
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, zoomFieldOfView, zoomSpeed * Time.deltaTime);
+        } 
+        else
+        {
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, originalFieldOfView, zoomSpeed * Time.deltaTime);
+        }
+    }
+
+
 }

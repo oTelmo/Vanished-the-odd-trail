@@ -8,6 +8,7 @@ public class Bow : MonoBehaviour
     //bool isEquipped = false;
 
     [Header("Arrow Settings")]
+    public GameObject arrowObject;
     public GameObject arrowPrefab;
     public Transform arrowSpawn;
     public float shootForce = 20f;
@@ -21,6 +22,8 @@ public class Bow : MonoBehaviour
     private Rigidbody rb;
     private InventoryManager inventoryManager;
 
+    private bool isAiming;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,32 +35,66 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (Input.GetMouseButtonDown(0) && !inventoryManager.inventoryOpen)
+        isAiming = Input.GetButtonDown("Fire2");
+        if (isAiming)
         {
-            if (arrowCount < 1)
-            {
-                return;
-            }
-
-            GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
-            Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
-            rb.velocity = cam.transform.forward * shootForce;
-
-            arrowCount -= 1;
+            EnableArrow();
         }
 
-       /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)
+        if (arrowCount < 1)
         {
-            EquipBow();
-            isEquipped = true;
-            
+            isAiming = false;
+            DisableArrow();
         }
-        else if (Input.GetKeyDown(KeyCode.E) && isEquipped)
+        if (arrowObject.activeSelf && Input.GetButtonUp("Fire1") && !inventoryManager.inventoryOpen)
         {
-            UnequipBow();
-            isEquipped = false;
-        }*/
+            DisableArrow();
+            FireArrow();
+            StartCoroutine(ReloadArrow(1.5f));
+        }
+
+
+        /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)
+         {
+             EquipBow();
+             isEquipped = true;
+
+         }
+         else if (Input.GetKeyDown(KeyCode.E) && isEquipped)
+         {
+             UnequipBow();
+             isEquipped = false;
+         }*/
+    }
+
+    IEnumerator ReloadArrow(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        arrowObject.SetActive(true);
+    }
+
+    void FireArrow()
+    {
+        if (arrowCount < 1)
+        {
+            return;
+        }
+
+        GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
+        Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
+        rb.velocity = cam.transform.forward * shootForce;
+
+        arrowCount -= 1;
+    }
+
+    public void EnableArrow()
+    {
+        arrowObject.SetActive(true);
+    }
+
+    public void DisableArrow()
+    {
+        arrowObject.SetActive(false);
     }
 
     /*public void EquipBow()
@@ -73,6 +110,4 @@ public class Bow : MonoBehaviour
         this.transform.rotation = unequipBowPos.rotation;
         this.transform.parent = unequipParent.transform;
     }*/
-
-
 }
