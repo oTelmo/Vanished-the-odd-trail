@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MyNavMeshAgent : MonoBehaviour
 {
+    public float defaultChaseSpeed = 6;
     private NavMeshAgent agent;
     private EnemyBase enemyController;
 

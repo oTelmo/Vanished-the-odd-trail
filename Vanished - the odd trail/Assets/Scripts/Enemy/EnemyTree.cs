@@ -5,30 +5,68 @@ using UnityEngine.AI;
 
 public class EnemyTree : EnemyBase
 {
-    private bool treeAttacked = false;
+    [Header ("Attack")]
+    public float upDistance = 10;
+    public float movementSpeed = 5;
+    public float timeToDie = 1.5f;
+
+    private Vector3 upPosition;
+
+    [Header ("Camera Shake")]
+    public float shakeMagX = 0.2f;
+    public float shakeMagY = 0.2f;
+    public float shakeDuration = 3f;
+
+    private bool treeAttacking = false;
+    private bool rising = true;
+    private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TreeAttackStarter()
     {
-        
+        //invoke TreeAttack to wait for animation start
+        TreeAttack(movementSpeed);
     }
 
-    public void TreeAttackPlayer(float movementSpeed)
+    private void TreeAttack(float movementSpeed)
     {
-        Vector3 upPosition = new Vector3(target.transform.position.x, transform.GetChild(0).position.y, target.transform.position.z);
+        if (!treeAttacking)
+        {
+            upPosition = new Vector3(target.transform.position.x, target.transform.position.y + upDistance, target.transform.position.z);
+            target.GetComponent<PlayerManager>().StartCameraShake(shakeDuration, shakeMagX, shakeMagY);
+            treeAttacking = true;
+        }
         target.transform.position = Vector3.MoveTowards(target.transform.position, upPosition, Time.deltaTime * movementSpeed);
 
-        if (!treeAttacked)
+        if(target.transform.position == upPosition)
         {
-            target.GetComponent<PlayerManager>().StartCameraShake(3f, 0.2f, 0.2f);
-            treeAttacked = true;
+            StartCoroutine(EndAttack(timeToDie));
         }
     }
+
+    IEnumerator EndAttack(float timeToEnd)
+    {
+        yield return new WaitForSeconds(timeToEnd);
+        target.GetComponent<PlayerManager>().PlayerDeath();
+    }
+
+    public void IdleState()
+    {
+        rising = false;
+        animator.SetTrigger("Idle");
+    }
+
+    public bool GetRising()
+    {
+        return rising;
+    }
+
+
 
 }

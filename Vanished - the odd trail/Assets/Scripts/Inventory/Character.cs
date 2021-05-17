@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerMovement.playerCaught = true;
+            playerMovement.playerLocked = true;
             inventoryManager.inventoryOpen = true;
             Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
@@ -45,7 +45,7 @@ public class Character : MonoBehaviour
             {
                 
                 inventoryUIObj.SetActive(false);
-                playerMovement.playerCaught = false;
+                playerMovement.playerLocked = false;
                 inventoryManager.inventoryOpen = false;
                 transform.GetChild(1).GetComponent<MouseLook>().UnLockPlayerCamera();
                 Cursor.lockState = CursorLockMode.Locked;

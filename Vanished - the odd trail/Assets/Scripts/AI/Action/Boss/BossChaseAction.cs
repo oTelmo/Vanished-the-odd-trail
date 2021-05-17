@@ -7,7 +7,8 @@ public class BossChaseAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetAgent().SetAgentSpeed(6);
+        fsm.GetAgent().SetAgentSpeed(fsm.GetAgent().defaultChaseSpeed);
         fsm.GetAgent().GoToTarget();
+        (fsm.GetEnemy() as EnemyBoss).BossChase();
     }
 }

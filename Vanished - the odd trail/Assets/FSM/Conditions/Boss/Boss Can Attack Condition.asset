@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boss Can Attack Condition
   m_EditorClassIdentifier: 
   trueIfCannotSee: 0
-  viewDistance: 15
+  viewDistance: 25
   useRayCast: 0

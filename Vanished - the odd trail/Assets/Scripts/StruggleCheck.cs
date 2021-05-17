@@ -74,8 +74,8 @@ public class StruggleCheck : MonoBehaviour
         if (result) //sucess
         {
             print("sucess");
-            deer.GetComponent<EnemyDeer>().DeerDeath();
-            playerManager.PlayerDeerStoppedAttack();
+            deer.GetComponent<EnemyDeer>().PlayerSucess();
+            playerManager.PlayerDeerStopAttack();
             
         }
         else //failed

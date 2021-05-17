@@ -5,14 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Finite State Machine/Actions/Tree attack")]
 public class TreeAttackAction : Action
 {
-    [SerializeField]
-    private float movementVelocity;
-
-
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetEnemy().target.GetComponent<PlayerMovement>().playerCaught = true;
-        (fsm.GetEnemy() as EnemyTree).TreeAttackPlayer(movementVelocity);
+        (fsm.GetEnemy() as EnemyTree).TreeAttackStarter();
+        fsm.GetEnemy().target.GetComponent<PlayerManager>().PlayerTreeAttack();
 
         //Rotate player to foward
         //fsm.GetEnemy().target.transform.rotation = Quaternion.RotateTowards(fsm.GetEnemy().target.transform.rotation, fsm.transform.rotation, Time.deltaTime * movementVelocity);

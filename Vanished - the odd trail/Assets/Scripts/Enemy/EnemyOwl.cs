@@ -23,7 +23,7 @@ public class EnemyOwl : EnemyBase
         
     }
 
-    public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
+    /*public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result)
     {
         bool hitGround = false;
         center.y -= GroundDistance();
@@ -35,7 +35,6 @@ public class EnemyOwl : EnemyBase
             if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
             {
                 result = hit.position;
-                //Debug.Log("Spawn point: " + hit.position);
                 hitGround = true;
                 return true;
             }
@@ -62,7 +61,7 @@ public class EnemyOwl : EnemyBase
             return hit.distance;
         }
         return 0;
-    }
+    }*/
 
     public void SetGizmosRadius(float radius)
     {
@@ -83,11 +82,12 @@ public class EnemyOwl : EnemyBase
     {
         deerSpawnTimer -= Time.deltaTime;
         targetSpotted = true;
-        if (deerSpawnTimer < 0)
+        if (deerSpawnTimer < 0) // use Coroutines
         {
+            
             Debug.Log("Spawn!");
             Vector3 point;
-            if (RandomPointInDonut(transform.position, minRange, maxRange, out point))
+            if (RandomPointInDonut(transform.position, minRange, maxRange, out point, NavMesh.AllAreas))
             {
                 if (canSpawnDeers)
                 {
