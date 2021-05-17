@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4ef6ca2f0c22141bddaf2fb8faf722, type: 3}
   m_Name: Boss Cannot Attack Condition
   m_EditorClassIdentifier: 
-  viewDistance: 30
+  viewDistance: 15

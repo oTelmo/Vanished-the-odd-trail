@@ -32,14 +32,15 @@ public class EnemyManager : MonoBehaviour
     {
         int numSlices = Random.Range(1, 7);
         int slice = Random.Range(1, numSlices + 1);
+        Vector3 heightPosition = new Vector3(0, tree.position.y/4, 0);
 
-        float treeRadius = tree.localScale.x;
+        float treeRadius = tree.localScale.x+1;
 
         float angle = 360f / numSlices;
 
         Quaternion rotation = Quaternion.AngleAxis(slice * angle, Vector3.up);
         Vector3 direction = rotation * Vector3.forward;
-        Vector3 position = tree.position + (direction * treeRadius);
+        Vector3 position = (tree.position + heightPosition) + (direction * treeRadius);
 
         Instantiate(owlPrefab, position, rotation);
     }

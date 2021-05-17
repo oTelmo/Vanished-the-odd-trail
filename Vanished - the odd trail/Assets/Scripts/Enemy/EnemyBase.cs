@@ -35,6 +35,11 @@ public class EnemyBase : MonoBehaviour
         audioSource.Stop();
     }
 
+    public void EnemyDeath()
+    {
+        Destroy(this);
+    }
+
     public bool RandomPointInDonut(Vector3 center, float minRange, float maxRange, out Vector3 result, int areaMaks)
     {
         bool hitGround = false;
