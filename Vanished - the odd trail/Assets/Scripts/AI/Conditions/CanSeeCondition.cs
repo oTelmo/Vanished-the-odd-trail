@@ -6,7 +6,7 @@ using UnityEngine;
 public class CanSeeCondition : Condition
 {
     [SerializeField]
-    private bool trueIfCannotSee;
+    private bool trueIfCanSee;
 
     [SerializeField]
     private float viewDistance;
@@ -35,16 +35,16 @@ public class CanSeeCondition : Condition
                     //Debug.Log(hit.transform.name);
                     if (hit.transform.tag == fsm.GetEnemy().target.tag)
                     {
-                        return !trueIfCannotSee;
+                        return trueIfCanSee;
                     }
                 }
             }
             else
             {
-                return !trueIfCannotSee;
+                return trueIfCanSee;
             }
 
         }
-        return trueIfCannotSee;
+        return !trueIfCanSee;
     }
 }

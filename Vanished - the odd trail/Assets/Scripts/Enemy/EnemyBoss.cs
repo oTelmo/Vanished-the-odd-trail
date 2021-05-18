@@ -57,26 +57,26 @@ public class EnemyBoss : EnemyBase
 
     public void BossAttackStarter()
     {
+        inChase = false;
         //Invoke BossActtack for animation
         bossAttacking = true;
     }
-
     private void BossAttack()
     {
         animator.SetTrigger("AttackState");
+        animator.SetBool("InChase", false);
     }
+
 
     public void BossChase()
     {
         inChase = true;
-        bossAttacking = false;
         timeRemaining -= Time.deltaTime;
-        animator.SetTrigger("IdleState");
+        animator.SetBool("InChase", true);
         if (spawnTrees)
         {
             Countdown();
         }
-       
     }
 
     private void AttractDeers()
@@ -92,6 +92,7 @@ public class EnemyBoss : EnemyBase
     public void BossRangeAttack()
     {
         Debug.Log("Range attack");
+        bossAttacking = true;
         Vector3 point;
         if (RandomPointInDonut(target.position, minDistace, maxDistance, out point, NavMesh.AllAreas))
         {
@@ -119,7 +120,14 @@ public class EnemyBoss : EnemyBase
         }
     }
 
+    public void BossStoppedAttack()
+    {
+        bossAttacking = false;
+    }
 
-
+    public bool GetBossAttacking()
+    {
+        return bossAttacking;
+    }
 
 }

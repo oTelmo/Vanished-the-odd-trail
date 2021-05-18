@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b269fb2fd9cf94ea4daf9f607f5f35, type: 3}
   m_Name: BossAttackToChase
   m_EditorClassIdentifier: 
-  decision: {fileID: 11400000, guid: 498cd81205e85544ba2ee7983dae9d36, type: 2}
+  decision: {fileID: 11400000, guid: e2e517e3dcc5b7146b9ab2bc5dc3eeee, type: 2}
   action: {fileID: 0}
   targetState: {fileID: 11400000, guid: 66c61fc051edec8469181854f51844d5, type: 2}

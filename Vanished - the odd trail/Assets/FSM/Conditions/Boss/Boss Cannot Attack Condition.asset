@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8bca0d1c8cce94c8e032299952becf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f4ef6ca2f0c22141bddaf2fb8faf722, type: 3}
   m_Name: Boss Cannot Attack Condition
   m_EditorClassIdentifier: 
-  trueIfCannotSee: 1
-  viewDistance: 25
-  useRayCast: 0
+  viewDistance: 15
