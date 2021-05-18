@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
-    public Transform playerBody;
-    public bool lockMouse = false;
-
-    float xRotation = 0f;
-
     [Header("Camera Settings")]
     public float mouseSensitivity = 30f;
     public float zoomSpeed = 5;
@@ -18,11 +12,15 @@ public class MouseLook : MonoBehaviour
 
     private Camera mainCam;
 
+    public Transform playerBody;
+    public bool lockMouse = false;
+    private float xRotation = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         mainCam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -41,7 +39,6 @@ public class MouseLook : MonoBehaviour
 
             playerBody.Rotate(Vector3.up * mouseX);
         }
-
         ZoomCamera();
 
     }
@@ -60,7 +57,7 @@ public class MouseLook : MonoBehaviour
         lockMouse = false;
     }
 
-    private void ZoomCamera()
+    void ZoomCamera()
     {
         if (Input.GetButton("Fire2"))
         {
