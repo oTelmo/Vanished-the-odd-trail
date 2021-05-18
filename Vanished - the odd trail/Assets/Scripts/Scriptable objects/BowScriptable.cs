@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item System/Item/Bow & Arrow")]
 public class BowScriptable : Item
 {
-    public override void UseItem(Character character) {}
+    public override void UseItem(PlayerInventory character) {}
 }

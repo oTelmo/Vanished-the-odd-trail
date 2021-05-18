@@ -54,7 +54,7 @@ public class Arrow : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isActive = true;
-            hud.GetComponent<HUD>().OpenMessagePanel("");
+            hud.GetComponent<HUD>().OpenMessagePanel("Press F to pickup arrow");
         }
     }
 

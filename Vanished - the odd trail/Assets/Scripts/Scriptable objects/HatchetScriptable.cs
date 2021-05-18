@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item System/Item/Hatchet")]
 public class HatchetScriptable : Item
 {
-    public override void UseItem(Character character) {}
+    public override void UseItem(PlayerInventory character) {}
 }

@@ -13,7 +13,7 @@ public abstract class Item : ScriptableObject
     [SerializeField]
     protected int maxPerInventorySlot;
 
-    public abstract void UseItem(Character character);
+    public abstract void UseItem(PlayerInventory character);
 
     public Sprite GetIcon()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     public InventorySlotUI[] itemSlotsUI;
-    private Character ownerCharacter;
+    private PlayerInventory ownerCharacter;
     private Inventory inventory;
 
     private GameObject hand;
@@ -20,7 +20,7 @@ public class InventoryUI : MonoBehaviour
         itemsID = inventoryManager.currentItemsID;
     }
 
-    public void InitializeInventoryUI(Character c, Inventory i)
+    public void InitializeInventoryUI(PlayerInventory c, Inventory i)
     {
         ownerCharacter = c;
         inventory = i;
@@ -42,7 +42,14 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < inventory.inventory.Count; i++)
         {
-            itemSlotsUI[i].itemImage.sprite = inventory.inventory[i].item.GetIcon();
+            for (int j = 0; j < itemSlotsUI.Length; j++)
+            {
+                if (inventory.inventory[i].item.Id == itemSlotsUI[j].id)
+                {
+                    itemSlotsUI[j].itemImage.sprite = inventory.inventory[i].item.GetIcon();
+                }
+            }
+            
         }
     }
 
