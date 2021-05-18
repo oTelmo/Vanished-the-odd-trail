@@ -26,6 +26,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  arrowObject: {fileID: 0}
   arrowPrefab: {fileID: 4950535958919946780, guid: 2b446dd1343645448a69b7445384131d, type: 3}
   arrowSpawn: {fileID: 2726451353840389830}
   shootForce: 20
@@ -72,6 +73,18 @@ PrefabInstance:
     - target: {fileID: 6971213670559054599, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971213670559054599, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971213670559054599, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971213670559054599, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6971213670559054599, guid: 9fe63e092498bc845a85337ec8b6e230, type: 3}
       propertyPath: m_LocalPosition.x
