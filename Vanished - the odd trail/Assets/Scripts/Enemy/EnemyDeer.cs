@@ -50,7 +50,7 @@ public class EnemyDeer : EnemyBase
         //Vector3 animPosition = transform.Find("Position1").position;
         //target.position = new Vector3(animPosition.x, target.position.y, animPosition.z);
         Vector3 position1 = transform.Find("Position1").position;
-        target.position = new Vector3(position1.x, target.position.y, position1.z);
+        target.position = new Vector3(position1.x, position1.y, position1.z);
         Quaternion targetRotation = Quaternion.LookRotation(transform.position - target.position);
         float str = Mathf.Min(5 * Time.deltaTime, 1);
         target.rotation = Quaternion.Lerp(target.rotation, targetRotation, str);
