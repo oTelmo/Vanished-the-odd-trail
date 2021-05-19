@@ -2052,6 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6f0055226947741886924974694597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   itemsID: 
   inventoryUIPrefab: {fileID: 4466279880256356735, guid: a280752de1fed5b43864972a32ec0e3b, type: 3}
   canvas: {fileID: 59743530}
@@ -2075,6 +2076,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+=======
+>>>>>>> Stashed changes
 --- !u!1 &519329501
 GameObject:
   m_ObjectHideFlags: 0
@@ -17833,7 +17836,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messagePanel: {fileID: 1274231963}
+<<<<<<< Updated upstream
   messageText: {fileID: 1950607326}
+=======
+  messageText: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1 &1796224904
 GameObject:
   m_ObjectHideFlags: 0

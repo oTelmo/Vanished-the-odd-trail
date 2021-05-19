@@ -15,14 +15,14 @@ public class EnemyManager : MonoBehaviour
     [Header("Enemies Spawn Stats")]
     [SerializeField]
     private int numberOwls = 5;
-    [SerializeField]
+    /*[SerializeField]
     private int numberDeers = 3;
     [SerializeField]
     private int numberTrees = 3;
 
     private int currentOwls;
     private int currentDeers;
-    private int currentTrees;
+    private int currentTrees;*/
 
 
     [Header("Enemies Areas")]
@@ -34,7 +34,8 @@ public class EnemyManager : MonoBehaviour
     {
         trees = GameObject.FindGameObjectsWithTag("Tree");
         //SpawnOwl(treeObject);
-        chooseTrees();
+        //chooseTrees();
+        SpawnOnAllTrees();
     }
 
     // Update is called once per frame
@@ -65,25 +66,22 @@ public class EnemyManager : MonoBehaviour
         for (int i = 1; i <= numberOwls; i++)
         {
             SpawnOwl(trees[Random.Range(0, trees.Length)].transform);
-            currentOwls++;
+            
+        }
+    }
+
+    private void SpawnOnAllTrees()
+    {
+        for (int i = 0; i < trees.Length; i++)
+        {
+            SpawnOwl(trees[i].transform);
+            //currentOwls++;
         }
     }
 
     private int RandomNumber(int max)
     {
         return Random.Range(0, max);
-    }
-
-    public void SpawnEnemies(int zoneID)
-    {
-        if(zoneID == 1)
-        {
-            //chooseTrees();
-        }
-        else if(zoneID == 2)
-        {
-
-        }
     }
 
 

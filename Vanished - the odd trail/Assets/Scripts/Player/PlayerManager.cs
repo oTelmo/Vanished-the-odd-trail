@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerMovement playerMovement;
     private GameObject gameManager;
     private MouseLook mouseLook;
+    private CharacterController characterController;
 
     [Header("Items")]
     public bool hasBossItems = true;
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameManager");
         sceneController = gameManager.GetComponent<SceneController>();
         mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -120,5 +122,13 @@ public class PlayerManager : MonoBehaviour
     public void PlayerDeath()
     {
         sceneController.PlayDeathScreen();
+    }
+
+    public void TeleportPlayer(Vector3 newLocation, Quaternion playerRotation)
+    {
+        characterController.enabled = false;
+        transform.rotation = playerRotation;
+        transform.position = newLocation;
+        characterController.enabled = true;
     }
 }

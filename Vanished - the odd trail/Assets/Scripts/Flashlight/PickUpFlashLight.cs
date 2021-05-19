@@ -8,7 +8,7 @@ public class PickUpFlashLight : MonoBehaviour
     private bool isActive = false;
     public bool pickedUp = false;
     public GameObject hud;
-    public GameObject flashlightInstructions;
+    //public GameObject flashlightInstructions;
     private float openTime = 3f;
 
     
@@ -26,11 +26,11 @@ public class PickUpFlashLight : MonoBehaviour
         {
             PickUpFlashLightItem();
         }
-        if (pickedUp)
+        /*if (pickedUp)
         {
             flashlightInstructions.SetActive(true);
             Destroy(flashlightInstructions, openTime);
-        }
+        }*/
         
     }
 
