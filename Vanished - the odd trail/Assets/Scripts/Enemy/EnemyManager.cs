@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemies Prefabs")]
     public GameObject owlPrefab;
     public GameObject deerPrefab;
 
@@ -11,8 +12,13 @@ public class EnemyManager : MonoBehaviour
     //private Transform[] choosenTrees;
     public Transform treeObject;
 
+    [Header("Enemies Spawn Stats")]
     [SerializeField]
     private int maxOwls = 5;
+
+    [Header("Enemies Areas")]
+    public GameObject DeerOwlZone;
+    public GameObject TreeZone;
 
     // Start is called before the first frame update
     void Start()
