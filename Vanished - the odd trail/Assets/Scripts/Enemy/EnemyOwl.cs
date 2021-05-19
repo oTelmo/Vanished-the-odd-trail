@@ -115,5 +115,18 @@ public class EnemyOwl : EnemyBase
         }
     }
 
+    public void OwlDeath()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Arrow"))
+        {
+            OwlDeath();
+        }
+    }
+
 
 }
