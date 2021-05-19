@@ -1,26 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HUD : MonoBehaviour
 {
     public GameObject messagePanel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public TextMeshProUGUI messageText;
 
     public void OpenMessagePanel(string text)
     {
         messagePanel.SetActive(true);
+        messageText.text = text;
+        
     }
 
     public void CloseMessagePanel()
