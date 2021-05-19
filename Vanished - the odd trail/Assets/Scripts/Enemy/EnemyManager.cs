@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemies Prefabs")]
     public GameObject owlPrefab;
     public GameObject deerPrefab;
 
@@ -11,15 +12,29 @@ public class EnemyManager : MonoBehaviour
     //private Transform[] choosenTrees;
     public Transform treeObject;
 
+    [Header("Enemies Spawn Stats")]
     [SerializeField]
-    private int maxOwls = 5;
+    private int numberOwls = 5;
+    [SerializeField]
+    private int numberDeers = 3;
+    [SerializeField]
+    private int numberTrees = 3;
+
+    private int currentOwls;
+    private int currentDeers;
+    private int currentTrees;
+
+
+    [Header("Enemies Areas")]
+    public GameObject DeerOwlZone;
+    public GameObject TreeZone;
 
     // Start is called before the first frame update
     void Start()
     {
         trees = GameObject.FindGameObjectsWithTag("Tree");
-        SpawnOwl(treeObject);
-        //chooseTrees();
+        //SpawnOwl(treeObject);
+        chooseTrees();
     }
 
     // Update is called once per frame
@@ -47,9 +62,10 @@ public class EnemyManager : MonoBehaviour
 
     private void chooseTrees()
     {
-        for (int i = 1; i <= maxOwls; i++)
+        for (int i = 1; i <= numberOwls; i++)
         {
             SpawnOwl(trees[Random.Range(0, trees.Length)].transform);
+            currentOwls++;
         }
     }
 
@@ -57,6 +73,19 @@ public class EnemyManager : MonoBehaviour
     {
         return Random.Range(0, max);
     }
+
+    public void SpawnEnemies(int zoneID)
+    {
+        if(zoneID == 1)
+        {
+            //chooseTrees();
+        }
+        else if(zoneID == 2)
+        {
+
+        }
+    }
+
 
 
 }

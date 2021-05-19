@@ -50,7 +50,7 @@ public class Arrow01 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isActive = true;
-        hud.GetComponent<HUD>().OpenMessagePanel("");
+       // hud.GetComponent<HUD>().OpenMessagePanel();
 
     }
 

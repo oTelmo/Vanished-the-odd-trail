@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class FirePitInteraction : MonoBehaviour, IInteractable
 {
-    public float MaxRange { get { return maxRange; } }
-    private const float maxRange = 100f;
+    
     private GameObject player;
     public GameObject boss;
     private PlayerManager playerManager;
+
+    //IInteractable related
+    public float MaxRange { get { return maxRange; } }
+    private const float maxRange = 100f;
 
     private void Start()
     {
