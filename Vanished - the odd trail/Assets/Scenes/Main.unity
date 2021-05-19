@@ -57907,6 +57907,7 @@ GameObject:
   - component: {fileID: 777599366640557687}
   - component: {fileID: 2057443232563129138}
   - component: {fileID: 2057443232563129137}
+  - component: {fileID: 2057443232563129139}
   m_Layer: 0
   m_Name: lockers_
   m_TagString: Untagged
@@ -57925,8 +57926,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1898235, y: 2.0379927, z: 1.0002936}
-  m_Center: {x: 0.0000610351, y: -2.9524348e-24, z: 0.15426707}
+  m_Size: {x: 1.1898235, y: 2.0379927, z: 1.2194415}
+  m_Center: {x: 0.00006103534, y: -4.3826e-25, z: 0.26384103}
 --- !u!65 &2057443232563129138
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57940,6 +57941,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1898235, y: 2.0379927, z: 0.6989912}
   m_Center: {x: 0, y: 3.700122e-26, z: 0.0036158264}
+--- !u!114 &2057443232563129139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057443232563129136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cbb4f6a3f5d1a479eeaef6e6bac470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinLock: {fileID: 0}
+  openLockers: {fileID: 0}
+  listofPeople: {fileID: 0}
 --- !u!33 &2059865391382244400
 MeshFilter:
   m_ObjectHideFlags: 0
