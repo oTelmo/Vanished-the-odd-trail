@@ -72,10 +72,7 @@ public class Bow : MonoBehaviour
 
     public void EnableArrow()
     {
-        if (inventoryManager.arrowCount >= 1)
-        {
-            arrowObject.SetActive(true);
-        }
+       arrowObject.SetActive(true);
     }
 
     public void DisableArrow()

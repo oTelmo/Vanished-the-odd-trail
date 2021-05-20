@@ -99,10 +99,4 @@ public class PlayerInventory : MonoBehaviour
         yield return new WaitForSeconds(2);
         inventoryTutorial.SetActive(false);
     }
-
-    IEnumerator FireflyDisable()
-    {
-        yield return new WaitForSeconds(3);
-        firefly.SetActive(false);
-    }
 }
