@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossItemInteraction : MonoBehaviour, IInteractable
+public class InsideBasementInteraction : MonoBehaviour, IInteractable
 {
-    public int objectID;
+    public Transform basementSpawn;
     private GameObject hud;
-    private PlayerInventory playerInventory;
+    private PlayerManager playerManager;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -16,25 +16,24 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     void Start()
     {
         hud = GameObject.FindWithTag("HUD");
-        playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+        playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnStartInteraction()
     {
         Debug.Log("Interaction with " + gameObject.name);
-        hud.GetComponent<HUD>().OpenMessagePanel("Press F to pick up");
+        hud.GetComponent<HUD>().OpenMessagePanel("Press F to go outside");
     }
 
     public void OnInteraction()
     {
-        playerInventory.InventoryAddObject(objectID);
-        gameObject.SetActive(false);
+        //playerManager.TeleportPlayer(basementSpawn, );
     }
 
     public void OnEndInteraction()

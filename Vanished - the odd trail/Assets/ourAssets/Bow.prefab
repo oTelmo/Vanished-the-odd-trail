@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93239972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.044, y: 0.429, z: 0.159}
+  m_LocalRotation: {x: 0.00000003073365, y: -0.012021704, z: -0.00000007788186, w: 0.99992776}
+  m_LocalPosition: {x: -0.0289, y: 0.3954, z: 0.2212}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 6971213670559054599}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1.378, z: 0}
 --- !u!1 &285052058554862818
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971213670559054599}
   - component: {fileID: 797289228}
-  - component: {fileID: 797289227}
+  - component: {fileID: 4037012683065927736}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Bow
@@ -543,7 +543,7 @@ Transform:
   m_GameObject: {fileID: 2679457448149053095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30.268589, y: 17.604261, z: -369.63873}
-  m_LocalScale: {x: 2.4475799, y: 2.4475796, z: 2.4475796}
+  m_LocalScale: {x: 1.246181, y: 1.246181, z: 1.2461808}
   m_Children:
   - {fileID: 5345846186563027475}
   - {fileID: 2657547971000980049}
@@ -569,7 +569,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &797289227
+--- !u!114 &4037012683065927736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,18 +578,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2679457448149053095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4ac5703d1c84642a6492b7c9ef6509, type: 3}
+  m_Script: {fileID: 11500000, guid: 19532b38d65cf9a4ea139c5b7c074ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  arrowObject: {fileID: 0}
   arrowPrefab: {fileID: 4950535958919946780, guid: 2b446dd1343645448a69b7445384131d, type: 3}
   arrowSpawn: {fileID: 93239973}
   shootForce: 50
   arrowCount: 5
-  equipBowPos: {fileID: 0}
-  unequipBowPos: {fileID: 0}
-  equipParent: {fileID: 0}
-  unequipParent: {fileID: 0}
 --- !u!1 &2840046631753772937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1182,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e77b0cc73087c94fb1b425b30860e47, type: 2}
+  - {fileID: 2100000, guid: 6589d8d56362c834e8c2b8263b9b4333, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
