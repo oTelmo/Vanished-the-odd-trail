@@ -20,7 +20,7 @@ public class CameraRaycast : MonoBehaviour
     {
         RaycastForInteractable();
 
-        if (Input.GetAxisRaw("Interact") > 0)
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if(currentTarget != null)
             {
