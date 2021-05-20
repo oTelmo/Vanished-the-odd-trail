@@ -21,6 +21,7 @@ TagManager:
   - BossZone
   - Boss
   - BossItem
+  - ArrowObj
   layers:
   - Default
   - TransparentFX

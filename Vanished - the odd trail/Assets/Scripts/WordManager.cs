@@ -20,6 +20,6 @@ public class WordManager : MonoBehaviour
 
     public void StartEndGame()
     {
-        oldLadyFirePit.transform.GetChild(0).gameObject.SetActive(true);
+        oldLadyFirePit.GetComponent<OldLadyFirePitInteraction>().StartOldLadyFirePit();
     }
 }

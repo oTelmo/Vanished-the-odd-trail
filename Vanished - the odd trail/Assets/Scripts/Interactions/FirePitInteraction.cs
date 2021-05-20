@@ -8,6 +8,7 @@ public class FirePitInteraction : MonoBehaviour, IInteractable
     private GameObject player;
     public GameObject boss;
     private PlayerManager playerManager;
+    private bool fireOn = false;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -25,18 +26,19 @@ public class FirePitInteraction : MonoBehaviour, IInteractable
     }
     public void OnInteraction()
     {
-        Debug.Log("OnInteraction");
-        if (playerManager.hasBossItems)
+        if(fireOn == false)
         {
-            Debug.Log("Spawn boss");
-            boss.SetActive(true);
-        }
-        else
-        {
-            //erro message
-        }
-
-        
+            Debug.Log("OnInteraction");
+            if (playerManager.hasBossItems)
+            {
+                Debug.Log("Spawn boss");
+                boss.SetActive(true);
+            }
+            else
+            {
+                //erro message
+            }
+        } 
     }
 
     public void OnEndInteraction()

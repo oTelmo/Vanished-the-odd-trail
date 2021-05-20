@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
     Rigidbody rb;
     private bool hasHit = false;
     private bool isActive = false;
+    public bool onFire = false;
 
     public HUD hud;
     private Bow bow;
@@ -37,6 +38,11 @@ public class Arrow : MonoBehaviour
             PickUpArrow();
         }
 
+        if (onFire)
+        {
+            transform.Find("Fire").gameObject.SetActive(true);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -54,11 +60,7 @@ public class Arrow : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isActive = true;
-<<<<<<< Updated upstream
             hud.GetComponent<HUD>().OpenMessagePanel("Press F to pickup arrow");
-=======
-            hud.OpenMessagePanel("Press F to pick up arrow");
->>>>>>> Stashed changes
         }
     }
 
