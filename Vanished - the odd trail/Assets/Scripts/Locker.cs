@@ -4,22 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Locker : MonoBehaviour, IInteractable
+public class Locker : MonoBehaviour
 {
 
     public GameObject codePanel, wrongPin, listOfPeople;
     public TextMeshProUGUI codeText;
-    public GameObject hud;
-    
     private string codeTextValue = "";
-    private bool isLockerOpened = false;
+
+    public bool isLockerOpened = false;
     private bool isActive = false;
     private bool isOpen = false;
+    public GameObject hud;
+
 
     private PlayerMovement playerMovement;
-
-    public float MaxRange { get { return maxRange; } }
-    private const float maxRange = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,21 +32,33 @@ public class Locker : MonoBehaviour, IInteractable
     {
         codeText.text = codeTextValue;
 
-        if (isLockerOpened)
+        /*if (isLockerOpened)
         {
             codePanel.SetActive(false);
-            listOfPeople.SetActive(true);
-        }
+        }*/
 
-        if (codeTextValue == "2000")
+        if (codeTextValue == "1994")
         {
             isLockerOpened = true;
+            listOfPeople.SetActive(true);
         } 
         if (codeTextValue.Length >= 4)
         {
             codeTextValue = "";
             StartCoroutine(SetWrongPinActive());
         }
+        if (isActive && Input.GetKeyDown(KeyCode.F))
+        {
+            if (isOpen)
+            {
+                CloseLocker();
+            }
+            else
+            {
+                OpenLocker();
+            }
+        }
+
     }
 
     IEnumerator SetWrongPinActive()
@@ -63,6 +73,25 @@ public class Locker : MonoBehaviour, IInteractable
         codeTextValue += digit;
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && !isLockerOpened)
+        {
+            isActive = true;
+            hud.GetComponent<HUD>().OpenMessagePanel("Press F to open locker");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isActive = false;
+            hud.GetComponent<HUD>().CloseMessagePanel();
+        }
+    }
+
     public void OpenLocker()
     {       
         codePanel.SetActive(true);
@@ -75,37 +104,8 @@ public class Locker : MonoBehaviour, IInteractable
     {
         codePanel.SetActive(false);
         listOfPeople.SetActive(false);
-        isLockerOpened = false;
         playerMovement.UnLockPlayerMovement();
         Cursor.lockState = CursorLockMode.Locked;
         isOpen = false;
-    }
-
-    public void OnStartInteraction()
-    {
-        Debug.Log("Interaction with " + gameObject.name);
-        isActive = true;
-        hud.GetComponent<HUD>().OpenMessagePanel("Press F to open locker");
-    }
-
-    public void OnInteraction()
-    {
-        if (isActive)
-        {
-            if (isOpen)
-            {
-                CloseLocker();
-            }
-            else
-            {
-                OpenLocker();
-            }
-        }
-    }
-
-    public void OnEndInteraction()
-    {
-        isActive = false;
-        hud.GetComponent<HUD>().CloseMessagePanel();
     }
 }
