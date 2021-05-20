@@ -42,7 +42,7 @@ public class Bow : MonoBehaviour
             isAiming = false;
             DisableArrow();
         }
-        if (arrowObject.activeSelf && Input.GetButtonUp("Fire1") && !inventoryManager.inventoryOpen)
+        if (arrowObject.activeSelf && Input.GetMouseButtonUp(0) && !inventoryManager.inventoryOpen)
         {
             DisableArrow();
             FireArrow();
