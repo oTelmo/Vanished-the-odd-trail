@@ -8,8 +8,8 @@ public class Arrow : MonoBehaviour
     private bool hasHit = false;
     private bool isActive = false;
 
-    public HUD hud;
-    private Bow bow;
+    public GameObject hud;
+    public GameObject bow;
     public Camera playerCamera;
 
 
@@ -18,8 +18,8 @@ public class Arrow : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         transform.rotation = Quaternion.LookRotation(rb.velocity);
-        hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
-        bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
+        hud = GameObject.FindWithTag("HUD");
+        bow = GameObject.FindWithTag("Bow");
         playerCamera = Camera.main;
     }
 
@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
         if (!hasHit)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
-            hud.CloseMessagePanel();
+            hud.GetComponent<HUD>().CloseMessagePanel();
         }
 
         if (isActive)
@@ -54,18 +54,14 @@ public class Arrow : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isActive = true;
-<<<<<<< Updated upstream
             hud.GetComponent<HUD>().OpenMessagePanel("Press F to pickup arrow");
-=======
-            hud.OpenMessagePanel("Press F to pick up arrow");
->>>>>>> Stashed changes
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         isActive = false;
-        hud.CloseMessagePanel();
+        hud.GetComponent<HUD>().CloseMessagePanel();
     }
 
     private void Stick()
@@ -77,8 +73,8 @@ public class Arrow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            bow.arrowCount++;
-            hud.CloseMessagePanel();
+            bow.GetComponent<Bow>().arrowCount++;
+            hud.GetComponent<HUD>().CloseMessagePanel();
             Destroy(gameObject);
         }
     }
