@@ -6,7 +6,6 @@ public class WordManager : MonoBehaviour
 {
     public GameObject oldLadyFirePit;
     
-
     // Start is called before the first frame update
     void Start()
     {

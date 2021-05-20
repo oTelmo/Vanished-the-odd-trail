@@ -7,6 +7,7 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     public int objectID;
     private GameObject hud;
     private PlayerInventory playerInventory;
+    private WordManager wordManager;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -17,6 +18,7 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     {
         hud = GameObject.FindWithTag("HUD");
         playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
+        wordManager = GameObject.FindWithTag("GameManager").GetComponent<WordManager>();
     }
 
     // Update is called once per frame
