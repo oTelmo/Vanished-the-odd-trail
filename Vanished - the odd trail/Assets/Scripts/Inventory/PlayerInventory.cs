@@ -7,6 +7,9 @@ public class PlayerInventory : MonoBehaviour
     public List<int> itemsID;
     public List<int> objectsID;
 
+    [SerializeField] private GameObject inventoryTutorial;
+    [SerializeField] private GameObject firefly;
+
     public GameObject inventoryUIPrefab;
     public GameObject canvas;
     public GameObject hud;
@@ -17,7 +20,6 @@ public class PlayerInventory : MonoBehaviour
     private PlayerMovement playerMovement;
     private InventoryManager inventoryManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         inventory = new Inventory();
@@ -26,12 +28,11 @@ public class PlayerInventory : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerMovement.LockPlayerMovement(true);
+            playerMovement.playerLocked = true;
             inventoryManager.inventoryOpen = true;
             Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
@@ -44,34 +45,21 @@ public class PlayerInventory : MonoBehaviour
             }
             else if (inventoryUIObj.activeSelf)
             {
+
                 inventoryUIObj.SetActive(false);
-                playerMovement.UnLockPlayerMovement();
+                playerMovement.playerLocked = false;
                 inventoryManager.inventoryOpen = false;
+                transform.GetChild(1).GetComponent<MouseLook>().UnLockPlayerCamera();
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
+
                 inventoryUIObj.SetActive(true);
                 //inventoryUI.ClearInventoryUI();
                 inventoryUI.UpdateInventoryUI();
-            }
-        }        
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        ItemInstance itemInstance = other.gameObject.GetComponent<ItemInstance>();
-        if (itemInstance)
-        {
-            //add item to inventory
-            inventory.AddItem(itemInstance.item);
-            itemsID.Add(itemInstance.itemID);
-            if (inventoryUI)
-            {
-                inventoryUI.ClearInventoryUI();
-                inventoryUI.UpdateInventoryUI();
             }
-            Destroy(other.gameObject);
         }
     }
 
@@ -84,10 +72,29 @@ public class PlayerInventory : MonoBehaviour
             inventoryUI.ClearInventoryUI();
             inventoryUI.UpdateInventoryUI();
         }
+        if (itemsID.Count > 1)
+        {
+            inventoryTutorial.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(Tutorial());
+        }
+        if (itemID == 1)
+        {
+            firefly.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     public void InventoryAddObject(int objectID)
     {
         objectsID.Add(objectID);
+    }
+
+    IEnumerator Tutorial()
+    {
+        inventoryTutorial.SetActive(true);
+        yield return new WaitForSeconds(2);
+        inventoryTutorial.SetActive(false);
     }
 }

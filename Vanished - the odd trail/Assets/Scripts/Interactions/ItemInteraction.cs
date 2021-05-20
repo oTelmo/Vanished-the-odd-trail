@@ -9,7 +9,7 @@ public class ItemInteraction : MonoBehaviour, IInteractable
     
     private GameObject player;
     private PlayerInventory playerInventory;
-    private GameObject hud;
+    private HUD hud;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -20,7 +20,7 @@ public class ItemInteraction : MonoBehaviour, IInteractable
     {
         player = GameObject.FindWithTag("Player");
         playerInventory = player.GetComponent<PlayerInventory>();
-        hud = GameObject.FindWithTag("HUD");
+        hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class ItemInteraction : MonoBehaviour, IInteractable
     public void OnStartInteraction()
     {
         Debug.Log("Interaction with " + gameObject.name);
-        hud.GetComponent<HUD>().OpenMessagePanel("Press F to pickup " + this.name);
+        hud.OpenMessagePanel("Press F to pickup " + this.name);
     }
 
     public void OnInteraction()
@@ -44,7 +44,7 @@ public class ItemInteraction : MonoBehaviour, IInteractable
     public void OnEndInteraction()
     {
         Debug.Log("Stopped interaction with " + gameObject.name);
-        hud.GetComponent<HUD>().CloseMessagePanel();
+        hud.CloseMessagePanel();
     }
     
 }

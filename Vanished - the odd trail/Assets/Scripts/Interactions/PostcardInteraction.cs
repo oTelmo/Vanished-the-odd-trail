@@ -30,7 +30,7 @@ public class PostcardInteraction : MonoBehaviour, IInteractable
     public void OnInteraction()
     {
        if (isActive)
-        {
+       {
             if (isOpen)
             {
                 DropPostal();

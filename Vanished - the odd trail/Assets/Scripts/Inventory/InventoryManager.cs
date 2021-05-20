@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public List<int> currentItemsID;
     public bool inventoryOpen = false;
+    public int arrowCount = 5;
 
     public GameObject currentItem;
 

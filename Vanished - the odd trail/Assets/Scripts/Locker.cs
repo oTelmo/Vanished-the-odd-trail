@@ -6,18 +6,16 @@ using TMPro;
 
 public class Locker : MonoBehaviour, IInteractable
 {
-
-    public GameObject codePanel, wrongPin, listOfPeople;
+    public GameObject codePanel, wrongPin, listOfPeople, successPin;
     public TextMeshProUGUI codeText;
-    public GameObject hud;
-    
     private string codeTextValue = "";
+
     private bool isLockerOpened = false;
     private bool isActive = false;
     private bool isOpen = false;
+    private HUD hud;
 
     private PlayerMovement playerMovement;
-
     public float MaxRange { get { return maxRange; } }
     private const float maxRange = 100f;
 
@@ -27,6 +25,7 @@ public class Locker : MonoBehaviour, IInteractable
         isActive = false;
         isOpen = false;
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
     }
 
     // Update is called once per frame
@@ -39,16 +38,6 @@ public class Locker : MonoBehaviour, IInteractable
             codePanel.SetActive(false);
             listOfPeople.SetActive(true);
         }
-
-        if (codeTextValue == "2000")
-        {
-            isLockerOpened = true;
-        } 
-        if (codeTextValue.Length >= 4)
-        {
-            codeTextValue = "";
-            StartCoroutine(SetWrongPinActive());
-        }
     }
 
     IEnumerator SetWrongPinActive()
@@ -58,13 +47,40 @@ public class Locker : MonoBehaviour, IInteractable
         wrongPin.SetActive(false);
     }
 
+    IEnumerator SetCorrectPinActive()
+    {
+        successPin.SetActive(true);
+        codeTextValue = "";
+        yield return new WaitForSeconds(3);
+        successPin.SetActive(false);
+        isLockerOpened = true;
+    }
+
+    public void ConfirmCode()
+    {
+        if (codeTextValue == "10062000")
+        {
+            StartCoroutine(SetCorrectPinActive());
+        }
+        else if (codeTextValue.Length < 8 || codeTextValue.Length >= 8)
+        {
+            codeTextValue = "";
+            StartCoroutine(SetWrongPinActive());
+        }
+    }
+
+    public void EraseCode()
+    {
+        codeTextValue = "";
+    }
+
     public void AddDigit(string digit)
     {
         codeTextValue += digit;
     }
 
     public void OpenLocker()
-    {       
+    {
         codePanel.SetActive(true);
         playerMovement.LockPlayerMovement(true);
         Cursor.lockState = CursorLockMode.None;
@@ -83,9 +99,8 @@ public class Locker : MonoBehaviour, IInteractable
 
     public void OnStartInteraction()
     {
-        Debug.Log("Interaction with " + gameObject.name);
         isActive = true;
-        hud.GetComponent<HUD>().OpenMessagePanel("Press F to open locker");
+        hud.OpenMessagePanel("Press F to open locker");
     }
 
     public void OnInteraction()

@@ -12,7 +12,7 @@ public class Bow : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform arrowSpawn;
     public float shootForce = 30f;
-    public float arrowCount = 5;
+    //public float arrowCount = 5;
     public bool onFire = false;
 
     private Rigidbody rb;
@@ -36,13 +36,13 @@ public class Bow : MonoBehaviour
             EnableArrow();
         }
 
-        if (arrowCount < 1)
+        if (inventoryManager.arrowCount < 1)
         {
             isAiming = false;
             DisableArrow();
         }
 
-        if (arrowObject.activeSelf && Input.GetButtonUp("Fire1") && !inventoryManager.inventoryOpen)
+        if (arrowObject.activeSelf && Input.GetMouseButtonUp(0) && !inventoryManager.inventoryOpen)
         {
             DisableArrow();
             FireArrow();
@@ -59,19 +59,18 @@ public class Bow : MonoBehaviour
 
     void FireArrow()
     {
-        if (arrowCount < 1)
+        if (inventoryManager.arrowCount < 1)
         {
             return;
         }
         else
         {
-            
             GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
             spawnArrow.GetComponent<Arrow>().onFire = onFire;
             Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
             rb.velocity = cam.transform.forward * shootForce;
 
-            arrowCount -= 1;
+            inventoryManager.arrowCount -= 1;
         }
     }
 
@@ -85,19 +84,6 @@ public class Bow : MonoBehaviour
         arrowObject.SetActive(false);
     }
 
-    /*public void EquipBow()
-    {
-        this.transform.position = equipBowPos.position;
-        this.transform.rotation = equipBowPos.rotation;
-        this.transform.parent = equipParent;
-    }
-
-    public void UnequipBow()
-    {
-        this.transform.position = unequipBowPos.position;
-        this.transform.rotation = unequipBowPos.rotation;
-        this.transform.parent = unequipParent.transform;
-    }*/
 
     public void StartFire()
     {
