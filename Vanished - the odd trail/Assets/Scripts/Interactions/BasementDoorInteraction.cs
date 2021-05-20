@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasementDoorInteraction : MonoBehaviour, IInteractable
 {
     public Transform basementSpawn;
+    public string whereToGo;
     private GameObject player;
     private PlayerManager playerManager;
     private GameObject hud;
@@ -21,16 +22,10 @@ public class BasementDoorInteraction : MonoBehaviour, IInteractable
         hud = GameObject.FindWithTag("HUD");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnStartInteraction()
     {
         Debug.Log("Interaction with " + gameObject.name);
-        hud.GetComponent<HUD>().OpenMessagePanel("Press F to go inside.");
+        hud.GetComponent<HUD>().OpenMessagePanel("Press F to go " + whereToGo);
     }
 
     public void OnInteraction()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public List<int> itemsID;
+    public List<int> objectsID;
 
     public GameObject inventoryUIPrefab;
     public GameObject canvas;
@@ -83,5 +84,10 @@ public class PlayerInventory : MonoBehaviour
             inventoryUI.ClearInventoryUI();
             inventoryUI.UpdateInventoryUI();
         }
+    }
+
+    public void InventoryAddObject(int objectID)
+    {
+        objectsID.Add(objectID);
     }
 }
