@@ -9,6 +9,8 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject currentItem;
 
+    public float arrowCount = 5;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))

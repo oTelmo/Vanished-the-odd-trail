@@ -7,7 +7,7 @@ public class FlashlightScriptable : Item
 {
     private GameObject hand;
 
-    public override void UseItem(Character character)
+    public override void UseItem(PlayerInventory character)
     {
         /*hand = GameObject.FindWithTag("Hand");
         hand.transform.GetChild(2).gameObject.SetActive(true);*/

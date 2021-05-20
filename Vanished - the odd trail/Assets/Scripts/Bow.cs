@@ -12,13 +12,7 @@ public class Bow : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform arrowSpawn;
     public float shootForce = 20f;
-    public float arrowCount = 5;
 
-    /*[Header("Bow Equip & Unequip Settings")]
-    public Transform equipBowPos;
-    public Transform unequipBowPos;
-    public Transform equipParent;
-    public GameObject unequipParent;*/
     private Rigidbody rb;
     private InventoryManager inventoryManager;
 
@@ -26,9 +20,11 @@ public class Bow : MonoBehaviour
 
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
         inventoryManager = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>();
+        
         //UnequipBow();
     }
 
@@ -41,7 +37,7 @@ public class Bow : MonoBehaviour
             EnableArrow();
         }
 
-        if (arrowCount < 1)
+        if (inventoryManager.arrowCount < 1)
         {
             isAiming = false;
             DisableArrow();
@@ -52,19 +48,6 @@ public class Bow : MonoBehaviour
             FireArrow();
             StartCoroutine(ReloadArrow(1.5f));
         }
-
-
-        /* if (Input.GetKeyDown(KeyCode.E) && !isEquipped)
-         {
-             EquipBow();
-             isEquipped = true;
-
-         }
-         else if (Input.GetKeyDown(KeyCode.E) && isEquipped)
-         {
-             UnequipBow();
-             isEquipped = false;
-         }*/
     }
 
     IEnumerator ReloadArrow(float sec)
@@ -75,7 +58,7 @@ public class Bow : MonoBehaviour
 
     void FireArrow()
     {
-        if (arrowCount < 1)
+        if (inventoryManager.arrowCount < 1)
         {
             return;
         }
@@ -84,30 +67,19 @@ public class Bow : MonoBehaviour
         Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
         rb.velocity = cam.transform.forward * shootForce;
 
-        arrowCount -= 1;
+        inventoryManager.arrowCount -= 1;
     }
 
     public void EnableArrow()
     {
-        arrowObject.SetActive(true);
+        if (inventoryManager.arrowCount >= 1)
+        {
+            arrowObject.SetActive(true);
+        }
     }
 
     public void DisableArrow()
     {
         arrowObject.SetActive(false);
     }
-
-    /*public void EquipBow()
-    {
-        this.transform.position = equipBowPos.position;
-        this.transform.rotation = equipBowPos.rotation;
-        this.transform.parent = equipParent;
-    }
-
-    public void UnequipBow()
-    {
-        this.transform.position = unequipBowPos.position;
-        this.transform.rotation = unequipBowPos.rotation;
-        this.transform.parent = unequipParent.transform;
-    }*/
 }

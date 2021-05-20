@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class PlayerInventory : MonoBehaviour
 {
     public List<int> itemsID;
+    public List<int> objectsID;
+
+    [SerializeField] private GameObject inventoryTutorial;
+    [SerializeField] private GameObject firefly;
 
     public GameObject inventoryUIPrefab;
     public GameObject canvas;
     public GameObject hud;
-    public GameObject inventoryTutorial;
 
     private GameObject inventoryUIObj;
     private InventoryUI inventoryUI;
@@ -18,7 +21,6 @@ public class Character : MonoBehaviour
     private InventoryManager inventoryManager;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         inventory = new Inventory();
@@ -27,7 +29,6 @@ public class Character : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -60,25 +61,48 @@ public class Character : MonoBehaviour
                 inventoryUI.UpdateInventoryUI();
                 
             }
-        }        
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void InventoryAddItem(int itemID, Item item)
     {
-        ItemInstance itemInstance = other.gameObject.GetComponent<ItemInstance>();
-        if (itemInstance)
+        inventory.AddItem(item);
+        itemsID.Add(itemID);
+        if (inventoryUI)
         {
-            //add item to inventory
-            inventory.AddItem(itemInstance.item);
-            itemsID.Add(itemInstance.itemID);
-            if (inventoryUI)
-            {
-                inventoryUI.ClearInventoryUI();
-                inventoryUI.UpdateInventoryUI();
-            }
-            //inventoryTutorial.SetActive(true);
-            Destroy(other.gameObject);
-            //Destroy(inventoryTutorial, 3);
+            inventoryUI.ClearInventoryUI();
+            inventoryUI.UpdateInventoryUI();
         }
+        if (itemsID.Count > 1)
+        {
+            inventoryTutorial.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(Tutorial());
+        }
+        if (itemID == 1)
+        {
+            firefly.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+    }
+
+    public void InventoryAddObject(int objectID)
+    {
+        objectsID.Add(objectID);
+    }
+
+
+    IEnumerator Tutorial()
+    {
+        inventoryTutorial.SetActive(true);
+        yield return new WaitForSeconds(2);
+        inventoryTutorial.SetActive(false);
+    }
+
+    IEnumerator FireflyDisable()
+    {
+        yield return new WaitForSeconds(3);
+        firefly.SetActive(false);
     }
 }

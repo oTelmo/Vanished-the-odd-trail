@@ -2,25 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpFlashLight : MonoBehaviour
+public class PickUpFlashLight : MonoBehaviour, IInteractable
 {
 
     private bool isActive = false;
     public bool pickedUp = false;
-    public GameObject hud;
+    private HUD hud;
     public GameObject flashlightInstructions;
     private float openTime = 3f;
 
-    
+    public float MaxRange { get { return maxRange; } }
+    private const float maxRange = 100f;
 
     public void Start()
     {
         pickedUp = false;
+        hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PickUpFlashLightItem ()
+    {
+        pickedUp = true;
+        hud.GetComponent<HUD>().CloseMessagePanel();
+        Destroy(gameObject);
+    }
+
+    public void OnStartInteraction()
+    {
+        isActive = true;
+        hud.OpenMessagePanel("Press F to pickup flashlight");
+    }
+
+    public void OnInteraction()
     {
         if (isActive)
         {
@@ -31,31 +45,11 @@ public class PickUpFlashLight : MonoBehaviour
             flashlightInstructions.SetActive(true);
             Destroy(flashlightInstructions, openTime);
         }
-        
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isActive = true;
-            hud.GetComponent<HUD>().OpenMessagePanel("Press F to pickup flashlight");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
+    public void OnEndInteraction()
     {
         isActive = false;
-        hud.GetComponent<HUD>().CloseMessagePanel();
-    }
-
-    public void PickUpFlashLightItem ()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            pickedUp = true;
-            hud.GetComponent<HUD>().CloseMessagePanel();
-            Destroy(gameObject);
-        }
+        hud.CloseMessagePanel();
     }
 }
