@@ -13,8 +13,8 @@ public class PlayerManager : MonoBehaviour
     private SceneController sceneController;
     private PlayerMovement playerMovement;
     private GameObject gameManager;
-    private MouseLook mouseLook;
     private CharacterController characterController;
+    private Animator crossFadeAnimator;
 
     [Header("Items")]
     public bool hasBossItems = true;
@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         gameManager = GameObject.FindWithTag("GameManager");
         sceneController = gameManager.GetComponent<SceneController>();
-        mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
+        crossFadeAnimator = gameManager.transform.GetChild(0).gameObject.GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
     }
 
@@ -126,6 +126,14 @@ public class PlayerManager : MonoBehaviour
 
     public void TeleportPlayer(Vector3 newLocation, Quaternion playerRotation)
     {
+        StartCoroutine(TeleportPlayerAnim(newLocation, playerRotation));
+    }
+
+    IEnumerator TeleportPlayerAnim(Vector3 newLocation, Quaternion playerRotation)
+    {
+        //crossFadeAnimator.SetTrigger("Start");
+        crossFadeAnimator.SetTrigger("Start&End");
+        yield return new WaitForSeconds(1);
         characterController.enabled = false;
         transform.rotation = playerRotation;
         transform.position = newLocation;

@@ -36,6 +36,7 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     public void OnInteraction()
     {
         playerInventory.InventoryAddObject(objectID);
+        wordManager.StartEndGame();
         gameObject.SetActive(false);
     }
 
