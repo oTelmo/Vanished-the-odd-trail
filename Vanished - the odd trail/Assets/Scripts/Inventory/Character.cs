@@ -9,12 +9,14 @@ public class Character : MonoBehaviour
     public GameObject inventoryUIPrefab;
     public GameObject canvas;
     public GameObject hud;
+    public GameObject inventoryTutorial;
 
     private GameObject inventoryUIObj;
     private InventoryUI inventoryUI;
     private Inventory inventory;
     private PlayerMovement playerMovement;
     private InventoryManager inventoryManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +76,9 @@ public class Character : MonoBehaviour
                 inventoryUI.ClearInventoryUI();
                 inventoryUI.UpdateInventoryUI();
             }
+            //inventoryTutorial.SetActive(true);
             Destroy(other.gameObject);
+            //Destroy(inventoryTutorial, 3);
         }
     }
 }
