@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpFlashLight : MonoBehaviour, IInteractable
+public class FlashlightInteraction : MonoBehaviour, IInteractable
 {
     private bool isActive = false;
     public bool pickedUp = false;

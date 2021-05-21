@@ -12,16 +12,20 @@ public class EnemyBase : MonoBehaviour
     public int health = 2;
     private AudioSource audioSource;
 
+
     [HideInInspector]
     public bool targetSpotted = false;
     [HideInInspector]
     public Vector3 targetLocation;
 
     public Vector3ValueSimple targetPingLocation;
+    [HideInInspector]
+    public EnemyManager enemyManager;
 
     void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
+        //enemyManager = GameObject.FindWithTag("GameManager").GetComponent<EnemyManager>();
         audioSource = GetComponent<AudioSource>();
     }
 

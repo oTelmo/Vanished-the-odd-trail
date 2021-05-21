@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasementDoorInteraction : MonoBehaviour, IInteractable
 {
-    public Transform basementSpawn;
+    public Transform whereToSpawn;
     public string whereToGo;
     private GameObject player;
     private PlayerManager playerManager;
@@ -31,7 +31,7 @@ public class BasementDoorInteraction : MonoBehaviour, IInteractable
     public void OnInteraction()
     {
         Debug.Log("Teleport");
-        playerManager.TeleportPlayer(basementSpawn.position, Quaternion.Euler(0, 0, 0));
+        playerManager.TeleportPlayer(whereToSpawn.position, Quaternion.Euler(0, 0, 0));
     }
 
     public void OnEndInteraction()

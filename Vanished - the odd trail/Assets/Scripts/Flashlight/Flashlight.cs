@@ -5,17 +5,14 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour
 {
     private bool flashlightEnabled;
-
     public GameObject flashLight;
-    public GameObject[] lightObj;
-
-    private PickUpFlashLight pickedUpBool;
+    private FlashlightInteraction pickedUpBool;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        pickedUpBool = GameObject.FindWithTag("Flashlight").GetComponent<PickUpFlashLight>();
+        pickedUpBool = GameObject.FindWithTag("Flashlight").GetComponent<FlashlightInteraction>();
     }
 
     // Update is called once per frame

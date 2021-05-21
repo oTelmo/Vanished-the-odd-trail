@@ -6,6 +6,7 @@ using TMPro;
 
 public class Locker : MonoBehaviour, IInteractable
 {
+    public WordManager wordManager;
     public GameObject codePanel, wrongPin, listOfPeople, successPin;
     public TextMeshProUGUI codeText;
     private string codeTextValue = "";
@@ -15,7 +16,10 @@ public class Locker : MonoBehaviour, IInteractable
     private bool isOpen = false;
     private HUD hud;
 
+    //public bool unlocked = false;
+
     private PlayerMovement playerMovement;
+
     public float MaxRange { get { return maxRange; } }
     private const float maxRange = 100f;
 
@@ -37,6 +41,7 @@ public class Locker : MonoBehaviour, IInteractable
         {
             codePanel.SetActive(false);
             listOfPeople.SetActive(true);
+            wordManager.StartTrees();
         }
     }
 

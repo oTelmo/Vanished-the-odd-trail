@@ -5,6 +5,7 @@ using UnityEngine;
 public class WordManager : MonoBehaviour
 {
     public GameObject oldLadyFirePit;
+    public GameObject treeCollider;
     
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,15 @@ public class WordManager : MonoBehaviour
     {
         
     }
+    public void StartTrees()
+    {
+        treeCollider.SetActive(true);
+    }
 
     public void StartEndGame()
     {
         oldLadyFirePit.GetComponent<OldLadyFirePitInteraction>().StartOldLadyFirePit();
     }
+
+    
 }
