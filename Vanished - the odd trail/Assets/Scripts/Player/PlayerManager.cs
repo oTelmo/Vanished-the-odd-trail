@@ -22,7 +22,12 @@ public class PlayerManager : MonoBehaviour
     private Animator animator;
     [Header("Animations")]
     public bool deerAttackRunning = false;
-    
+
+    [Header("Teleport Locations")]
+    public Transform bossZone;
+    public Transform watchtower;
+    public Transform oldLadyHouse;
+    public Transform campSite;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +45,9 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TeleportCheats();
     }
+
 
    
     public void PlayerDeerAttack()
@@ -138,5 +144,26 @@ public class PlayerManager : MonoBehaviour
         transform.rotation = playerRotation;
         transform.position = newLocation;
         characterController.enabled = true;
+    }
+
+    //cheats
+    private void TeleportCheats()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            TeleportPlayer(bossZone.position, transform.rotation);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            TeleportPlayer(watchtower.position, transform.rotation);
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            TeleportPlayer(oldLadyHouse.position, transform.rotation);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            TeleportPlayer(campSite.position, transform.rotation);
+        }
     }
 }

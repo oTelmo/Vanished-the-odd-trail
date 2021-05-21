@@ -6,10 +6,12 @@ public class WordManager : MonoBehaviour
 {
     public GameObject oldLadyFirePit;
     public GameObject treeCollider;
+    private PlayerManager playerManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         oldLadyFirePit.transform.GetChild(0).gameObject.SetActive(false);
     }
 

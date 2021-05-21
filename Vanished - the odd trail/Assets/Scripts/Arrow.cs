@@ -65,18 +65,20 @@ public class Arrow : MonoBehaviour, IInteractable
 
     public void PickUpArrow()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            inventoryManager.arrowCount++;
-            hud.CloseMessagePanel();
-            Destroy(gameObject);
-        }
+        inventoryManager.arrowCount++;
+        hud.CloseMessagePanel();
+        Destroy(gameObject);
+        
     }
 
     public void OnStartInteraction()
     {
-        isActive = true;
-        hud.OpenMessagePanel("Press F to pick up arrow");
+        if (hasHit)
+        {
+            isActive = true;
+            hud.OpenMessagePanel("Press F to pick up arrow");
+        }
+        
     }
 
     public void OnInteraction()
