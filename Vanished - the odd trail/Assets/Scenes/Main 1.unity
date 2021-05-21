@@ -21767,6 +21767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbfc6fe9d7adf14baf4580a3d606a53, type: 3}
+--- !u!1 &2119418911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1596484147668260484, guid: 0cbfc6fe9d7adf14baf4580a3d606a53, type: 3}
+  m_PrefabInstance: {fileID: 2119418910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2120612507
 GameObject:
   m_ObjectHideFlags: 0
@@ -22965,6 +22970,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 234097032}
     m_Modifications:
+    - target: {fileID: 1445439405233522350, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 2119418911}
     - target: {fileID: 1445439405591903624, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
       propertyPath: m_Name
       value: Boss zone
@@ -23021,6 +23030,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1445439406714499039, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 2119418911}
+    - target: {fileID: 1445439406991560427, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 2119418911}
+    - target: {fileID: 1445439407021961704, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 2119418911}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16a48603836984f41a89b9263cbd997d, type: 3}
 --- !u!4 &7726844506546096267 stripped
