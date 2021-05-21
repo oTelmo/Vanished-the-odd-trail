@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hatchet : MonoBehaviour
 {
-    public GameObject child;
+    public GameObject hitBox;
     private Animator anim;
 
     private void Start()
@@ -30,11 +30,11 @@ public class Hatchet : MonoBehaviour
 
     public void ActivateHitBox()
     {
-        child.SetActive(true);
+        hitBox.SetActive(true);
     }
 
     public void DisableHitBox()
     {
-        child.SetActive(false);
+        hitBox.SetActive(false);
     }
 }
