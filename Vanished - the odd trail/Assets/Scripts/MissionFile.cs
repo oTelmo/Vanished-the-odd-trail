@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissionFile : MonoBehaviour, IInteractable
 {
-
+    public WordManager wordManager;
     public HUD hud;
     public GameObject missionLog;
     private Animator anim;
@@ -52,6 +52,7 @@ public class MissionFile : MonoBehaviour, IInteractable
 
     public void OnInteraction()
     {
+        wordManager.SpawnFirstDeer();
         if (isActive)
         {
             if (isOpen)

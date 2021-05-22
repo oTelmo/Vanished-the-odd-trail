@@ -3155,7 +3155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504853195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2264.6, y: 62.4, z: 641.4}
+  m_LocalPosition: {x: -1973.4, y: 52.3, z: 648.68}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 942358127}
@@ -5234,7 +5234,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.05, z: 0.7}
+  m_Size: {x: 0.69, y: 0.05, z: 0.73}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &797091021
 GameObject:
@@ -7632,7 +7632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5388988505523094868, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2025.4
+      value: -2012.9
       objectReference: {fileID: 0}
     - target: {fileID: 5388988505523094868, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7640,7 +7640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5388988505523094868, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 600.7
+      value: 590.9
       objectReference: {fileID: 0}
     - target: {fileID: 5388988505523094868, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7673,6 +7673,10 @@ PrefabInstance:
     - target: {fileID: 5388988505523094875, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
       propertyPath: m_Name
       value: Deer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388988505523094875, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
@@ -13142,6 +13146,11 @@ Transform:
   m_Father: {fileID: 282745624}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1383325334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5388988505523094875, guid: 1d428fa57a0847f4794d6d170cd5c951, type: 3}
+  m_PrefabInstance: {fileID: 1165556170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1414600222
 GameObject:
   m_ObjectHideFlags: 0
@@ -18057,7 +18066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421990780}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2115.25, y: 52.16, z: 550.45}
+  m_LocalPosition: {x: -2132.011, y: 52.749, z: 521.671}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18596,6 +18605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441c48bacf597534c8b0d11f07c0d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordManager: {fileID: 4369415455966081716}
   hud: {fileID: 1784920046}
   missionLog: {fileID: 2130643167}
 --- !u!1 &1543898724
@@ -22025,7 +22035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134775271}
   m_LocalRotation: {x: 0.1510932, y: -0.6907756, z: 0.1510932, w: 0.6907756}
-  m_LocalPosition: {x: -2114.417, y: 49.728, z: 549.105}
+  m_LocalPosition: {x: -2131.178, y: 50.317, z: 520.326}
   m_LocalScale: {x: 0.13, y: 0.13000003, z: 0.13000001}
   m_Children:
   - {fileID: 1869837632}
@@ -22512,6 +22522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldLadyFirePit: {fileID: 723739673}
   treeCollider: {fileID: 2120612507}
+  firstDeer: {fileID: 1383325334}
 --- !u!114 &4369415455966081717
 MonoBehaviour:
   m_ObjectHideFlags: 0

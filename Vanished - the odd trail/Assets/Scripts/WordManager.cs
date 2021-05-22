@@ -6,6 +6,7 @@ public class WordManager : MonoBehaviour
 {
     public GameObject oldLadyFirePit;
     public GameObject treeCollider;
+    public GameObject firstDeer;
     private PlayerManager playerManager;
     
     // Start is called before the first frame update
@@ -18,6 +19,11 @@ public class WordManager : MonoBehaviour
     void Update()
     {
           
+    }
+
+    public void SpawnFirstDeer()
+    {
+        firstDeer.gameObject.SetActive(true);
     }
 
     public void StartTrees()
