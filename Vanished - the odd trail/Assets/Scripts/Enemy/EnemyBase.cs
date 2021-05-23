@@ -29,8 +29,10 @@ public class EnemyBase : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayAudio()
+    public void PlayAudio(AudioClip audioClip)
     {
+        print("PLAY AUDIO");
+        audioSource.clip = audioClip;
         audioSource.Play();
     }
 

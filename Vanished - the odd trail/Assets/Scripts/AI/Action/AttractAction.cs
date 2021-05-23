@@ -16,7 +16,7 @@ public class AttractAction : Action
 
     public override void Act(FiniteStateMachine fsm)
     {
-        fsm.GetEnemy().PlayAudio();
+        //fsm.GetEnemy().PlayAudio();
         (fsm.GetEnemy() as EnemyOwl).SpawnDeers(deerPrefab, minRange, maxRange);
     }
 

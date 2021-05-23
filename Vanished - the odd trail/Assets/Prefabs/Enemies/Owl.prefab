@@ -117,13 +117,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3603435131538044555}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 2.3, z: -0.15}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -3, y: 26, z: -3.4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 3923829169685577954}
-  m_Father: {fileID: 4800048207993879811}
-  m_RootOrder: 4
+  m_Father: {fileID: 7061131382933124904}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8084603972542210137
 MeshFilter:
@@ -199,13 +199,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3708150093758528808}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 2.3, z: 0.194}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.8800004, y: 26, z: -3.400001}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7258810024677383212}
-  m_Father: {fileID: 4800048207993879811}
-  m_RootOrder: 5
+  m_Father: {fileID: 7061131382933124904}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5739833108538058924
 MeshFilter:
@@ -465,13 +465,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4698372260095987035}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.421, y: 2.5533, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 31.065998, z: -3.8200006}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7007813002975730377}
-  m_Father: {fileID: 4800048207993879811}
-  m_RootOrder: 6
+  m_Father: {fileID: 7061131382933124904}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4828827812307293345
 MeshFilter:
@@ -554,13 +554,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3092808811964324660}
   - {fileID: 7061131382933124904}
+  - {fileID: 3092808811964324660}
   - {fileID: 5347016373040280908}
   - {fileID: 4759554585603612406}
-  - {fileID: 2265248306781698138}
-  - {fileID: 7007810003964294257}
-  - {fileID: 5531047743141385415}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -723,7 +720,11 @@ MonoBehaviour:
   targetLocation: {x: 0, y: 0, z: 0}
   targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
   enemyManager: {fileID: 0}
+<<<<<<< Updated upstream
   canSpawnDeers: 1
+=======
+  canSpawnDeers: 0
+>>>>>>> Stashed changes
   owlAttracRadius: 100
   deerSpawnMaxTimer: 3
 --- !u!1 &4852504966552888210
@@ -757,7 +758,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 1.62, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4800048207993879811}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
 --- !u!33 &2053644932890725278
 MeshFilter:
@@ -1034,9 +1035,12 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.23, y: 1, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
-  m_Children: []
+  m_Children:
+  - {fileID: 2265248306781698138}
+  - {fileID: 7007810003964294257}
+  - {fileID: 5531047743141385415}
   m_Father: {fileID: 4800048207993879811}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &6220023047048951949
 MeshFilter:

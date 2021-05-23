@@ -15,17 +15,20 @@ public class EnemyBoss : EnemyBase
     public float maxDistance = 25;
     public float numTrees = 5;
 
+    [Header("Timer")]
+    public float rangeAttackTimer = 10f;
+    private float timeRemaining;
 
     private bool spawnDeers = false;
     private bool inChase = false;
+    public bool scream = false;
     private bool canRangeAttack = false;
     private bool bossAttacking = false;
 
     private Animator animator;
 
-    [Header("Timer")]
-    public float rangeAttackTimer = 10f;
-    private float timeRemaining;
+    [Header("Sounds")]
+    public AudioClip bossScream;
 
     // Start is called before the first frame update
     void Start()
@@ -33,38 +36,35 @@ public class EnemyBoss : EnemyBase
         animator = GetComponent<Animator>();
         bossZone = GameObject.FindWithTag("BossZone");
         timeRemaining = rangeAttackTimer;
+        //BossGreeting();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bossAttacking)
+        /*if (bossAttacking)
         {
             BossAttack();
-        }
+        }*/
     }
 
-    private void Countdown()
+    public void BossGreeting()
     {
-        timeRemaining -= Time.deltaTime;
-        Debug.Log(timeRemaining);
-        if (timeRemaining < 0)
-        {
-            timeRemaining = 0;
-            canRangeAttack = true;
-        }
-    }
-
-    public void BossAttackStarter()
-    {
+        //PlayAudio(bossScream);
         inChase = false;
-        //Invoke BossActtack for animation
-        bossAttacking = true;
-    }
-    private void BossAttack()
-    {
-        animator.SetTrigger("AttackState");
         animator.SetBool("InChase", false);
+        animator.SetBool("IsScream", true);
+    }
+
+    private void StartScream()
+    {
+        scream = true;
+    }
+
+    public void EndScream()
+    {
+        scream = false;
+        animator.SetBool("IsScream", false);
     }
 
 
@@ -73,32 +73,19 @@ public class EnemyBoss : EnemyBase
         inChase = true;
         timeRemaining -= Time.deltaTime;
         animator.SetBool("InChase", true);
+        
         if (spawnTrees)
         {
             Countdown();
         }
     }
 
-    private void AttractDeers()
+    public void BossAttack()
     {
-        print("Spawn deers!");
-    }
-
-    public bool GetCanRangeAttack()
-    {
-        return canRangeAttack;
-    }
-
-    public void BossRangeAttack()
-    {
-        Debug.Log("Range attack");
+        inChase = false;
+        animator.SetBool("InChase", false);
+        animator.SetTrigger("AttackState");
         bossAttacking = true;
-        Vector3 point;
-        if (RandomPointInDonut(target.position, minDistace, maxDistance, out point, NavMesh.AllAreas))
-        {
-            canRangeAttack = false;
-        }
-        
     }
 
     public void SpawnTrees()
@@ -119,15 +106,40 @@ public class EnemyBoss : EnemyBase
             canRangeAttack = false;
         }
     }
+    private void Countdown()
+    {
+        timeRemaining -= Time.deltaTime;
+        Debug.Log(timeRemaining);
+        if (timeRemaining < 0)
+        {
+            timeRemaining = 0;
+            canRangeAttack = true;
+        }
+    }
 
     public void BossStoppedAttack()
     {
         bossAttacking = false;
     }
 
+    public bool GetCanRangeAttack()
+    {
+        return canRangeAttack;
+    }
+
     public bool GetBossAttacking()
     {
         return bossAttacking;
+    }
+
+    private void OnEnable()
+    {
+        BossInZone.OnBossEnter += StartScream;  
+    }
+
+    private void OnDisable()
+    {
+        BossInZone.OnBossEnter -= StartScream;
     }
 
 }

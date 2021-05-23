@@ -16,19 +16,6 @@ public class EnemyManager : MonoBehaviour
     [Header("Enemies Spawn Stats")]
     [SerializeField]
     private int numberOwls = 5;
-    /*[SerializeField]
-    private int numberDeers = 3;
-    [SerializeField]
-    private int numberTrees = 3;
-
-    private int currentOwls;
-    private int currentDeers;
-    private int currentTrees;*/
-
-
-    /*[Header("Enemies Areas")]
-    public GameObject DeerOwlZone;
-    public GameObject TreeZone;*/
 
     // Start is called before the first frame update
     void Start()

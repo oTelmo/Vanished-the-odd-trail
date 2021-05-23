@@ -6,9 +6,10 @@ public class FirePitInteraction : MonoBehaviour, IInteractable
 {
     
     private GameObject player;
-    public GameObject boss;
-    private PlayerManager playerManager;
-    private bool fireOn = false;
+    public WordManager wordManager;
+    public HUD hud;
+    private PlayerInventory playerInventory;
+    public bool fireOn = false;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -17,32 +18,49 @@ public class FirePitInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
-        playerManager = player.GetComponent<PlayerManager>();
+        playerInventory = player.GetComponent<PlayerInventory>();
+    }
+
+    private void Update()
+    {
+        if (fireOn)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void OnStartInteraction()
     {
         Debug.Log("Interaction with " + gameObject.name);
-    }
-    public void OnInteraction()
-    {
-        if(fireOn == false)
+        if (fireOn == false)
         {
-            Debug.Log("OnInteraction");
-            if (playerManager.hasBossItems)
+            if (playerInventory.objectsID.Count > 0)
             {
-                Debug.Log("Spawn boss");
-                boss.SetActive(true);
+                hud.OpenMessagePanel("Press F to deposite item");
             }
             else
             {
-                //erro message
+                hud.OpenMessagePanel("No item found");
             }
+        }
+    }
+
+    public void OnInteraction()
+    {
+        if(fireOn == false && playerInventory.objectsID.Count > 0)
+        {
+            Debug.Log("OnInteraction");
+            wordManager.StartBossFight();
         } 
     }
 
     public void OnEndInteraction()
     {
         Debug.Log("Stopped interaction with " + gameObject.name);
+        hud.CloseMessagePanel();
     }
 }

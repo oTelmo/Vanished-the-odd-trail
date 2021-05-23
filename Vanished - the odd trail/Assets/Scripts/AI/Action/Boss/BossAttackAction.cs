@@ -7,6 +7,6 @@ public class BossAttackAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        (fsm.GetEnemy() as EnemyBoss).BossAttackStarter();
+        (fsm.GetEnemy() as EnemyBoss).BossAttack();
     }
 }
