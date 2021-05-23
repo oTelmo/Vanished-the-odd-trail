@@ -7,8 +7,6 @@ public class ItemInteraction : MonoBehaviour, IInteractable
     public Item item;
     public int itemID;
 
-    
-
     private GameObject player;
     private PlayerInventory playerInventory;
     private HUD hud;

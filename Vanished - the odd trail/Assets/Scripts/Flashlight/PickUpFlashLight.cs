@@ -9,7 +9,7 @@ public class PickUpFlashLight : MonoBehaviour, IInteractable
     public bool pickedUp = false;
     private HUD hud;
     public GameObject flashlightInstructions;
-    private float openTime = 3f;
+    private float openTime = 1.5f;
 
     public float MaxRange { get { return maxRange; } }
     private const float maxRange = 100f;

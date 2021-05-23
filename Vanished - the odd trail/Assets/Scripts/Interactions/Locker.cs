@@ -52,7 +52,7 @@ public class Locker : MonoBehaviour, IInteractable
     {
         successPin.SetActive(true);
         codeTextValue = "";
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         successPin.SetActive(false);
         isLockerOpened = true;
     }

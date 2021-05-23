@@ -35,6 +35,7 @@ public class PlayerInventory : MonoBehaviour
         {
             playerMovement.playerLocked = true;
             inventoryManager.inventoryOpen = true;
+            playerMovement.LockPlayerMovement(true);
             Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
             {
@@ -48,6 +49,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 
                 inventoryUIObj.SetActive(false);
+                playerMovement.UnLockPlayerMovement();
                 playerMovement.playerLocked = false;
                 inventoryManager.inventoryOpen = false;
                 transform.GetChild(1).GetComponent<MouseLook>().UnLockPlayerCamera();
@@ -96,7 +98,7 @@ public class PlayerInventory : MonoBehaviour
     IEnumerator Tutorial()
     {
         inventoryTutorial.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         inventoryTutorial.SetActive(false);
     }
 }
