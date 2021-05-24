@@ -533,9 +533,10 @@ GameObject:
   - component: {fileID: 4800048207993879811}
   - component: {fileID: 4800048207993879810}
   - component: {fileID: 4800048207993879809}
-  - component: {fileID: -1600824461219947349}
+  - component: {fileID: 8283970550410394624}
   - component: {fileID: 4800048207993879808}
   - component: {fileID: -1238896871638243317}
+  - component: {fileID: -1600824461219947349}
   m_Layer: 0
   m_Name: Owl
   m_TagString: Enemy
@@ -591,6 +592,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &8283970550410394624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800048207993879815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db1ae2dcf0fe0b2448af8a413f28daae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4800048207993879808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800048207993879815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfce1dd3c17382448319016907f16a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyId: 1
+  initialState: {fileID: 11400000, guid: 9d2199e3e64f9294da08aa987b6c69fa, type: 2}
+  currentState: {fileID: 0}
+--- !u!114 &-1238896871638243317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800048207993879815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db6e0a1e36eb84d9a4767c52f94a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  health: 2
+  audioSource: {fileID: 0}
+  targetSpotted: 0
+  targetLocation: {x: 0, y: 0, z: 0}
+  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
+  enemyManager: {fileID: 0}
+  renderer: {fileID: 0}
+  canSpawnDeers: 1
+  owlAttracRadius: 100
+  deerSpawnMaxTimer: 4
+  owlScream: {fileID: 8300000, guid: e4d4811ebe0b1bd42a530553bf7c1483, type: 3}
 --- !u!82 &-1600824461219947349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -612,9 +671,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -647,7 +706,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -687,46 +746,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4800048207993879808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800048207993879815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dfce1dd3c17382448319016907f16a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyId: 1
-  initialState: {fileID: 11400000, guid: 9d2199e3e64f9294da08aa987b6c69fa, type: 2}
-  currentState: {fileID: 0}
---- !u!114 &-1238896871638243317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800048207993879815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0db6e0a1e36eb84d9a4767c52f94a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  health: 2
-  targetSpotted: 0
-  targetLocation: {x: 0, y: 0, z: 0}
-  targetPingLocation: {fileID: 11400000, guid: aa9aca73cfd8cd74c9be8fda4fc6f405, type: 2}
-  enemyManager: {fileID: 0}
-<<<<<<< Updated upstream
-  canSpawnDeers: 1
-=======
-  canSpawnDeers: 0
->>>>>>> Stashed changes
-  owlAttracRadius: 100
-  deerSpawnMaxTimer: 3
 --- !u!1 &4852504966552888210
 GameObject:
   m_ObjectHideFlags: 0

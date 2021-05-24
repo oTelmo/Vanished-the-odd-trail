@@ -14,6 +14,8 @@ public class EnemyDeer : EnemyBase
     private Animator animator;
     public bool attackAnimationRunning = false;
 
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,11 +62,13 @@ public class EnemyDeer : EnemyBase
     {
         target.position = target.position + new Vector3(0, 7, 0);
         target.rotation = Quaternion.Euler(0, target.rotation.y, 0);
+        target.GetComponent<PlayerManager>().PlayerTakeDamage(1);
         DeerDeath();
     }
 
     public void DeerDeath()
     {
+
         Destroy(this.gameObject);
     }
 

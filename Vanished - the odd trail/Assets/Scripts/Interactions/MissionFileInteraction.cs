@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class MissionFileInteraction : MonoBehaviour, IInteractable
 {
-<<<<<<< Updated upstream:Vanished - the odd trail/Assets/Scripts/MissionFile.cs
-    public WordManager wordManager;
-=======
     public delegate void FirstDeerEvent();
     public static event FirstDeerEvent OnOpenFile;
 
->>>>>>> Stashed changes:Vanished - the odd trail/Assets/Scripts/Interactions/MissionFileInteraction.cs
     public HUD hud;
     public GameObject missionLog;
     private Animator anim;
@@ -43,12 +39,7 @@ public class MissionFileInteraction : MonoBehaviour, IInteractable
 
     public void OnInteraction()
     {
-<<<<<<< Updated upstream:Vanished - the odd trail/Assets/Scripts/MissionFile.cs
-        wordManager.SpawnFirstDeer();
-        if (isActive)
-=======
         if (isOpen)
->>>>>>> Stashed changes:Vanished - the odd trail/Assets/Scripts/Interactions/MissionFileInteraction.cs
         {
             CloseFile();
         }

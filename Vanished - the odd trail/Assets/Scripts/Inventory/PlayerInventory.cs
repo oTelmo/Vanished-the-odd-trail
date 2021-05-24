@@ -32,7 +32,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerMovement.playerLocked = true;
+            playerMovement.LockPlayerMovement(true);
             inventoryManager.inventoryOpen = true;
             Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
@@ -42,23 +42,24 @@ public class PlayerInventory : MonoBehaviour
                 inventoryUI.InitializeInventoryUI(this, inventory);
                 //inventoryUI.ClearInventoryUI();
                 inventoryUI.UpdateInventoryUI();
+                GetComponent<PlayerManager>().isInventoryOpen = true;
             }
             else if (inventoryUIObj.activeSelf)
             {
 
                 inventoryUIObj.SetActive(false);
-                playerMovement.playerLocked = false;
+                playerMovement.UnLockPlayerMovement();
                 inventoryManager.inventoryOpen = false;
                 transform.GetChild(1).GetComponent<MouseLook>().UnLockPlayerCamera();
                 Cursor.lockState = CursorLockMode.Locked;
+                GetComponent<PlayerManager>().isInventoryOpen = false;
             }
             else
             {
-
                 inventoryUIObj.SetActive(true);
                 //inventoryUI.ClearInventoryUI();
                 inventoryUI.UpdateInventoryUI();
-
+                GetComponent<PlayerManager>().isInventoryOpen = true;
             }
         }
     }

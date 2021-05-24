@@ -15,9 +15,10 @@ public class PlayerManager : MonoBehaviour
     private GameObject gameManager;
     private CharacterController characterController;
     private Animator crossFadeAnimator;
+    public bool isInventoryOpen = false;
 
-    [Header("Items")]
-    public bool hasBossItems = true;
+    [Header("Fire")]
+    public GameObject currentFire;
 
     private Animator animator;
     [Header("Animations")]
@@ -28,6 +29,9 @@ public class PlayerManager : MonoBehaviour
     public Transform watchtower;
     public Transform oldLadyHouse;
     public Transform campSite;
+
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -114,7 +118,7 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateHealthScreen()
     {
-        print("Hit " + health + "/"+ halfHealth);
+        print("Hit " + health + "/"+ maxHealth);
         if(health <= halfHealth)
         {
             lowHeathScreen.SetActive(true);

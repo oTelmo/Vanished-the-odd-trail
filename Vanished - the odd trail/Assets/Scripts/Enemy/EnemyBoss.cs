@@ -14,18 +14,20 @@ public class EnemyBoss : EnemyBase
     public float minDistace = 10;
     public float maxDistance = 25;
     public float numTrees = 5;
+    public GameObject bossTrees;
 
     [Header("Timer")]
     public float rangeAttackTimer = 10f;
     private float timeRemaining;
 
-    private bool spawnDeers = false;
-    private bool inChase = false;
+    
     public bool scream = false;
     private bool canRangeAttack = false;
     private bool bossAttacking = false;
+    private PlayerManager playerManager;
 
     private Animator animator;
+    private int NumFires;
 
     [Header("Sounds")]
     public AudioClip bossScream;
@@ -36,7 +38,11 @@ public class EnemyBoss : EnemyBase
         animator = GetComponent<Animator>();
         bossZone = GameObject.FindWithTag("BossZone");
         timeRemaining = rangeAttackTimer;
+        playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         //BossGreeting();
+        NumFires = 0;
+
+
     }
 
     // Update is called once per frame
@@ -48,13 +54,24 @@ public class EnemyBoss : EnemyBase
         }*/
     }
 
+
     public void BossGreeting()
     {
         //PlayAudio(bossScream);
-        inChase = false;
         animator.SetBool("InChase", false);
         animator.SetBool("IsScream", true);
+
+        
     }
+
+    public void CallTrees()
+    {
+        foreach (Transform child in bossTrees.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+
 
     private void StartScream()
     {
@@ -70,7 +87,6 @@ public class EnemyBoss : EnemyBase
 
     public void BossChase()
     {
-        inChase = true;
         timeRemaining -= Time.deltaTime;
         animator.SetBool("InChase", true);
         
@@ -82,7 +98,6 @@ public class EnemyBoss : EnemyBase
 
     public void BossAttack()
     {
-        inChase = false;
         animator.SetBool("InChase", false);
         animator.SetTrigger("AttackState");
         bossAttacking = true;
@@ -122,6 +137,31 @@ public class EnemyBoss : EnemyBase
         bossAttacking = false;
     }
 
+    public void DecreaseBossHealth(bool playAudio)
+    {
+        
+        if (playerManager.currentFire != null)
+        {
+            playerManager.currentFire.GetComponent<FirePitInteraction>().fireOn = false;
+            
+        }
+        health -= 1;
+        if (playAudio)
+        {
+            PlayAudio(bossScream);
+        }
+        if(health <= 0)
+        {
+            BossDeath();
+        }
+        
+    }
+
+    private void BossDeath()
+    {
+        Destroy(this.gameObject);
+    }
+
     public bool GetCanRangeAttack()
     {
         return canRangeAttack;
@@ -141,5 +181,20 @@ public class EnemyBoss : EnemyBase
     {
         BossInZone.OnBossEnter -= StartScream;
     }
+
+    /*private void CheckFiresOn()
+    {
+        NumFires = 0;
+        foreach (Transform child in bossZone.transform) 
+        { 
+            Debug.Log(child.transform.GetChild(0).name);
+            if (child.transform.GetChild(0).gameObject.activeSelf)
+            {
+                NumFires += 1;
+                Debug.Log(NumFires);
+            }
+        }
+    }*/
+
 
 }

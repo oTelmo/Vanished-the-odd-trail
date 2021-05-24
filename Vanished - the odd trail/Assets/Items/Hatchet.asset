@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   icon: {fileID: 21300000, guid: 78db4fa0f58b26d46977d8a0454e2a90, type: 3}
-  prefab: {fileID: 2905950215796560482, guid: ca3b01205c695d144b18976daab5bb76, type: 3}
+  prefab: {fileID: 7670108164852307576, guid: 7e48fc568a620924497be7bcedd6c160, type: 3}
   maxPerInventorySlot: 0

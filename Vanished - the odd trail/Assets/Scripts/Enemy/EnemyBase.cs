@@ -10,7 +10,7 @@ public class EnemyBase : MonoBehaviour
 
     [Header ("Enemy Base")]
     public int health = 2;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
 
     [HideInInspector]
@@ -21,23 +21,27 @@ public class EnemyBase : MonoBehaviour
     public Vector3ValueSimple targetPingLocation;
     [HideInInspector]
     public EnemyManager enemyManager;
+    [HideInInspector]
+    public Renderer renderer;
 
     void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
         //enemyManager = GameObject.FindWithTag("GameManager").GetComponent<EnemyManager>();
         audioSource = GetComponent<AudioSource>();
+        renderer = transform.GetChild(0).GetComponent<Renderer>();
     }
 
     public void PlayAudio(AudioClip audioClip)
     {
-        print("PLAY AUDIO");
+        //print("PLAY AUDIO");
         audioSource.clip = audioClip;
         audioSource.Play();
     }
 
     public void StopAudio()
     {
+        //print("STOP AUDIO");
         audioSource.Stop();
     }
 
@@ -87,7 +91,12 @@ public class EnemyBase : MonoBehaviour
         {
             return 0;
         }
-        
     }
+
+    public float DistanceToTarget()
+    {
+        return Vector3.Distance(transform.position, target.position);
+    }
+
 
 }

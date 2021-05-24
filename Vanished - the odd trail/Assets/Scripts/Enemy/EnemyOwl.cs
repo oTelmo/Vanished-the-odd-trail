@@ -5,31 +5,34 @@ using UnityEngine.AI;
 
 public class EnemyOwl : EnemyBase
 {
+    [Header("Attack stats")]
     public bool canSpawnDeers = true;
     public float owlAttracRadius = 100;
     public float deerSpawnMaxTimer = 5;
+
     private float deerSpawnTimer;
     private Quaternion targetRotation = Quaternion.identity;
     private Transform gfxTransform;
     private float gizmosRadius = 0;
+    private Animator animator;
+
+    private bool isDead = false;
+
+    [Header("Sounds")]
+    public AudioClip owlScream;
+
     // Start is called before the first frame update
     void Start()
     {
-        deerSpawnTimer = deerSpawnMaxTimer;
+        animator = GetComponent<Animator>();
+        //deerSpawnTimer = deerSpawnMaxTimer;
         gfxTransform = transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //RotateOwl();
-    }
-
-    private void RotateOwl()
-    {
-        Vector3 targetDirection = (target.position - gfxTransform.position).normalized;
-        targetRotation = Quaternion.LookRotation(targetDirection);
-        gfxTransform.rotation = Quaternion.RotateTowards(gfxTransform.rotation, targetRotation, Time.deltaTime*20);
+        
     }
 
     public void SetGizmosRadius(float radius)
@@ -49,9 +52,10 @@ public class EnemyOwl : EnemyBase
 
     public void SpawnDeers(GameObject deerPrefab, float minRange, float maxRange)
     {
+        
         deerSpawnTimer -= Time.deltaTime;
         targetSpotted = true;
-        if (deerSpawnTimer < 0) // use Coroutines
+        if (deerSpawnTimer <= 0 && isDead == false) // use Coroutines
         {
             
             Debug.Log("Spawn!");
@@ -72,6 +76,7 @@ public class EnemyOwl : EnemyBase
     private void AlertDeers()
     {
         print("Alerting deers");
+        PlayAudio(owlScream);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, owlAttracRadius);
         foreach (var hitCollider in hitColliders)
         {
@@ -84,10 +89,7 @@ public class EnemyOwl : EnemyBase
         }
     }
 
-    public void OwlDeath()
-    {
-        Destroy(this.gameObject);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -97,5 +99,15 @@ public class EnemyOwl : EnemyBase
         }
     }
 
+    public void OwlDeath()
+    {
+        isDead = true;
+        animator.SetTrigger("Death");
+    }
+
+    public void DestroyOwlObject()
+    {
+        Destroy(this.gameObject);
+    }
 
 }

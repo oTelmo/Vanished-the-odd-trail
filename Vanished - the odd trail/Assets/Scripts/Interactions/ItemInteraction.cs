@@ -23,12 +23,6 @@ public class ItemInteraction : MonoBehaviour, IInteractable
         hud = GameObject.FindWithTag("HUD").GetComponent<HUD>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnStartInteraction()
     {
         Debug.Log("Interaction with " + gameObject.name);

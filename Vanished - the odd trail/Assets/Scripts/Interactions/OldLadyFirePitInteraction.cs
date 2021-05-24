@@ -22,7 +22,7 @@ public class OldLadyFirePitInteraction : MonoBehaviour, IInteractable
         {
             if(GameObject.FindWithTag("Bow") != null)
             {
-                GameObject.FindWithTag("Bow").GetComponent<Bow>().StartFire();
+                GameObject.FindWithTag("Bow").GetComponent<Bow>().StartFire(null);
             }
         }
     }

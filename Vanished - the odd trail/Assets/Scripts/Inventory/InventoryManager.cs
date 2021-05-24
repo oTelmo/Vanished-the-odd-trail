@@ -23,5 +23,10 @@ public class InventoryManager : MonoBehaviour
                 currentItem.gameObject.SetActive(true);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            arrowCount++;
+        }
     }
 }

@@ -12,8 +12,12 @@ public class StopAction : Action
     {
         if (fsm.GetAgent() != null)
         {
-            
             fsm.GetAgent().StopAgent(immediateStop);
+        }
+
+        if (immediateStop)
+        {
+            fsm.GetEnemy().StopAudio();
         }
     }
 }

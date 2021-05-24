@@ -10,8 +10,6 @@ public class EnemyManager : MonoBehaviour
     public GameObject deerPrefab;
 
     private GameObject[] trees;
-    //private Transform[] choosenTrees;
-    public Transform treeObject;
 
     [Header("Enemies Spawn Stats")]
     [SerializeField]

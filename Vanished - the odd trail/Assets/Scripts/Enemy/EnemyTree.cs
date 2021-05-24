@@ -5,27 +5,45 @@ using UnityEngine.AI;
 
 public class EnemyTree : EnemyBase
 {
-    [Header ("Attack")]
+    [Header ("Attack stats")]
     public float upDistance = 10;
     public float movementSpeed = 5;
     public float timeToDie = 1.5f;
-
-    private Vector3 upPosition;
 
     [Header ("Camera Shake")]
     public float shakeMagX = 0.2f;
     public float shakeMagY = 0.2f;
     public float shakeDuration = 3f;
 
+    private Vector3 upPosition;
     private bool treeAttacking = false;
     private bool rising = true;
     private Animator animator;
 
+    [Header("Sounds")]
+    public AudioClip treeMovement;
+
+    private bool canDie = false;
+    private float threshold = 0.01f;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (canDie)
+        {
+            TreeDeath();
+        }
+    }
+
+    public void PlayMoveSound()
+    {
+        if(!audioSource.isPlaying)
+            PlayAudio(treeMovement);
     }
 
     public void TreeAttackStarter()
@@ -65,6 +83,25 @@ public class EnemyTree : EnemyBase
     public bool GetRising()
     {
         return rising;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Arrow"))
+        {
+            if(other.GetComponent<Arrow>().onFire)
+                canDie = true;
+                //TreeDeath();
+        }
+    }
+
+    public void TreeDeath()
+    {
+        threshold += Time.deltaTime;
+        renderer.material.SetFloat("_DissolveThreshold", threshold);
+        Debug.Log(renderer.material.GetFloat("_DissolveThreshold"));
+        if (renderer.material.GetFloat("_DissolveThreshold") >= 1)
+            Destroy(this.gameObject);
     }
 
 

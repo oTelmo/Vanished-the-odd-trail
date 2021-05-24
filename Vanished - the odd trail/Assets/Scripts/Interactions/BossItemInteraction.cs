@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BossItemInteraction : MonoBehaviour, IInteractable
 {
+    public delegate void ItemPickUpEvent();
+    public static event ItemPickUpEvent OnItemPick;
+
     public int objectID;
     private GameObject hud;
     private PlayerInventory playerInventory;
-    private WordManager wordManager;
+    //private WordManager wordManager;
 
     //IInteractable related
     public float MaxRange { get { return maxRange; } }
@@ -18,7 +21,7 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     {
         hud = GameObject.FindWithTag("HUD");
         playerInventory = GameObject.FindWithTag("Player").GetComponent<PlayerInventory>();
-        wordManager = GameObject.FindWithTag("GameManager").GetComponent<WordManager>();
+        //wordManager = GameObject.FindWithTag("GameManager").GetComponent<WordManager>();
     }
 
     // Update is called once per frame
@@ -36,7 +39,8 @@ public class BossItemInteraction : MonoBehaviour, IInteractable
     public void OnInteraction()
     {
         playerInventory.InventoryAddObject(objectID);
-        wordManager.StartEndGame();
+        //wordManager.StartEndGame();
+        OnItemPick();
         gameObject.SetActive(false);
     }
 

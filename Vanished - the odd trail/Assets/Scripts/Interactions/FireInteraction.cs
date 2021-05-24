@@ -18,7 +18,7 @@ public class FireInteraction : MonoBehaviour, IInteractable
     {
         if (GameObject.FindWithTag("Bow") != null)
         {
-            GameObject.FindWithTag("Bow").GetComponent<Bow>().StartFire();
+            GameObject.FindWithTag("Bow").GetComponent<Bow>().StartFire(transform.parent.gameObject);
         }
     }
 

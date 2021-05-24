@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18715d2507e5a749bbd1c65e5771861, type: 3}
   m_Name: New Flashlight Scriptable
   m_EditorClassIdentifier: 
-  Id: 3
+  Id: 0
   icon: {fileID: 21300000, guid: cbba5e3ee053d6b4dbc2a94a68619097, type: 3}
   prefab: {fileID: 132238, guid: 6241ef40758dd404b91e848e07dda193, type: 3}
   maxPerInventorySlot: 0
