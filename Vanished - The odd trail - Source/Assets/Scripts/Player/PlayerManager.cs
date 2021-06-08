@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("Player stats")]
     private int health;
     public int maxHealth = 2;
     private int halfHealth;
-
-    public CameraShake cameraShake;
+   
+    [Header("Player camera")]
+    public GameObject mainCamera;
+    public GameObject animationCamera;
+    private CameraShake cameraShake;
     public GameObject lowHeathScreen;
+
     private SceneController sceneController;
     private PlayerMovement playerMovement;
     private GameObject gameManager;
@@ -22,6 +27,7 @@ public class PlayerManager : MonoBehaviour
 
     private Animator animator;
     [Header("Animations")]
+    public bool playWakingAnimation = true;
     public bool deerAttackRunning = false;
 
     [Header("Teleport Locations")]
@@ -30,12 +36,11 @@ public class PlayerManager : MonoBehaviour
     public Transform oldLadyHouse;
     public Transform campSite;
 
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         health = maxHealth;
         halfHealth = (health / maxHealth);
         animator = GetComponent<Animator>();
@@ -44,6 +49,8 @@ public class PlayerManager : MonoBehaviour
         sceneController = gameManager.GetComponent<SceneController>();
         crossFadeAnimator = gameManager.transform.GetChild(0).gameObject.GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        cameraShake = mainCamera.GetComponent<CameraShake>();
+        PlayerWakingUp();
     }
 
     // Update is called once per frame
@@ -52,6 +59,21 @@ public class PlayerManager : MonoBehaviour
         TeleportCheats();
     }
 
+    private void PlayerWakingUp()
+    {
+        if (playWakingAnimation)
+        {
+            playerMovement.LockPlayerMovement(true);
+            animator.SetTrigger("WakingUp");
+        }
+    }
+
+    private void OnWakeAnimationEnd()
+    {
+        //animator.SetTrigger("WakingUp");
+        playerMovement.UnLockPlayerMovement();
+        mainCamera.transform.rotation = animationCamera.transform.rotation;
+    }
 
    
     public void PlayerDeerAttack()
