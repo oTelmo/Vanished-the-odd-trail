@@ -21,6 +21,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private MouseLook mouseLook;
 
+    [Header("Player Audio")]
+    public AudioSource audioSource;
+    public AudioClip walkingSound;
+    public AudioClip runningSound;
+    public AudioClip crouchSound;
+
     private void Start()
     {
         mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
