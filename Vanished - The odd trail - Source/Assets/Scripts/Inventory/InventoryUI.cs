@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     public List<int> itemsID;
     public Transform[] items;
     private InventoryManager inventoryManager;
+    
 
     private void Start()
     {
@@ -52,17 +53,6 @@ public class InventoryUI : MonoBehaviour
             
         }
     }
-
-    /*private void UseItemClick(int slotID)
-    {
-        if ((slotID < inventory.inventory.Count) && (inventory.inventory[slotID].item))
-        {
-            inventory.inventory[slotID].item.UseItem(ownerCharacter);
-            //ClearInventoryUI();
-            UpdateInventoryUI();
-            Destroy(GameObject.FindWithTag("Inventory"));
-        }
-    }*/
 
     private void FindCurrentSlot(int slotID)
     {

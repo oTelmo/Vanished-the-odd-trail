@@ -1,5 +1,185 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6565078611608983383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96900523938748966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3605765149720020774}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3605765149720020774}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5304777007737292022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224742728718181129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2570759109437423113}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2570759109437423113}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4722744517741673548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031141586182395985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820234874581173585}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820234874581173585}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7282414350664989386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466279880234045494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1056493427399822646}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1056493427399822646}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4466279880256356735
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +376,51 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5913326108088681681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521449043126914788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4976554615870624740}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4976554615870624740}
+          m_TargetAssemblyTypeName: InventorySlotUI, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &828698857148412114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,6 +530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+--- !u!1 &3031141586182395985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418685951095777411, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+  m_PrefabInstance: {fileID: 828698857148412114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3031141586182395990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418685951095777412, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
@@ -315,7 +545,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1351894356770567555, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
   m_PrefabInstance: {fileID: 828698857148412114}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3031141586182395985}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f7b678f41939d41be79c8d29708434, type: 3}
@@ -424,12 +654,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418685951095777415, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4080712065878925844, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
       propertyPath: m_Name
       value: Hatchet
       objectReference: {fileID: 0}
+    - target: {fileID: 4080712065878925846, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+--- !u!1 &4466279880234045494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418685951095777411, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+  m_PrefabInstance: {fileID: 2047888705965373621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4466279880234045489 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418685951095777412, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
@@ -440,7 +683,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1351894356770567555, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
   m_PrefabInstance: {fileID: 2047888705965373621}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4466279880234045494}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f7b678f41939d41be79c8d29708434, type: 3}
@@ -555,6 +798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+--- !u!1 &96900523938748966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418685951095777411, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+  m_PrefabInstance: {fileID: 2362318932496462501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &96900523938748961 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418685951095777412, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
@@ -565,7 +813,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1351894356770567555, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
   m_PrefabInstance: {fileID: 2362318932496462501}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 96900523938748966}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f7b678f41939d41be79c8d29708434, type: 3}
@@ -678,8 +926,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 4080712065878925846, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+--- !u!1 &1224742728718181129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418685951095777411, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+  m_PrefabInstance: {fileID: 3562293476898360202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1224742728718181134 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418685951095777412, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
@@ -690,7 +947,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1351894356770567555, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
   m_PrefabInstance: {fileID: 3562293476898360202}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1224742728718181129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f7b678f41939d41be79c8d29708434, type: 3}
@@ -805,6 +1062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+--- !u!1 &8521449043126914788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418685951095777411, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
+  m_PrefabInstance: {fileID: 6328299437850797671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8521449043126914787 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418685951095777412, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
@@ -815,7 +1077,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1351894356770567555, guid: 73cc5a53c47930c4893ff9b95abe06ee, type: 3}
   m_PrefabInstance: {fileID: 6328299437850797671}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8521449043126914788}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f7b678f41939d41be79c8d29708434, type: 3}

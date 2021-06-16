@@ -20,6 +20,8 @@ public class PlayerInventory : MonoBehaviour
     private PlayerMovement playerMovement;
     private InventoryManager inventoryManager;
 
+    //public Animator anim;
+
     void Start()
     {
         inventory = new Inventory();
@@ -34,9 +36,12 @@ public class PlayerInventory : MonoBehaviour
         {
             playerMovement.LockPlayerMovement(true);
             inventoryManager.inventoryOpen = true;
+            
+
             Cursor.lockState = CursorLockMode.None;
             if (inventoryUIObj == null)
             {
+                //anim.SetBool("OpenInventoryWheel", true);
                 inventoryUIObj = Instantiate(inventoryUIPrefab, canvas.transform);
                 inventoryUI = inventoryUIObj.GetComponent<InventoryUI>();
                 inventoryUI.InitializeInventoryUI(this, inventory);
@@ -46,7 +51,7 @@ public class PlayerInventory : MonoBehaviour
             }
             else if (inventoryUIObj.activeSelf)
             {
-
+                //anim.SetBool("OpenInventoryWheel", false);
                 inventoryUIObj.SetActive(false);
                 playerMovement.UnLockPlayerMovement();
                 inventoryManager.inventoryOpen = false;
