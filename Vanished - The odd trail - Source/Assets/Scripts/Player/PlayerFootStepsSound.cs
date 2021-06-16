@@ -6,7 +6,7 @@ public class PlayerFootStepsSound : MonoBehaviour
 {
     void Start()
     {
-        
+        //
     }
 
     void Update()

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (!playerLocked)
