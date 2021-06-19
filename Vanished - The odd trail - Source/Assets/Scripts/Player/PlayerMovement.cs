@@ -21,11 +21,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private MouseLook mouseLook;
 
-    [Header("Player Audio")]
+    /*[Header("Player Audio")]
     public AudioSource audioSource;
     public AudioClip walkingSound;
     public AudioClip runningSound;
-    public AudioClip crouchSound;
+    public AudioClip crouchSound;*/
+
+
+    public GameObject walkingSound;
+    public GameObject runningSound;
 
     private void Start()
     {
@@ -58,10 +62,14 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Sprint"))
             {
                 currentSpeed = sprintSpeed;
+                runningSound.SetActive(true);
+                walkingSound.SetActive(false);
             }
             else if (Input.GetButtonUp("Sprint"))
             {
                 currentSpeed = normalSpeed;
+                runningSound.SetActive(false);
+                walkingSound.SetActive(true);
             }
 
             if(Input.GetKeyDown(KeyCode.LeftControl))

@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637594760211457181
+      ticks: 637595209447650303
     m_Hash: 2317656510
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -650,13 +650,15 @@ m_PackageAssets:
         - 1.1.22
         - 1.1.24
         - 1.1.26
+        - 1.1.27
         compatible:
         - 1.1.19
         - 1.1.20
         - 1.1.22
         - 1.1.24
         - 1.1.26
-        verified: 1.1.26
+        - 1.1.27
+        verified: 1.1.27
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.5

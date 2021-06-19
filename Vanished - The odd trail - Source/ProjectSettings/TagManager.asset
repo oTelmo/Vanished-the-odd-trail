@@ -22,6 +22,7 @@ TagManager:
   - Boss
   - BossItem
   - ArrowObj
+  - Terrain
   layers:
   - Default
   - TransparentFX
