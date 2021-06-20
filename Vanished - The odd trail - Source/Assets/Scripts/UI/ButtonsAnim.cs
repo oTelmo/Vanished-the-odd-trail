@@ -5,13 +5,10 @@ using UnityEngine;
 public class ButtonsAnim : MonoBehaviour
 {
     private Animator anim;
-
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
-
 
     public void HoverEnter()
     {

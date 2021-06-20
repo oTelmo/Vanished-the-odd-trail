@@ -7,6 +7,13 @@ public class CheckSoundType : MonoBehaviour
     public GameObject outsideSound;
     public GameObject insideSound;
 
+    private void Start()
+    {
+        if (outsideSound == null || insideSound == null)
+            return;
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

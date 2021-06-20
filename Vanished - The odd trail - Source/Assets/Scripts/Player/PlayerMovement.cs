@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Settings")]
     public CharacterController controller;
     private float currentSpeed = 4f;
     public float sprintSpeed = 8f;
@@ -11,28 +12,24 @@ public class PlayerMovement : MonoBehaviour
     public float crouchSpeed = 1f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     public bool playerLocked = false;
     private Vector3 velocity;
     private bool isGrounded;
+    private Animator anim;
+
+    [Header("Camera Settings")]
     private MouseLook mouseLook;
 
-    /*[Header("Player Audio")]
-    public AudioSource audioSource;
-    public AudioClip walkingSound;
-    public AudioClip runningSound;
-    public AudioClip crouchSound;*/
-
-
+    [Header("Type of Sounds")]
     public GameObject walkingSound;
     public GameObject runningSound;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         mouseLook = transform.GetChild(1).GetComponent<MouseLook>();
     }
 
@@ -101,5 +98,20 @@ public class PlayerMovement : MonoBehaviour
         playerLocked = false;
         mouseLook.UnLockPlayerCamera();
     }
+
+    /*public void CharacterAim(bool aiming)
+    {
+        anim.SetBool("aim", aiming);
+    }
+
+    public void CharacterPullString(bool pull)
+    {
+        anim.SetBool("pull", pull);
+    }
+
+    public void CharacterFireArrow()
+    {
+        anim.SetTrigger("fire");
+    }*/
 
 }

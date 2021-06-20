@@ -18,6 +18,7 @@ public class Bow : MonoBehaviour
     private Rigidbody rb;
     private InventoryManager inventoryManager;
     private PlayerManager playerManager;
+   //private PlayerMovement playerMovement;
 
     private bool isAiming;
 
@@ -27,6 +28,7 @@ public class Bow : MonoBehaviour
         cam = Camera.main;
         inventoryManager = GameObject.FindWithTag("GameManager").GetComponent<InventoryManager>();
         playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+        //playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class Bow : MonoBehaviour
         if (isAiming)
         {
             EnableArrow();
+            //playerMovement.CharacterAim(isAiming);
         }
 
         if (inventoryManager.arrowCount < 1)
@@ -69,6 +72,7 @@ public class Bow : MonoBehaviour
         }
         else
         {
+            //playerMovement.CharacterPullString(true);
             GameObject spawnArrow = Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.identity);
             spawnArrow.GetComponent<Arrow>().onFire = onFire;
             Rigidbody rb = spawnArrow.GetComponent<Rigidbody>();
